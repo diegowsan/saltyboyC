@@ -15,6 +15,7 @@ import eloBet from './bet_modes/elo.js'
 
 // Utility imports
 import { calculateRedVsBlueMatchData } from '../utils/match.js'
+import { calculateComparativeStats, } from '../utils/match.js' // <-- new stats
 
 const RUN_INTERVAL = 1000
 const SALTY_BOY_URL = 'https://www.salty-boy.com'
@@ -280,7 +281,8 @@ function getBalance() {
 function placeBets(matchData, saltyBetStatus) {
     verboseLog(`Calculating using betting algorithm ${BET_MODE}`)
     let betData = BET_MODES[BET_MODE](matchData)
-    matchDataStorage.setCurrentMatchData(betData, matchData)
+    let comparativeStats = calculateComparativeStats(matchData.fighter_red_info,matchData.fighter_blue_info) // New stats
+    matchDataStorage.setCurrentMatchData(betData, matchData, comparativeStats) // Added new stats to storage
     FETCH_FIGHTER_DATA = false
 
     if (
@@ -500,6 +502,7 @@ function updateOverlay(matchData, clearOverlay) {
         verboseLog('Match was out of date from server. Not updating overlay.')
         return
     }
+    let comparativeStats = calculateComparativeStats(matchData.fighter_red_info,matchData.fighter_blue_info)
 
     function updateForPlayer(
         fighterSubmitBtnId,
@@ -512,7 +515,7 @@ function updateOverlay(matchData, clearOverlay) {
             bettingSpan = document.createElement('span')
             bettingSpan.id = spanId
             bettingSpan.title =
-                'Data derived from SaltyBoy. ELO (Tier ELO) | Win Rate | Matches Recorded | Wins against the other fighter if any.'
+                'Data derived from SaltyBoy. ELO (Tier ELO) | Win Rate | Matches Recorded | Wins against the other fighter if any.| Comp: W/L vs. common opponents'
             bettingSpan.classList.add(classText)
             bettingSpan.style.fontSize = '0.9em'
             bettingSpan.style.marginTop = '12px'
@@ -542,13 +545,20 @@ function updateOverlay(matchData, clearOverlay) {
         } else {
             winsVs =
                 redVsBlueInfo.redMatchesVsBlue - redVsBlueInfo.redWinsVsBlue
+        let compareStatText = ''
+        if (comparativeStats) {
+            if (fighterSubmitBtnId == 'player1') {
+                compareStatText = ` | Comp: ${comparativeStats.redCompareWon}W/${comparativeStats.redCompareLost}L`
+            } else {
+                compareStatText = ` | Comp: ${comparativeStats.blueCompareWon}W/${comparativeStats.blueCompareLost}L`
+            }
         }
 
         bettingSpan.innerText = `ELO (T): ${fighterInfo.elo} (${
             fighterInfo.tier_elo
         }) | WR: ${Math.round(fighterInfo.stats.win_rate * 100)}% | Matches: ${
             fighterInfo.stats.total_matches
-        } | Wins VS: ${winsVs}`
+        } | Wins VS: ${winsVs}${compareStatText}` // <-- Added ${compareStatText}
     }
 
     updateForPlayer(
@@ -556,6 +566,8 @@ function updateOverlay(matchData, clearOverlay) {
         bettingSpanIdRed,
         'redtext',
         matchData.fighter_red_info
+        // Note: We don't need to pass comparativeStats here since we defined it
+        // within the outer updateOverlay function scope, which updateForPlayer can access.
     )
     updateForPlayer(
         'player2',
