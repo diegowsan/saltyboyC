@@ -39,6 +39,9 @@ let enableOverlay = document.getElementById('enable-overlay')
 let matchTable = document.getElementById('match-table')
 let headToHead = document.getElementById('head-to-head')
 let tieredElo = document.getElementById('tiered-elo')
+let comparativeStatsRow = document.getElementById('comparative-stats')
+let redComparativeStats = document.getElementById('red-comparative-stats')
+let blueComparativeStats = document.getElementById('blue-comparative-stats')
 let currentBetConfidence = document.getElementById('bet-confidence')
 let currentBetColour = document.getElementById('bet-colour')
 let redFighter = document.getElementById('red-fighter')
@@ -220,6 +223,14 @@ function updateCurrentMatchTable(currentData) {
         }
     } else {
         headToHead.classList.add('hidden')
+    }
+    let comparativeStats = currentData.comparativeStats
+    if (comparativeStats) {
+        redComparativeStats.innerText = `${comparativeStats.redCompareWon}W / ${comparativeStats.redCompareLost}L`
+        blueComparativeStats.innerText = `${comparativeStats.blueCompareWon}W / ${comparativeStats.blueCompareLost}L`
+        comparativeStatsRow.classList.remove('hidden')
+    } else {
+        comparativeStatsRow.classList.add('hidden')
     }
 }
 
