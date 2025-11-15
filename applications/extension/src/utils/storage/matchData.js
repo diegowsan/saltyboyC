@@ -8,9 +8,10 @@
  *  }
  *  ```
  * @param {object} matchData - Match Data
+ * @param {object | null} comparativeStats - The new comparative stats
  * @returns
  */
-function setCurrentMatchData(betData, matchData) {
+function setCurrentMatchData(betData, matchData, comparativeStats) {
     return new Promise((res) => {
         chrome.storage.local.set(
             {
@@ -38,6 +39,7 @@ function setCurrentMatchData(betData, matchData) {
                         elo: matchData.fighter_blue_info?.elo,
                         tierElo: matchData.fighter_blue_info?.tier_elo,
                     },
+                    comparativeStats: comparativeStats, // <-- added new stats
                 },
             },
             () => {
@@ -63,7 +65,7 @@ function getCurrentMatchData() {
  * Initializes current match data
  */
 function initializeCurrentMatchData() {
-    return setCurrentMatchData({}, {})
+    return setCurrentMatchData({}, {}, null) // <-- modified version
 }
 
 export { initializeCurrentMatchData, setCurrentMatchData, getCurrentMatchData }
