@@ -532,10 +532,15 @@ function updateOverlay(matchData, clearOverlay) {
             bettingSpan.innerText = 'Exhibition match'
             return
         }
-		if (fighterInfo == null) {
+        
+        // --- THIS IS THE FIX ---
+        // Add this check to prevent crashes on new fighters
+        if (fighterInfo == null) {
             bettingSpan.innerText = 'No data available'
             return
         }
+        // --- END OF FIX ---
+
         let redVsBlueInfo = calculateRedVsBlueMatchData(
             matchData.fighter_red_info?.matches,
             matchData.fighter_red_info?.id,
@@ -548,6 +553,9 @@ function updateOverlay(matchData, clearOverlay) {
         } else {
             winsVs =
                 redVsBlueInfo.redMatchesVsBlue - redVsBlueInfo.redWinsVsBlue
+        } // <--- THIS BRACE WAS MISSING
+
+        // This logic now correctly sits *outside* the else block
         let compareStatText = ''
         if (comparativeStats) {
             if (fighterSubmitBtnId == 'player1') {
@@ -561,7 +569,7 @@ function updateOverlay(matchData, clearOverlay) {
             fighterInfo.tier_elo
         }) | WR: ${Math.round(fighterInfo.stats.win_rate * 100)}% | Matches: ${
             fighterInfo.stats.total_matches
-        } | Wins VS: ${winsVs}${compareStatText}` // <-- Added ${compareStatText}
+        } | Wins VS: ${winsVs}${compareStatText}`
     }
 
     updateForPlayer(
