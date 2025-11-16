@@ -39,17 +39,29 @@ function getDebugSettings() {
 /**
  * Initializes the match status
  */
+/**
+ * Initializes the match status
+ */
 function initializeDebugSettings() {
     return getDebugSettings().then((debugSettings) => {
+        const defaultSettings = { debugEnabled: false }
+
         if (debugSettings == null || debugSettings == undefined) {
-            setDebugSettings(false)
-            return
+            // Set default and return the default object
+            return setDebugSettings(false).then(() => {
+                return defaultSettings
+            })
         }
 
         if (!debugSettings.hasOwnProperty('debugEnabled')) {
-            setDebugSettings(false)
-            return
+            // Set default and return the default object
+            return setDebugSettings(false).then(() => {
+                return defaultSettings
+            })
         }
+
+        // Settings are valid, just return them
+        return debugSettings
     })
 }
 
