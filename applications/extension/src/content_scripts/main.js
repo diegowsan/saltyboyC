@@ -532,7 +532,10 @@ function updateOverlay(matchData, clearOverlay) {
             bettingSpan.innerText = 'Exhibition match'
             return
         }
-
+		if (fighterInfo == null) {
+            bettingSpan.innerText = 'No data available'
+            return
+        }
         let redVsBlueInfo = calculateRedVsBlueMatchData(
             matchData.fighter_red_info?.matches,
             matchData.fighter_red_info?.id,
