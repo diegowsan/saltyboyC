@@ -884,3 +884,4 @@ matchDataStorage
 
         setInterval(run, RUN_INTERVAL)
     })
+}
