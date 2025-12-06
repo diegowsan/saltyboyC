@@ -9,9 +9,10 @@
  *  ```
  * @param {object} matchData - Match Data
  * @param {object | null} comparativeStats - The new comparative stats
+ * @param {object} predictability - { red: number|null, blue: number|null }
  * @returns
  */
-function setCurrentMatchData(betData, matchData, comparativeStats) {
+function setCurrentMatchData(betData, matchData, comparativeStats, predictability) {
     return new Promise((res) => {
         chrome.storage.local.set(
             {
@@ -29,6 +30,7 @@ function setCurrentMatchData(betData, matchData, comparativeStats) {
                         winRate: matchData.fighter_red_info?.stats?.win_rate,
                         elo: matchData.fighter_red_info?.elo,
                         tierElo: matchData.fighter_red_info?.tier_elo,
+                        predictability: predictability?.red
                     },
                     blue: {
                         name: matchData.fighter_blue,
@@ -38,6 +40,7 @@ function setCurrentMatchData(betData, matchData, comparativeStats) {
                         winRate: matchData.fighter_blue_info?.stats?.win_rate,
                         elo: matchData.fighter_blue_info?.elo,
                         tierElo: matchData.fighter_blue_info?.tier_elo,
+                        predictability: predictability?.blue
                     },
                     comparativeStats: comparativeStats, // <-- added new stats
                 },
@@ -65,7 +68,7 @@ function getCurrentMatchData() {
  * Initializes current match data
  */
 function initializeCurrentMatchData() {
-    return setCurrentMatchData({}, {}, null) // <-- modified version
+    return setCurrentMatchData({}, {}, null, null) // <-- modified version
 }
 
 export { initializeCurrentMatchData, setCurrentMatchData, getCurrentMatchData }

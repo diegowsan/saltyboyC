@@ -12,6 +12,15 @@ function calculateRedVsBlueMatchData(matches, fighterRedId, fighterBlueId) {
     let redBetVsBlue = 0
     let blueBetVsRed = 0
 
+    if (!matches) {
+        return {
+            redWinsVsBlue: 0,
+            redMatchesVsBlue: 0,
+            redBetVsBlue: 0,
+            blueBetVsRed: 0,
+        }
+    }
+
     for (const match of matches) {
         if (
             (match.fighter_red == fighterRedId &&
@@ -40,6 +49,7 @@ function calculateRedVsBlueMatchData(matches, fighterRedId, fighterBlueId) {
         blueBetVsRed: blueBetVsRed,
     }
 }
+
 /**
  * Calculates comparative stats based on common opponents.
  * - "Compare Won" (redCompareWon): Opponents Red WON against that Blue LOST against.
@@ -135,4 +145,63 @@ function calculateComparativeStats(fighterRedInfo, fighterBlueInfo) {
     return { redCompareWon, redCompareLost, blueCompareWon, blueCompareLost }
 }
 
-export { calculateRedVsBlueMatchData, calculateComparativeStats }
+/**
+ * Calculates the "Predictability Index" of a fighter.
+ * This measures how often the fighter's actual results align with the
+ * crowd's betting odds.
+ *
+ * Mathematical Basis: 1 - (Brier Score)
+ * Range: 0.0 (Total Chaos) to 1.0 (Perfectly Predictable)
+ *
+ * @param {object} fighterInfo - The fighter info object containing 'matches'.
+ * @returns {number | null} - The index between 0 and 1, or null if no data.
+ */
+function calculatePredictability(fighterInfo) {
+    if (
+        !fighterInfo ||
+        !fighterInfo.matches ||
+        fighterInfo.matches.length === 0
+    ) {
+        return null
+    }
+
+    let totalSquaredError = 0
+    let count = 0
+
+    for (const match of fighterInfo.matches) {
+        // Skip matches with no betting data
+        if (match.bet_red === 0 && match.bet_blue === 0) continue
+
+        // 1. Calculate what the Crowd thought the probability was.
+        let crowdProb = 0
+        const totalPot = match.bet_red + match.bet_blue
+
+        if (match.fighter_red === fighterInfo.id) {
+            crowdProb = match.bet_red / totalPot
+        } else {
+            crowdProb = match.bet_blue / totalPot
+        }
+
+        // 2. Determine the actual outcome (1 for Win, 0 for Loss).
+        const actualResult = match.winner === fighterInfo.id ? 1 : 0
+
+        // 3. Calculate Squared Error (Brier Score component).
+        // If Crowd said 90% (0.9) and they lost (0), error is (0.9 - 0)^2 = 0.81 (Huge penalty)
+        // If Crowd said 90% (0.9) and they won (1), error is (0.9 - 1)^2 = 0.01 (Tiny penalty)
+        totalSquaredError += Math.pow(crowdProb - actualResult, 2)
+        count++
+    }
+
+    if (count === 0) return null
+
+    const averageError = totalSquaredError / count
+
+    // Invert it so 1.0 is "Good/Predictable" and 0.0 is "Bad/Unpredictable"
+    return 1 - averageError
+}
+
+export {
+    calculateRedVsBlueMatchData,
+    calculateComparativeStats,
+    calculatePredictability,
+}

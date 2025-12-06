@@ -12,10 +12,14 @@ import passiveBet from './bet_modes/passive.js'
 import rngBet from './bet_modes/rng.js'
 import eloTierBet from './bet_modes/eloTier.js'
 import eloBet from './bet_modes/elo.js'
+import logisticBet from './bet_modes/logistic.js' // <-- FIXED: Added missing import
 
 // Utility imports
-import { calculateRedVsBlueMatchData } from '../utils/match.js'
-import { calculateComparativeStats, } from '../utils/match.js' // <-- new stats
+import {
+    calculateRedVsBlueMatchData,
+    calculateComparativeStats,
+    calculatePredictability, // <-- FIXED: Added missing import
+} from '../utils/match.js'
 
 const RUN_INTERVAL = 1000
 const SALTY_BOY_URL = 'https://www.salty-boy.com'
@@ -25,6 +29,7 @@ const BET_MODES = {
     rng: rngBet,
     elo: eloBet,
     eloTier: eloTierBet,
+    logistic: logisticBet, // <-- FIXED: Added missing mode
 }
 const APP_VERSION = chrome.runtime.getManifest().version
 
@@ -281,8 +286,24 @@ function getBalance() {
 function placeBets(matchData, saltyBetStatus) {
     verboseLog(`Calculating using betting algorithm ${BET_MODE}`)
     let betData = BET_MODES[BET_MODE](matchData)
-    let comparativeStats = calculateComparativeStats(matchData.fighter_red_info,matchData.fighter_blue_info) // New stats
-    matchDataStorage.setCurrentMatchData(betData, matchData, comparativeStats) // Added new stats to storage
+
+    let comparativeStats = calculateComparativeStats(
+        matchData.fighter_red_info,
+        matchData.fighter_blue_info
+    )
+
+    // Calculate predictability scores
+    let predictability = {
+        red: calculatePredictability(matchData.fighter_red_info),
+        blue: calculatePredictability(matchData.fighter_blue_info),
+    }
+
+    matchDataStorage.setCurrentMatchData(
+        betData,
+        matchData,
+        comparativeStats,
+        predictability
+    )
     FETCH_FIGHTER_DATA = false
 
     if (
@@ -502,7 +523,11 @@ function updateOverlay(matchData, clearOverlay) {
         verboseLog('Match was out of date from server. Not updating overlay.')
         return
     }
-    let comparativeStats = calculateComparativeStats(matchData.fighter_red_info,matchData.fighter_blue_info)
+
+    let comparativeStats = calculateComparativeStats(
+        matchData.fighter_red_info,
+        matchData.fighter_blue_info
+    )
 
     function updateForPlayer(
         fighterSubmitBtnId,
@@ -532,14 +557,12 @@ function updateOverlay(matchData, clearOverlay) {
             bettingSpan.innerText = 'Exhibition match'
             return
         }
-        
-        // --- THIS IS THE FIX ---
+
         // Add this check to prevent crashes on new fighters
         if (fighterInfo == null) {
             bettingSpan.innerText = 'No data available'
             return
         }
-        // --- END OF FIX ---
 
         let redVsBlueInfo = calculateRedVsBlueMatchData(
             matchData.fighter_red_info?.matches,
@@ -553,9 +576,8 @@ function updateOverlay(matchData, clearOverlay) {
         } else {
             winsVs =
                 redVsBlueInfo.redMatchesVsBlue - redVsBlueInfo.redWinsVsBlue
-        } // <--- THIS BRACE WAS MISSING
+        } // <--- FIXED: Added the missing closing brace here
 
-        // This logic now correctly sits *outside* the else block
         let compareStatText = ''
         if (comparativeStats) {
             if (fighterSubmitBtnId == 'player1') {
@@ -565,11 +587,18 @@ function updateOverlay(matchData, clearOverlay) {
             }
         }
 
+        let predScore = calculatePredictability(fighterInfo)
+        let predText = ''
+        if (predScore !== null) {
+            // Show as a percentage. 100% = Very stable. 50% = Chaos.
+            predText = ` | Stab: ${Math.round(predScore * 100)}%`
+        }
+
         bettingSpan.innerText = `ELO (T): ${fighterInfo.elo} (${
             fighterInfo.tier_elo
         }) | WR: ${Math.round(fighterInfo.stats.win_rate * 100)}% | Matches: ${
             fighterInfo.stats.total_matches
-        } | Wins VS: ${winsVs}${compareStatText}`
+        } | Wins VS: ${winsVs}${compareStatText}${predText}`
     }
 
     updateForPlayer(
@@ -577,8 +606,6 @@ function updateOverlay(matchData, clearOverlay) {
         bettingSpanIdRed,
         'redtext',
         matchData.fighter_red_info
-        // Note: We don't need to pass comparativeStats here since we defined it
-        // within the outer updateOverlay function scope, which updateForPlayer can access.
     )
     updateForPlayer(
         'player2',
@@ -796,7 +823,15 @@ function verboseLog(message) {
         return
     }
 
-    chrome.runtime.sendMessage({ message: message })
+    try {
+        chrome.runtime.sendMessage({ message: message }, (response) => {
+            if (chrome.runtime.lastError) {
+                // Fail silently. This just means the popup/background isn't listening.
+            }
+        })
+    } catch (e) {
+        // Fail silently if context is invalid
+    }
 }
 
 /**
@@ -895,4 +930,3 @@ matchDataStorage
 
         setInterval(run, RUN_INTERVAL)
     })
-}

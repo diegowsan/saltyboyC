@@ -42,6 +42,8 @@ let tieredElo = document.getElementById('tiered-elo')
 let comparativeStatsRow = document.getElementById('comparative-stats')
 let redComparativeStats = document.getElementById('red-comparative-stats')
 let blueComparativeStats = document.getElementById('blue-comparative-stats')
+let redPredictability = document.getElementById('red-predictability')
+let bluePredictability = document.getElementById('blue-predictability')
 let currentBetConfidence = document.getElementById('bet-confidence')
 let currentBetColour = document.getElementById('bet-colour')
 let redFighter = document.getElementById('red-fighter')
@@ -73,6 +75,10 @@ const BET_MODE_INFO = {
     elo: 'Bets using ELO of the fighters. Fighters start at 1500 ELO and use a K value of 32. Breaks ties using average bet. (<a href="https://github.com/FranciscoAT/saltyboy/blob/main/applications/extension/src/content_scripts/bet_modes/elo.js">Source</a>)',
     eloTier:
         'Bets using the Tiered ELO of the fighters. Whenever a Fighter changes tier they go to 1500 tiered ELO and use a K value of 32. Breaks ties using average bet. (<a href="https://github.com/FranciscoAT/saltyboy/blob/main/applications/extension/src/content_scripts/bet_modes/eloTier.js">Source</a>)',
+	weighted:
+        'A "smart" strategy that calculates a weighted average of Tier ELO, Head-to-Head (H2H), and Comparative Stats. H2H and Comp. stats are only factored in if they have 3 or more matches. (<a href="https.github.com/FranciscoAT/saltyboy/blob/main/applications/extension/src/content_scripts/bet_modes/weighted.js">Source</a>)',
+	logistic:
+        'Advanced: A logistic regression model that weights Tier ELO, H2H, and Comp. Stats to calculate a single win probability. (<a href="https://github.com/FranciscoAT/saltyboy/blob/main/applications/extension/src/content_scripts/bet_modes/logistic.js">Source</a>)',
 }
 
 function toggleSection(identifier) {
@@ -231,6 +237,17 @@ function updateCurrentMatchTable(currentData) {
         comparativeStatsRow.classList.remove('hidden')
     } else {
         comparativeStatsRow.classList.add('hidden')
+    }
+    if (currentData.red?.predictability != null) {
+    redPredictability.innerText = `${Math.round(currentData.red.predictability * 100)}%`
+    } else {
+    redPredictability.innerText = "-"
+    }
+
+    if (currentData.blue?.predictability != null) {
+    bluePredictability.innerText = `${Math.round(currentData.blue.predictability * 100)}%`
+    } else {
+    bluePredictability.innerText = "-"
     }
 }
 
