@@ -1,3 +1,6 @@
+# This is a Fork with customized bet strategies
+This is a fork with some customized betting strategies (still in development)
+
 # Salty Boy
 
 Simple betting tool and betting bot bot for usage in [Salty Bet](https://saltybet.com). 
