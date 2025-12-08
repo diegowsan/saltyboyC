@@ -1,12 +1,76 @@
 import logging
 import math
+import os
 from datetime import datetime, timezone
 
 import psycopg2
 import psycopg2.extras
+from sqlalchemy import create_engine, Column, Integer, String, DateTime, Boolean, BigInteger, Float
+from sqlalchemy.orm import sessionmaker, declarative_base
 
-from src.objects import Match, MatchFormat
+from src.objects import Match as BotMatchObject, MatchFormat
 
+# --- 1. SQLALCHEMY SETUP (For Backfill & Headless Strategy) ---
+
+Base = declarative_base()
+
+def get_db_url():
+    user = os.getenv("POSTGRES_USER", "postgres")
+    password = os.getenv("POSTGRES_PASSWORD", "password")
+    host = os.getenv("POSTGRES_HOST", "localhost")
+    port = os.getenv("POSTGRES_PORT", "5432")
+    db_name = os.getenv("POSTGRES_DB", "saltyboy")
+    return f"postgresql://{user}:{password}@{host}:{port}/{db_name}"
+
+# Create the SQLAlchemy Engine
+engine = create_engine(get_db_url())
+
+# Create the Session Factory
+SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+
+# Define the Match Model
+class Match(Base):
+    __tablename__ = "match"
+
+    id = Column(BigInteger, primary_key=True, index=True)
+    fighter_red = Column(Integer)  # ID of red fighter
+    fighter_blue = Column(Integer) # ID of blue fighter
+    winner = Column(Integer)       # ID of winner
+    match_format = Column(String)
+    tier = Column(String)
+    date = Column(DateTime)
+    streak_red = Column(Integer)
+    streak_blue = Column(Integer)
+    bet_red = Column(BigInteger, nullable=True)
+    bet_blue = Column(BigInteger, nullable=True)
+    colour = Column(String, nullable=True)
+    my_bet_on = Column(String, nullable=True)
+
+# Define the Fighter Model (NEW)
+class Fighter(Base):
+    __tablename__ = "fighter"
+
+    id = Column(Integer, primary_key=True)
+    name = Column(String)
+    tier = Column(String)
+    elo = Column(Integer)
+    tier_elo = Column(Integer)
+    best_streak = Column(Integer)
+    created_time = Column(DateTime)
+    last_updated = Column(DateTime)
+    prev_tier = Column(String)
+
+# NEW: Table to store the AI's learned weights
+class ModelWeight(Base):
+    __tablename__ = "model_weight"
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    timestamp = Column(DateTime, default=datetime.now(timezone.utc))
+    intercept = Column(Float)
+    tier_elo = Column(Float)
+    h2h = Column(Float)
+    comp = Column(Float)
+
+# --- 2. ORIGINAL DATABASE CLASS (For Main Bot Loop) ---
 
 class Database:
     ACCEPTED_MATCH_FORMATS = [MatchFormat.MATCHMAKING, MatchFormat.TOURNAMENT]
@@ -29,8 +93,20 @@ class Database:
             port=port,
             cursor_factory=psycopg2.extras.DictCursor,
         )
+        self.add_my_bet_column()
+    def add_my_bet_column(self):
+        """One-time migration to add the 'my_bet_on' column."""
+        cursor = self.connection.cursor()
+        try:
+            cursor.execute("ALTER TABLE match ADD COLUMN IF NOT EXISTS my_bet_on VARCHAR(10)")
+            self.connection.commit()
+        except Exception as e:
+            self.connection.rollback()
+            self.logger.warning(f"Migration check failed (safe to ignore if column exists): {e}")
+        finally:
+            cursor.close()
 
-    def record_match(self, match: Match) -> None:
+    def record_match(self, match: BotMatchObject, my_bet: str = None) -> None:
         if match.match_format not in self.ACCEPTED_MATCH_FORMATS:
             self.logger.info(
                 "Ignoring match since its match_format %s is not in %s",
@@ -83,6 +159,7 @@ class Database:
             "tier": match.tier,
             "match_format": match.match_format.value,
             "colour": match.colour,
+            "my_bet_on": my_bet,
         }
 
         cursor = self.connection.cursor()
@@ -100,7 +177,8 @@ class Database:
                     streak_blue,
                     tier,
                     match_format,
-                    colour
+                    colour,
+                    my_bet_on
                 )
             VALUES
                 (
@@ -114,7 +192,8 @@ class Database:
                     %(streak_blue)s,
                     %(tier)s,
                     %(match_format)s,
-                    %(colour)s
+                    %(colour)s,
+                    %(my_bet_on)s
                 )
             """,
             insert_obj,

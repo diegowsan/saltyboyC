@@ -44,6 +44,7 @@ let redComparativeStats = document.getElementById('red-comparative-stats')
 let blueComparativeStats = document.getElementById('blue-comparative-stats')
 let redPredictability = document.getElementById('red-predictability')
 let bluePredictability = document.getElementById('blue-predictability')
+let modelScoreSpan = document.getElementById('model-score')
 let currentBetConfidence = document.getElementById('bet-confidence')
 let currentBetColour = document.getElementById('bet-colour')
 let redFighter = document.getElementById('red-fighter')
@@ -75,9 +76,9 @@ const BET_MODE_INFO = {
     elo: 'Bets using ELO of the fighters. Fighters start at 1500 ELO and use a K value of 32. Breaks ties using average bet. (<a href="https://github.com/FranciscoAT/saltyboy/blob/main/applications/extension/src/content_scripts/bet_modes/elo.js">Source</a>)',
     eloTier:
         'Bets using the Tiered ELO of the fighters. Whenever a Fighter changes tier they go to 1500 tiered ELO and use a K value of 32. Breaks ties using average bet. (<a href="https://github.com/FranciscoAT/saltyboy/blob/main/applications/extension/src/content_scripts/bet_modes/eloTier.js">Source</a>)',
-	weighted:
+    weighted:
         'A "smart" strategy that calculates a weighted average of Tier ELO, Head-to-Head (H2H), and Comparative Stats. H2H and Comp. stats are only factored in if they have 3 or more matches. (<a href="https.github.com/FranciscoAT/saltyboy/blob/main/applications/extension/src/content_scripts/bet_modes/weighted.js">Source</a>)',
-	logistic:
+    logistic:
         'Advanced: A logistic regression model that weights Tier ELO, H2H, and Comp. Stats to calculate a single win probability. (<a href="https://github.com/FranciscoAT/saltyboy/blob/main/applications/extension/src/content_scripts/bet_modes/logistic.js">Source</a>)',
 }
 
@@ -239,15 +240,48 @@ function updateCurrentMatchTable(currentData) {
         comparativeStatsRow.classList.add('hidden')
     }
     if (currentData.red?.predictability != null) {
-    redPredictability.innerText = `${Math.round(currentData.red.predictability * 100)}%`
+        let val = Math.round(currentData.red.predictability * 100)
+        redPredictability.innerText = `${val}%`
+        // Color coding
+        redPredictability.className =
+            val >= 80 ? 'green' : val < 60 ? 'red' : ''
     } else {
-    redPredictability.innerText = "-"
+        redPredictability.innerText = '-'
+        redPredictability.className = ''
+    }
+    if (currentData.blue?.predictability != null) {
+        let val = Math.round(currentData.blue.predictability * 100)
+        bluePredictability.innerText = `${val}%`
+        // Color coding
+        bluePredictability.className =
+            val >= 80 ? 'green' : val < 60 ? 'red' : ''
+    } else {
+        bluePredictability.innerText = '-'
+        bluePredictability.className = ''
     }
 
-    if (currentData.blue?.predictability != null) {
-    bluePredictability.innerText = `${Math.round(currentData.blue.predictability * 100)}%`
+    // --- MODEL SCORE (NEW) ---
+    if (currentData.modelScore != undefined) {
+        let score = parseFloat(currentData.modelScore).toFixed(2)
+        modelScoreSpan.innerText = score
+
+        // Color Logic:
+        // Positive = Favors Red. Negative = Favors Blue.
+        // Magnitude > 2.0 is "Strong".
+        if (score > 2.0) {
+            modelScoreSpan.className = 'red' // Strong Red
+        } else if (score < -2.0) {
+            modelScoreSpan.className = 'blue' // Strong Blue
+        } else if (score > 0) {
+            modelScoreSpan.className = 'red' // Weak Red
+            modelScoreSpan.style.opacity = '0.7'
+        } else {
+            modelScoreSpan.className = 'blue' // Weak Blue
+            modelScoreSpan.style.opacity = '0.7'
+        }
     } else {
-    bluePredictability.innerText = "-"
+        modelScoreSpan.innerText = '-'
+        modelScoreSpan.className = ''
     }
 }
 

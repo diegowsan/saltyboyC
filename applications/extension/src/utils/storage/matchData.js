@@ -1,24 +1,32 @@
 /**
+ * Set the current match data.
  *
  * @param {object} betData - Bet Data, object of form:
- *  ```
- *  {
- *      "confidence": [0, 1],
- *      "inFavourOf": "blue" | "red"
- *  }
- *  ```
+ * ```
+ * {
+ * "confidence": [0, 1],
+ * "inFavourOf": "blue" | "red",
+ * "modelScore": number
+ * }
+ * ```
  * @param {object} matchData - Match Data
  * @param {object | null} comparativeStats - The new comparative stats
  * @param {object} predictability - { red: number|null, blue: number|null }
  * @returns
  */
-function setCurrentMatchData(betData, matchData, comparativeStats, predictability) {
+function setCurrentMatchData(
+    betData,
+    matchData,
+    comparativeStats,
+    predictability
+) {
     return new Promise((res) => {
         chrome.storage.local.set(
             {
                 currentData: {
                     confidence: betData.confidence,
                     inFavourOf: betData.colour,
+                    modelScore: betData.modelScore, // <-- Saving it here
                     matches: matchData.fighter_red_info?.matches,
                     mode: matchData.match_format,
                     tier: matchData.tier,
@@ -30,7 +38,7 @@ function setCurrentMatchData(betData, matchData, comparativeStats, predictabilit
                         winRate: matchData.fighter_red_info?.stats?.win_rate,
                         elo: matchData.fighter_red_info?.elo,
                         tierElo: matchData.fighter_red_info?.tier_elo,
-                        predictability: predictability?.red
+                        predictability: predictability?.red,
                     },
                     blue: {
                         name: matchData.fighter_blue,
@@ -40,9 +48,9 @@ function setCurrentMatchData(betData, matchData, comparativeStats, predictabilit
                         winRate: matchData.fighter_blue_info?.stats?.win_rate,
                         elo: matchData.fighter_blue_info?.elo,
                         tierElo: matchData.fighter_blue_info?.tier_elo,
-                        predictability: predictability?.blue
+                        predictability: predictability?.blue,
                     },
-                    comparativeStats: comparativeStats, // <-- added new stats
+                    comparativeStats: comparativeStats,
                 },
             },
             () => {
@@ -53,7 +61,6 @@ function setCurrentMatchData(betData, matchData, comparativeStats, predictabilit
 }
 
 /**
- *
  * @returns {object} - Of form, see `setCurrentMatchData`.
  */
 function getCurrentMatchData() {
@@ -68,7 +75,7 @@ function getCurrentMatchData() {
  * Initializes current match data
  */
 function initializeCurrentMatchData() {
-    return setCurrentMatchData({}, {}, null, null) // <-- modified version
+    return setCurrentMatchData({}, {}, null, null)
 }
 
 export { initializeCurrentMatchData, setCurrentMatchData, getCurrentMatchData }

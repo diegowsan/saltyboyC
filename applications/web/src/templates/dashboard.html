@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SaltyBoy Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* --- HIGH CONTRAST DARK MODE --- */
+        body { 
+            background-color: #000000; 
+            color: #ffffff; 
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; 
+        }
+
+        /* Card Styling */
+        .card { 
+            background-color: #1a1a1a; 
+            border: 1px solid #333; 
+            margin-bottom: 20px; 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5); 
+        }
+        .card-title { 
+            color: #b0b0b0; 
+            font-size: 0.9rem; 
+            font-weight: 700;
+            text-transform: uppercase; 
+            letter-spacing: 1px; 
+            margin-bottom: 15px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 10px;
+        }
+        .card-value { 
+            font-size: 2.5rem; 
+            font-weight: 800; 
+            color: #ffffff; 
+            text-shadow: 0 0 10px rgba(255,255,255,0.1);
+        }
+
+        /* --- Brain Weights Section --- */
+        .weight-box {
+            background-color: #222;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 10px;
+            margin: 0 5px;
+        }
+        .weight-label {
+            display: block;
+            color: #888; 
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+        .weight-number {
+            display: block;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #00d2ff; 
+            text-shadow: 0 0 5px rgba(0, 210, 255, 0.3);
+        }
+
+        /* Table Styling */
+        .table { 
+            --bs-table-bg: #1a1a1a;
+            --bs-table-color: #ffffff;
+            --bs-table-border-color: #333;
+        }
+        .table th {
+            color: #888;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            border-bottom: 2px solid #444;
+        }
+        .table td {
+            color: #e0e0e0;
+            vertical-align: middle;
+            border-bottom: 1px solid #2a2a2a;
+        }
+        
+        .table tbody tr:nth-of-type(odd) {
+            background-color: #1f1f1f;
+            --bs-table-accent-bg: #1f1f1f; 
+        }
+
+        /* Fighter Name Colors */
+        .red-text { 
+            color: #ff6b6b !important; 
+            font-weight: 700;
+        }
+        .blue-text { 
+            color: #4da6ff !important; 
+            font-weight: 700;
+        }
+
+        /* Bot Outcome Badges */
+        .bet-win {
+            color: #00ff88;
+            font-weight: bold;
+            background: rgba(0, 255, 136, 0.1);
+            padding: 4px 8px;
+            border-radius: 4px;
+            border: 1px solid #00ff88;
+        }
+        .bet-loss {
+            color: #ff4d4d;
+            font-weight: bold;
+            background: rgba(255, 77, 77, 0.1);
+            padding: 4px 8px;
+            border-radius: 4px;
+            border: 1px solid #ff4d4d;
+        }
+        .bet-neutral {
+            color: #888;
+            font-style: italic;
+        }
+
+        .badge-tier { 
+            background-color: #333; 
+            color: #fff; 
+            border: 1px solid #555;
+            padding: 5px 10px;
+            font-size: 0.8rem;
+        }
+
+        .header-row { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            margin-bottom: 30px; 
+            border-bottom: 1px solid #333; 
+            padding-bottom: 20px; 
+        }
+        h1 { font-weight: 800; letter-spacing: -1px; }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="header-row">
+            <h1>SaltyBoy <span style="color: #4da6ff;">AI</span> Dashboard</h1>
+            <div>
+                <span class="badge bg-success">Status: Online</span>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card p-3 text-center">
+                    <div class="card-title">Matches Recorded</div>
+                    <div class="card-value">{{ total_matches }}</div>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="card p-3 text-center">
+                    <div class="card-title">Bot Win Rate (Last 100)</div>
+                    <div class="card-value" style="color: {% if accuracy > 50 %}#00ff88{% else %}#ff4d4d{% endif %};">
+                        {{ accuracy }}%
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6">
+                <div class="card p-3">
+                    <div class="card-title text-center">Current Brain Weights</div>
+                    <div class="row text-center mt-2">
+                        <div class="col">
+                            <div class="weight-box">
+                                <span class="weight-label">Tier ELO</span>
+                                <span class="weight-number">{{ "%.4f"|format(weights.tier_elo) }}</span>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="weight-box">
+                                <span class="weight-label">H2H</span>
+                                <span class="weight-number">{{ "%.4f"|format(weights.h2h) }}</span>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="weight-box">
+                                <span class="weight-label">Comp</span>
+                                <span class="weight-number">{{ "%.4f"|format(weights.comp) }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h3 class="mt-4 mb-3" style="color: #fff; font-weight: 700; text-transform: uppercase; font-size: 1rem; letter-spacing: 1px;">Recent Performance</h3>
+        <div class="card" style="overflow: hidden;">
+            <table class="table mb-0">
+                <thead>
+                    <tr>
+                        <th style="width: 15%;">Date</th>
+                        <th style="width: 5%;">Tier</th>
+                        <th style="width: 25%;">Red Fighter</th>
+                        <th style="width: 25%;">Blue Fighter</th>
+                        <th style="width: 15%;">Bot Bet</th>
+                        <th style="width: 15%;">Result</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for m in matches %}
+                    <tr>
+                        <td style="color: #888;">{{ m.date.strftime('%H:%M') }}</td>
+                        
+                        <td><span class="badge badge-tier">{{ m.tier }}</span></td>
+                        
+                        <td class="red-text">
+                            {{ m.red_name }}
+                            {% if m.winner == m.fighter_red %} <span>👑</span> {% endif %}
+                        </td>
+                        
+                        <td class="blue-text">
+                            {{ m.blue_name }}
+                            {% if m.winner == m.fighter_blue %} <span>👑</span> {% endif %}
+                        </td>
+                        
+                        <td>
+                            {% if m.bot_bet == 'Red' %}
+                                <span class="red-text">RED</span>
+                            {% elif m.bot_bet == 'Blue' %}
+                                <span class="blue-text">BLUE</span>
+                            {% else %}
+                                <span style="color: #666;">-</span>
+                            {% endif %}
+                        </td>
+
+                        <td>
+                            {% if m.bot_bet %}
+                                {% if (m.bot_bet == 'Red' and m.winner == m.fighter_red) or (m.bot_bet == 'Blue' and m.winner == m.fighter_blue) %}
+                                    <span class="bet-win">WIN</span>
+                                {% else %}
+                                    <span class="bet-loss">LOSS</span>
+                                {% endif %}
+                            {% else %}
+                                <span class="bet-neutral">No Bet</span>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <script>
+        setTimeout(function(){
+           window.location.reload();
+        }, 30000); 
+    </script>
+</body>
+</html>

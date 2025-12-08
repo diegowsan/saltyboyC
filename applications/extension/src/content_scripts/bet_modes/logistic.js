@@ -1,55 +1,48 @@
 /**
- * Logistic Regression Betting Strategy (Risk-Adjusted)
+ * Logistic Regression Strategy (ELO Divergence)
  *
- * This advanced strategy uses a logistic regression model to calculate
- * a win probability, and then scales that probability based on the
- * fighter's "Predictability Index" (Stability).
+ * Since we cannot see the Pot Odds until it's too late, we use
+ * "ELO Probability" as a proxy for the Crowd's opinion.
  *
- * 1. Model Score (z): Calculated from Tier ELO, H2H, and Comp Stats.
- * 2. Raw Probability: Sigmoid(z).
- * 3. Risk Adjustment: The wager confidence is multiplied by the fighter's
- * predictability score.
+ * 1. Model Win Probability (Our Brain): Calculated from H2H, Comp, Stats.
+ * 2. ELO Win Probability (The Crowd): Calculated purely from Tier ELO diff.
+ * 3. Divergence (The Edge): The difference between Our Brain and The Crowd.
  *
- * Example:
- * - Model says 80% win chance (0.80).
- * - Fighter is chaotic (Predictability 0.50).
- * - Final Confidence = 0.80 * 0.50 = 0.40 (40%).
- * - Result: The bot skips the bet (below 65% threshold) or bets small.
+ * If we see a win (high Model Prob) that the Crowd misses (low ELO Prob),
+ * we bet bigger because the payout will likely be good.
  */
 
 import {
     calculateRedVsBlueMatchData,
     calculateComparativeStats,
-    calculatePredictability, // <-- Import the new stat
+    calculatePredictability,
 } from '../../utils/match.js'
+
+// REPLACE WITH YOUR TRAINED VALUES from train_model.py
+const COEFF_INTERCEPT = 0.0
+const COEFF_TIER_ELO = 0.0057
+const COEFF_H2H = 4.0
+const COEFF_COMP = 2.0
+
+const MIN_MATCHES = 3
 
 function logisticBet(matchData) {
     let betData = {
         colour: 'red',
-        confidence: null, // Default to null (which becomes a $1 bet)
+        confidence: null,
+        modelScore: 0,
     }
 
     let fighterRedInfo = matchData.fighter_red_info
     let fighterBlueInfo = matchData.fighter_blue_info
 
-    // Step 0: Data & Sanity Check
     if (fighterRedInfo == null || fighterBlueInfo == null) {
-        return betData // Bet $1 on Red if any fighter is new
+        return betData
     }
 
-    // --- Define Model Coefficients (Weights) ---
-    // Trained weights can be inserted here later.
-    const COEFF_INTERCEPT = 0.0
-    const COEFF_TIER_ELO = 0.0057
-    const COEFF_H2H = 4.0
-    const COEFF_COMP = 2.0
-
-    const MIN_MATCHES = 3
-
-    // --- Feature 1: Tier ELO ---
+    // --- 1. Logistic Model Calculation (Our "True" Probability) ---
     const tierEloDiff = fighterRedInfo.tier_elo - fighterBlueInfo.tier_elo
 
-    // --- Feature 2: Head-to-Head (H2H) ---
     let h2hFeature = 0.0
     const h2hData = calculateRedVsBlueMatchData(
         fighterRedInfo.matches,
@@ -61,7 +54,6 @@ function logisticBet(matchData) {
         h2hFeature = h2hWinRate - 0.5
     }
 
-    // --- Feature 3: Comparative (Comp) Stats ---
     let compFeature = 0.0
     const compStats = calculateComparativeStats(fighterRedInfo, fighterBlueInfo)
     if (compStats) {
@@ -73,43 +65,52 @@ function logisticBet(matchData) {
         }
     }
 
-    // --- Calculate Final Score (z) ---
     const z =
         COEFF_INTERCEPT +
         COEFF_TIER_ELO * tierEloDiff +
         COEFF_H2H * h2hFeature +
         COEFF_COMP * compFeature
 
-    // --- Raw Probability (Sigmoid) ---
-    const probRedWin = 1 / (1 + Math.exp(-z))
+    // The Model's calculated probability for Red
+    const modelProbRed = 1 / (1 + Math.exp(-z))
 
-    // --- Risk Adjustment (Predictability Multiplier) ---
-    // We determine who we are betting on, and then check their stability.
-    let target = 'red'
-    let rawConfidence = probRedWin
-    let fighterToBetOn = fighterRedInfo
+    // Determine our pick
+    let myPick = modelProbRed > 0.5 ? 'red' : 'blue'
+    let myModelProb = modelProbRed > 0.5 ? modelProbRed : 1 - modelProbRed
+    
+    betData.modelScore = z
+    betData.colour = myPick
 
-    if (probRedWin < 0.5) {
-        target = 'blue'
-        rawConfidence = 1 - probRedWin
-        fighterToBetOn = fighterBlueInfo
-    }
+    // --- 2. ELO Probability (The "Crowd" Proxy) ---
+    // This estimates what the crowd thinks based on ELO difference.
+    // Standard ELO formula: 1 / (1 + 10^(diff/400))
+    const eloProbRed = 1 / (1 + Math.pow(10, (fighterBlueInfo.tier_elo - fighterRedInfo.tier_elo) / 400))
+    const myEloProb = myPick === 'red' ? eloProbRed : 1 - eloProbRed
 
-    // Calculate Predictability (0.0 to 1.0)
-    let predictability = calculatePredictability(fighterToBetOn)
+    // --- 3. Calculate "Edge" (Divergence) ---
+    // If Model says 80% and ELO says 50%, Edge is +0.30 (Huge Value).
+    // If Model says 60% and ELO says 80%, Edge is -0.20 (Bad Value).
+    const edge = myModelProb - myEloProb
 
-    // Default to 1.0 (no penalty) if we have no data to judge stability
-    if (predictability === null) {
-        predictability = 1.0
-    }
+    // --- 4. Staking Strategy ---
+    // Start with our model's confidence
+    let finalConfidence = myModelProb
 
-    // Apply the multiplier
-    // A stable fighter (0.95) keeps 95% of the confidence.
-    // An unstable fighter (0.60) keeps only 60% of the confidence.
-    const riskAdjustedConfidence = rawConfidence * predictability
+    // Adjust based on Edge
+    // If we have a positive edge, boost the bet (up to 1.5x).
+    // If we have a negative edge, cut the bet (down to 0.5x).
+    const EDGE_MULTIPLIER = 1.5 // Tunable aggression factor
+    const edgeFactor = 1 + (edge * EDGE_MULTIPLIER)
+    
+    finalConfidence = finalConfidence * edgeFactor
 
-    betData.colour = target
-    betData.confidence = riskAdjustedConfidence
+    // --- 5. Stability Adjustment (Predictability) ---
+    // Always apply the "Chaos Penalty"
+    let predictability = calculatePredictability(myPick === 'red' ? fighterRedInfo : fighterBlueInfo) ?? 1.0
+    finalConfidence = finalConfidence * predictability
+
+    // Sanity Cap (0% to 100%)
+    betData.confidence = Math.min(Math.max(finalConfidence, 0), 1)
 
     return betData
 }

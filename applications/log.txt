@@ -1,0 +1,2548 @@
+$ poetry run python main.py
+2025-12-06 23:50:16,814 Process-1 - INFO - root [app_logging.py:38] - Log level
+set to: INFO
+2025-12-06 23:50:14,040 MainProcess - INFO - watchdog [run.py:243] - Running bot
+ watchdog
+2025-12-06 23:50:14,193 MainProcess - WARNING - watchdog [run.py:275] - Bot proc
+ess heartbeat is over two minutes old. Triggering restart.
+2025-12-06 23:50:14,193 MainProcess - INFO - watchdog [run.py:290] - Bot process
+ was last restarted less than 5 minutes ago. Refusing to restart.
+2025-12-06 23:50:16,740 BotProcess-2 - INFO - bot [run.py:104] - Bot started
+2025-12-06 23:50:19,964 BotProcess-2 - INFO - src.salty_client [salty_client.py:
+41] - Successfully logged into SaltyBet.
+2025-12-06 23:50:19,964 BotProcess-2 - INFO - bot [run.py:119] - Headless Bettin
+g: ENABLED (Logged in)
+2025-12-06 23:50:20,656 BotProcess-2 - INFO - bot [irc.py:185] - Authenticating
+as katzuya3
+2025-12-06 23:50:21,078 BotProcess-2 - INFO - bot [irc.py:190] - :tmi.twitch.tv
+001 katzuya3 :Welcome, GLHF!
+2025-12-06 23:50:21,078 BotProcess-2 - INFO - bot [irc.py:192] - Authenticated s
+uccessfully!
+2025-12-06 23:50:21,078 BotProcess-2 - INFO - bot [irc.py:64] - Joining channel
+saltybet...
+2025-12-06 23:50:21,302 BotProcess-2 - INFO - bot [irc.py:70] - :katzuya3!katzuy
+a3@katzuya3.tmi.twitch.tv JOIN #saltybet
+2025-12-06 23:50:21,302 BotProcess-2 - INFO - bot [irc.py:70] -
+2025-12-06 23:50:21,318 BotProcess-2 - INFO - bot [irc.py:70] - :katzuya3.tmi.tw
+itch.tv 353 katzuya3 = #saltybet :katzuya3
+2025-12-06 23:50:21,318 BotProcess-2 - INFO - bot [irc.py:70] - :katzuya3.tmi.tw
+itch.tv 366 katzuya3 #saltybet :End of /NAMES list
+2025-12-06 23:50:21,318 BotProcess-2 - INFO - bot [irc.py:72] - Joined successfu
+lly!
+2025-12-06 23:50:34,028 BotProcess-2 - INFO - bot [run.py:143] - New match. Roza
+ly VS. Iea. Tier: B. Format: matchmaking.
+2025-12-06 23:50:47,921 BotProcess-2 - INFO - bot [run.py:171] - Placing bet: $1
+ on red
+2025-12-06 23:50:48,275 BotProcess-2 - INFO - src.salty_client [salty_client.py:
+72] - BET PLACED: $1 on RED
+2025-12-06 23:51:18,040 BotProcess-2 - INFO - bot [run.py:199] - Bets locked. Ro
+zaly ($1,859,776). Iea ($2,242,330).
+2025-12-06 23:51:18,040 BotProcess-2 - INFO - bot [run.py:209] - Starting histor
+ical back-fill...
+2025-12-06 23:51:18,956 BotProcess-2 - ERROR - bot [run.py:230] - Error in main
+loop: (psycopg2.errors.NotNullViolation) null value in column "bet_red" of relat
+ion "match" violates not-null constraint
+DETAIL:  Failing row contains (149160, 2023-03-16 21:23:32.443057, 1889, 7425, 7
+425, null, null, B, matchmaking, null, 1, -2).
+
+[SQL: INSERT INTO match (id, fighter_red, fighter_blue, winner, match_format, ti
+er, date, streak_red, streak_blue, bet_red, bet_blue, colour) VALUES (%(id__0)s,
+ %(fighter_red__0)s, %(fighter_blue__0)s, %(winner__0)s, %(match_format__0)s, %(
+tier__0)s, %(dat ... 41601 characters truncated ... )s, %(streak_red__189)s, %(s
+treak_blue__189)s, %(bet_red__189)s, %(bet_blue__189)s, %(colour__189)s)]
+[parameters: {'tier__0': 'B', 'fighter_red__0': 1889, 'fighter_blue__0': 7425, '
+streak_red__0': 1, 'bet_blue__0': None, 'date__0': datetime.datetime(2023, 3, 16
+, 21, 23, 32, 443057, tzinfo=datetime.timezone.utc), 'colour__0': None, 'id__0':
+ 149160, 'bet_red__0': None, 'streak_blue__0': -2, 'winner__0': 7425, 'match_for
+mat__0': 'matchmaking', 'tier__1': 'B', 'fighter_red__1': 1889, 'fighter_blue__1
+': 1376, 'streak_red__1': -1, 'bet_blue__1': None, 'date__1': datetime.datetime(
+2023, 3, 29, 18, 57, 55, 708038, tzinfo=datetime.timezone.utc), 'colour__1': Non
+e, 'id__1': 150984, 'bet_red__1': None, 'streak_blue__1': -5, 'winner__1': 1376,
+ 'match_format__1': 'matchmaking', 'tier__2': 'B', 'fighter_red__2': 6287, 'figh
+ter_blue__2': 1889, 'streak_red__2': -3, 'bet_blue__2': None, 'date__2': datetim
+e.datetime(2023, 4, 6, 12, 0, 13, 40202, tzinfo=datetime.timezone.utc), 'colour_
+_2': None, 'id__2': 153520, 'bet_red__2': None, 'streak_blue__2': -2, 'winner__2
+': 1889, 'match_format__2': 'matchmaking', 'tier__3': 'B', 'fighter_red__3': 329
+0, 'fighter_blue__3': 1889, 'streak_red__3': -1, 'bet_blue__3': None, 'date__3':
+ datetime.datetime(2023, 4, 8, 22, 2, 1, 758438, tzinfo=datetime.timezone.utc),
+'colour__3': None, 'id__3': 154503, 'bet_red__3': None, 'streak_blue__3': 1, 'wi
+nner__3': 3290, 'match_format__3': 'matchmaking', 'tier__4': 'B', 'fighter_red__
+4': 3313 ... 2180 parameters truncated ... 'winner__185': 3119, 'match_format__1
+85': 'matchmaking', 'tier__186': 'B', 'fighter_red__186': 3119, 'fighter_blue__1
+86': 5165, 'streak_red__186': 1, 'bet_blue__186': None, 'date__186': datetime.da
+tetime(2022, 7, 10, 16, 40, 19, 231244, tzinfo=datetime.timezone.utc), 'colour__
+186': None, 'id__186': 73488, 'bet_red__186': None, 'streak_blue__186': -2, 'win
+ner__186': 3119, 'match_format__186': 'matchmaking', 'tier__187': 'B', 'fighter_
+red__187': 3119, 'fighter_blue__187': 6973, 'streak_red__187': 2, 'bet_blue__187
+': None, 'date__187': datetime.datetime(2022, 7, 28, 4, 5, 3, 65171, tzinfo=date
+time.timezone.utc), 'colour__187': None, 'id__187': 80497, 'bet_red__187': None,
+ 'streak_blue__187': 2, 'winner__187': 6973, 'match_format__187': 'matchmaking',
+ 'tier__188': 'B', 'fighter_red__188': 6562, 'fighter_blue__188': 3119, 'streak_
+red__188': -3, 'bet_blue__188': None, 'date__188': datetime.datetime(2022, 12, 2
+1, 19, 49, 4, 520611, tzinfo=datetime.timezone.utc), 'colour__188': None, 'id__1
+88': 123441, 'bet_red__188': None, 'streak_blue__188': 5, 'winner__188': 3119, '
+match_format__188': 'matchmaking', 'tier__189': 'B', 'fighter_red__189': 3119, '
+fighter_blue__189': 2256, 'streak_red__189': -1, 'bet_blue__189': None, 'date__1
+89': datetime.datetime(2023, 1, 22, 19, 31, 21, 417626, tzinfo=datetime.timezone
+.utc), 'colour__189': None, 'id__189': 130037, 'bet_red__189': None, 'streak_blu
+e__189': -3, 'winner__189': 3119, 'match_format__189': 'matchmaking'}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-12-06 23:51:54,068 BotProcess-2 - INFO - bot [run.py:226] - Winner: Iea.
+Process Process-1:
+Traceback (most recent call last):
+  File "C:\github\saltyboyC\applications\bot\main.py", line 50, in <module>
+    run(log_path)
+  File "C:\github\saltyboyC\applications\bot\src\run.py", line 295, in run
+Traceback (most recent call last):
+    time.sleep(60)
+KeyboardInterrupt
+  File "C:\Users\diego\AppData\Local\Programs\Python\Python312\Lib\multiprocessi
+ng\process.py", line 314, in _bootstrap
+    self.run()
+  File "C:\Users\diego\AppData\Local\Programs\Python\Python312\Lib\multiprocessi
+ng\process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\github\saltyboyC\applications\bot\src\app_logging.py", line 45, in ru
+n_listener
+    sleep(1)
+KeyboardInterrupt
+^C
+diego@DESKTOP-ATMQK14 MINGW64 /c/github/saltyboyC/applications/bot (main)
+$ ^C
+
+diego@DESKTOP-ATMQK14 MINGW64 /c/github/saltyboyC/applications/bot (main)
+$ poetry run python main.py
+2025-12-07 00:04:55,200 Process-1 - INFO - root [app_logging.py:38] - Log level
+set to: INFO
+2025-12-07 00:04:51,537 MainProcess - INFO - watchdog [run.py:255] - Running bot
+ watchdog
+2025-12-07 00:04:51,653 MainProcess - WARNING - watchdog [run.py:287] - Bot proc
+ess heartbeat is over two minutes old. Triggering restart.
+2025-12-07 00:04:51,653 MainProcess - INFO - watchdog [run.py:302] - Bot process
+ was last restarted less than 5 minutes ago. Refusing to restart.
+2025-12-07 00:04:55,157 BotProcess-2 - INFO - bot [run.py:116] - Bot started
+2025-12-07 00:04:58,037 BotProcess-2 - INFO - src.salty_client [salty_client.py:
+41] - Successfully logged into SaltyBet.
+2025-12-07 00:04:58,038 BotProcess-2 - INFO - bot [run.py:131] - Headless Bettin
+g: ENABLED (Logged in)
+2025-12-07 00:04:58,741 BotProcess-2 - INFO - bot [irc.py:185] - Authenticating
+as katzuya3
+2025-12-07 00:04:59,168 BotProcess-2 - INFO - bot [irc.py:190] - :tmi.twitch.tv
+001 katzuya3 :Welcome, GLHF!
+2025-12-07 00:04:59,168 BotProcess-2 - INFO - bot [irc.py:192] - Authenticated s
+uccessfully!
+2025-12-07 00:04:59,169 BotProcess-2 - INFO - bot [irc.py:64] - Joining channel
+saltybet...
+2025-12-07 00:04:59,375 BotProcess-2 - INFO - bot [irc.py:70] - :katzuya3!katzuy
+a3@katzuya3.tmi.twitch.tv JOIN #saltybet
+2025-12-07 00:04:59,375 BotProcess-2 - INFO - bot [irc.py:70] - :katzuya3.tmi.tw
+itch.tv 353 katzuya3 = #saltybet :katzuya3
+2025-12-07 00:04:59,376 BotProcess-2 - INFO - bot [irc.py:70] - :katzuya3.tmi.tw
+itch.tv 366 katzuya3 #saltybet :End of /NAMES list
+2025-12-07 00:04:59,376 BotProcess-2 - INFO - bot [irc.py:72] - Joined successfu
+lly!
+2025-12-07 00:07:50,810 BotProcess-2 - INFO - bot [run.py:155] - New match. Wave
+ ryu VS. Shadow devil. Tier: X. Format: matchmaking.
+2025-12-07 00:07:52,667 BotProcess-2 - INFO - bot [run.py:183] - Placing bet: $1
+ on red
+2025-12-07 00:07:53,010 BotProcess-2 - INFO - src.salty_client [salty_client.py:
+72] - BET PLACED: $1 on RED
+2025-12-07 00:08:44,855 BotProcess-2 - INFO - bot [run.py:211] - Bets locked. Wa
+ve ryu ($2,764,251). Shadow devil ($1,539,659).
+2025-12-07 00:08:44,855 BotProcess-2 - INFO - bot [run.py:221] - Starting histor
+ical back-fill...
+2025-12-07 00:08:45,290 BotProcess-2 - ERROR - bot [run.py:242] - Error in main
+loop: (psycopg2.errors.ForeignKeyViolation) insert or update on table "match" vi
+olates foreign key constraint "match_fighter_red_fkey"
+DETAIL:  Key (fighter_red)=(8030) is not present in table "fighter".
+
+[SQL: INSERT INTO match (id, fighter_red, fighter_blue, winner, match_format, ti
+er, date, streak_red, streak_blue, bet_red, bet_blue, colour) VALUES (%(id__0)s,
+ %(fighter_red__0)s, %(fighter_blue__0)s, %(winner__0)s, %(match_format__0)s, %(
+tier__0)s, %(dat ... 13861 characters truncated ... e__65)s, %(streak_red__65)s,
+ %(streak_blue__65)s, %(bet_red__65)s, %(bet_blue__65)s, %(colour__65)s)]
+[parameters: {'winner__0': 8030, 'match_format__0': 'tournament', 'colour__0': '
+Red', 'fighter_red__0': 8030, 'fighter_blue__0': 3256, 'bet_blue__0': 555862, 'i
+d__0': 15764, 'streak_blue__0': -1, 'date__0': datetime.datetime(2022, 1, 29, 5,
+ 48, 41, 757801, tzinfo=datetime.timezone.utc), 'bet_red__0': 837083, 'streak_re
+d__0': 1, 'tier__0': 'X', 'winner__1': 3433, 'match_format__1': 'tournament', 'c
+olour__1': 'Blue', 'fighter_red__1': 8030, 'fighter_blue__1': 3433, 'bet_blue__1
+': 1546263, 'id__1': 15770, 'streak_blue__1': 2, 'date__1': datetime.datetime(20
+22, 1, 29, 6, 5, 22, 350440, tzinfo=datetime.timezone.utc), 'bet_red__1': 657491
+, 'streak_red__1': 2, 'tier__1': 'X', 'winner__2': 8089, 'match_format__2': 'mat
+chmaking', 'colour__2': 'Blue', 'fighter_red__2': 8030, 'fighter_blue__2': 8089,
+ 'bet_blue__2': 1557661, 'id__2': 17902, 'streak_blue__2': -3, 'date__2': dateti
+me.datetime(2022, 2, 3, 11, 54, 10, 673784, tzinfo=datetime.timezone.utc), 'bet_
+red__2': 8587618, 'streak_red__2': -1, 'tier__2': 'X', 'winner__3': 8383, 'match
+_format__3': 'matchmaking', 'colour__3': 'Red', 'fighter_red__3': 8383, 'fighter
+_blue__3': 8030, 'bet_blue__3': 4167703, 'id__3': 65230, 'streak_blue__3': -2, '
+date__3': datetime.datetime(2022, 6, 20, 10, 25, 5, 75896, tzinfo=datetime.timez
+one.utc), 'bet_red__3': 13169882, 'streak_red__3': 7, 'tier__3': 'X', 'winner__4
+': 8030, 'match_format__4': 'matchmaking' ... 692 parameters truncated ... 'stre
+ak_red__61': -1, 'tier__61': 'X', 'winner__62': 8532, 'match_format__62': 'match
+making', 'colour__62': 'Red', 'fighter_red__62': 8532, 'fighter_blue__62': 4546,
+ 'bet_blue__62': 839882, 'id__62': 433822, 'streak_blue__62': -10, 'date__62': d
+atetime.datetime(2025, 3, 21, 5, 23, 16, 215815, tzinfo=datetime.timezone.utc),
+'bet_red__62': 4463609, 'streak_red__62': -2, 'tier__62': 'X', 'winner__63': 853
+2, 'match_format__63': 'tournament', 'colour__63': 'Blue', 'fighter_red__63': 87
+69, 'fighter_blue__63': 8532, 'bet_blue__63': 374230, 'id__63': 437265, 'streak_
+blue__63': 1, 'date__63': datetime.datetime(2025, 3, 29, 4, 37, 9, 968904, tzinf
+o=datetime.timezone.utc), 'bet_red__63': 70299, 'streak_red__63': -6, 'tier__63'
+: 'X', 'winner__64': 7658, 'match_format__64': 'tournament', 'colour__64': 'Red'
+, 'fighter_red__64': 7658, 'fighter_blue__64': 8532, 'bet_blue__64': 320746, 'id
+__64': 437269, 'streak_blue__64': 2, 'date__64': datetime.datetime(2025, 3, 29,
+4, 50, 40, 575203, tzinfo=datetime.timezone.utc), 'bet_red__64': 368335, 'streak
+_red__64': 2, 'tier__64': 'X', 'winner__65': 8355, 'match_format__65': 'matchmak
+ing', 'colour__65': 'Blue', 'fighter_red__65': 8532, 'fighter_blue__65': 8355, '
+bet_blue__65': 13551894, 'id__65': 437857, 'streak_blue__65': 14, 'date__65': da
+tetime.datetime(2025, 3, 30, 13, 14, 6, 272107, tzinfo=datetime.timezone.utc), '
+bet_red__65': 1339482, 'streak_red__65': -1, 'tier__65': 'X'}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-12-07 00:09:46,249 BotProcess-2 - INFO - bot [irc.py:89] - Received a PING,
+ sending PONG.
+2025-12-07 00:09:51,672 MainProcess - INFO - watchdog [run.py:322] - Services ar
+e healthy. Last bot heartbeat: 2025-12-07T03:08:45.295589+00:00
+2025-12-07 00:10:11,016 BotProcess-2 - INFO - bot [run.py:238] - Winner: Wave ry
+u.
+2025-12-07 00:10:21,196 BotProcess-2 - INFO - bot [run.py:155] - New match. Adel
+heid xiii VS. Elsa guitly gear. Tier: A. Format: matchmaking.
+2025-12-07 00:10:37,980 BotProcess-2 - INFO - bot [run.py:183] - Placing bet: $1
+ on red
+2025-12-07 00:10:38,329 BotProcess-2 - INFO - src.salty_client [salty_client.py:
+72] - BET PLACED: $1 on RED
+2025-12-07 00:11:10,957 BotProcess-2 - INFO - bot [run.py:211] - Bets locked. Ad
+elheid xiii ($2,275,649). Elsa guitly gear ($3,038,715).
+2025-12-07 00:11:10,957 BotProcess-2 - INFO - bot [run.py:221] - Starting histor
+ical back-fill...
+2025-12-07 00:11:12,459 BotProcess-2 - ERROR - bot [run.py:242] - Error in main
+loop: (psycopg2.errors.ForeignKeyViolation) insert or update on table "match" vi
+olates foreign key constraint "match_fighter_red_fkey"
+DETAIL:  Key (fighter_red)=(4439) is not present in table "fighter".
+
+[SQL: INSERT INTO match (id, fighter_red, fighter_blue, winner, match_format, ti
+er, date, streak_red, streak_blue, bet_red, bet_blue, colour) VALUES (%(id__0)s,
+ %(fighter_red__0)s, %(fighter_blue__0)s, %(winner__0)s, %(match_format__0)s, %(
+tier__0)s, %(dat ... 65890 characters truncated ... )s, %(streak_red__296)s, %(s
+treak_blue__296)s, %(bet_red__296)s, %(bet_blue__296)s, %(colour__296)s)]
+[parameters: {'winner__0': 4439, 'match_format__0': 'matchmaking', 'colour__0':
+'Red', 'fighter_red__0': 4439, 'fighter_blue__0': 4344, 'bet_blue__0': 1670395,
+'id__0': 453919, 'streak_blue__0': 2, 'date__0': datetime.datetime(2025, 5, 6, 5
+, 26, 6, 443913, tzinfo=datetime.timezone.utc), 'bet_red__0': 3704178, 'streak_r
+ed__0': -1, 'tier__0': 'A', 'winner__1': 5214, 'match_format__1': 'matchmaking',
+ 'colour__1': 'Blue', 'fighter_red__1': 4344, 'fighter_blue__1': 5214, 'bet_blue
+__1': 4124660, 'id__1': 459489, 'streak_blue__1': 1, 'date__1': datetime.datetim
+e(2025, 5, 19, 20, 5, 31, 257306, tzinfo=datetime.timezone.utc), 'bet_red__1': 1
+130559, 'streak_red__1': -1, 'tier__1': 'A', 'winner__2': 106, 'match_format__2'
+: 'matchmaking', 'colour__2': 'Red', 'fighter_red__2': 106, 'fighter_blue__2': 4
+344, 'bet_blue__2': 1489786, 'id__2': 462758, 'streak_blue__2': -2, 'date__2': d
+atetime.datetime(2025, 5, 28, 2, 24, 16, 735503, tzinfo=datetime.timezone.utc),
+'bet_red__2': 3080306, 'streak_red__2': 4, 'tier__2': 'A', 'winner__3': 4344, 'm
+atch_format__3': 'matchmaking', 'colour__3': 'Blue', 'fighter_red__3': 727, 'fig
+hter_blue__3': 4344, 'bet_blue__3': 2053698, 'id__3': 479428, 'streak_blue__3':
+-3, 'date__3': datetime.datetime(2025, 7, 10, 6, 9, 26, 393255, tzinfo=datetime.
+timezone.utc), 'bet_red__3': 2163736, 'streak_red__3': 1, 'tier__3': 'A', 'winne
+r__4': 4362, 'match_format__4': 'matchmaking' ... 3464 parameters truncated ...
+'streak_red__292': -1, 'tier__292': 'A', 'winner__293': 2420, 'match_format__293
+': 'matchmaking', 'colour__293': 'Blue', 'fighter_red__293': 2609, 'fighter_blue
+__293': 2420, 'bet_blue__293': 4367200, 'id__293': 428089, 'streak_blue__293': 1
+, 'date__293': datetime.datetime(2025, 3, 7, 20, 51, 25, 591121, tzinfo=datetime
+.timezone.utc), 'bet_red__293': 4273946, 'streak_red__293': 5, 'tier__293': 'A',
+ 'winner__294': 4952, 'match_format__294': 'matchmaking', 'colour__294': 'Blue',
+ 'fighter_red__294': 2420, 'fighter_blue__294': 4952, 'bet_blue__294': 1815224,
+'id__294': 429598, 'streak_blue__294': -8, 'date__294': datetime.datetime(2025,
+3, 11, 10, 39, 4, 968586, tzinfo=datetime.timezone.utc), 'bet_red__294': 3445625
+, 'streak_red__294': 2, 'tier__294': 'A', 'winner__295': 2420, 'match_format__29
+5': 'matchmaking', 'colour__295': 'Blue', 'fighter_red__295': 311, 'fighter_blue
+__295': 2420, 'bet_blue__295': 24575639, 'id__295': 436386, 'streak_blue__295':
+-1, 'date__295': datetime.datetime(2025, 3, 27, 6, 38, 14, 710761, tzinfo=dateti
+me.timezone.utc), 'bet_red__295': 1995240, 'streak_red__295': 1, 'tier__295': 'A
+', 'winner__296': 2420, 'match_format__296': 'matchmaking', 'colour__296': 'Red'
+, 'fighter_red__296': 2420, 'fighter_blue__296': 3595, 'bet_blue__296': 1471448,
+ 'id__296': 436646, 'streak_blue__296': -1, 'date__296': datetime.datetime(2025,
+ 3, 27, 19, 40, 44, 867739, tzinfo=datetime.timezone.utc), 'bet_red__296': 33511
+41, 'streak_red__296': 1, 'tier__296': 'A'}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-12-07 00:12:47,741 BotProcess-2 - INFO - bot [run.py:238] - Winner: Elsa gu
+itly gear.
+2025-12-07 00:12:52,829 BotProcess-2 - INFO - bot [run.py:155] - New match. Ger
+VS. Trunks mvc. Tier: B. Format: matchmaking.
+2025-12-07 00:12:54,913 BotProcess-2 - INFO - bot [run.py:183] - Placing bet: $1
+ on red
+2025-12-07 00:12:55,355 BotProcess-2 - INFO - src.salty_client [salty_client.py:
+72] - BET PLACED: $1 on RED
+2025-12-07 00:13:45,462 BotProcess-2 - INFO - bot [run.py:211] - Bets locked. Ge
+r ($4,898,849). Trunks mvc ($2,131,079).
+2025-12-07 00:13:45,462 BotProcess-2 - INFO - bot [run.py:221] - Starting histor
+ical back-fill...
+2025-12-07 00:13:46,451 BotProcess-2 - ERROR - bot [run.py:242] - Error in main
+loop: (psycopg2.errors.ForeignKeyViolation) insert or update on table "match" vi
+olates foreign key constraint "match_fighter_red_fkey"
+DETAIL:  Key (fighter_red)=(4733) is not present in table "fighter".
+
+[SQL: INSERT INTO match (id, fighter_red, fighter_blue, winner, match_format, ti
+er, date, streak_red, streak_blue, bet_red, bet_blue, colour) VALUES (%(id__0)s,
+ %(fighter_red__0)s, %(fighter_blue__0)s, %(winner__0)s, %(match_format__0)s, %(
+tier__0)s, %(dat ... 40693 characters truncated ... )s, %(streak_red__185)s, %(s
+treak_blue__185)s, %(bet_red__185)s, %(bet_blue__185)s, %(colour__185)s)]
+[parameters: {'winner__0': 4733, 'match_format__0': 'matchmaking', 'colour__0':
+'Red', 'fighter_red__0': 4733, 'fighter_blue__0': 5771, 'bet_blue__0': 3719328,
+'id__0': 437536, 'streak_blue__0': 1, 'date__0': datetime.datetime(2025, 3, 29,
+19, 56, 31, 530453, tzinfo=datetime.timezone.utc), 'bet_red__0': 1732513, 'strea
+k_red__0': -2, 'tier__0': 'B', 'winner__1': 4733, 'match_format__1': 'matchmakin
+g', 'colour__1': 'Red', 'fighter_red__1': 4733, 'fighter_blue__1': 7823, 'bet_bl
+ue__1': 3440770, 'id__1': 441779, 'streak_blue__1': -1, 'date__1': datetime.date
+time(2025, 4, 8, 22, 12, 32, 941657, tzinfo=datetime.timezone.utc), 'bet_red__1'
+: 1690566, 'streak_red__1': 1, 'tier__1': 'B', 'winner__2': 4733, 'match_format_
+_2': 'matchmaking', 'colour__2': 'Blue', 'fighter_red__2': 1079, 'fighter_blue__
+2': 4733, 'bet_blue__2': 1432218, 'id__2': 445638, 'streak_blue__2': 2, 'date__2
+': datetime.datetime(2025, 4, 17, 12, 15, 20, 210582, tzinfo=datetime.timezone.u
+tc), 'bet_red__2': 2069907, 'streak_red__2': 2, 'tier__2': 'B', 'winner__3': 473
+3, 'match_format__3': 'matchmaking', 'colour__3': 'Blue', 'fighter_red__3': 6128
+, 'fighter_blue__3': 4733, 'bet_blue__3': 2580849, 'id__3': 446960, 'streak_blue
+__3': 3, 'date__3': datetime.datetime(2025, 4, 20, 11, 44, 57, 510449, tzinfo=da
+tetime.timezone.utc), 'bet_red__3': 2074083, 'streak_red__3': -1, 'tier__3': 'B'
+, 'winner__4': 4733, 'match_format__4': 'matchmaking' ... 2132 parameters trunca
+ted ... 'streak_red__181': -2, 'tier__181': 'B', 'winner__182': 8520, 'match_for
+mat__182': 'matchmaking', 'colour__182': 'Blue', 'fighter_red__182': 6267, 'figh
+ter_blue__182': 8520, 'bet_blue__182': 6017558, 'id__182': 411238, 'streak_blue_
+_182': -1, 'date__182': datetime.datetime(2025, 1, 26, 13, 46, 41, 246714, tzinf
+o=datetime.timezone.utc), 'bet_red__182': 1848217, 'streak_red__182': -4, 'tier_
+_182': 'B', 'winner__183': 409, 'match_format__183': 'matchmaking', 'colour__183
+': 'Blue', 'fighter_red__183': 6267, 'fighter_blue__183': 409, 'bet_blue__183':
+4707599, 'id__183': 412232, 'streak_blue__183': 10, 'date__183': datetime.dateti
+me(2025, 1, 28, 22, 23, 17, 982676, tzinfo=datetime.timezone.utc), 'bet_red__183
+': 1349223, 'streak_red__183': -5, 'tier__183': 'B', 'winner__184': 6267, 'match
+_format__184': 'matchmaking', 'colour__184': 'Blue', 'fighter_red__184': 6704, '
+fighter_blue__184': 6267, 'bet_blue__184': 1524632, 'id__184': 419776, 'streak_b
+lue__184': -6, 'date__184': datetime.datetime(2025, 2, 15, 16, 7, 58, 774985, tz
+info=datetime.timezone.utc), 'bet_red__184': 3228875, 'streak_red__184': -9, 'ti
+er__184': 'B', 'winner__185': 5046, 'match_format__185': 'tournament', 'colour__
+185': 'Red', 'fighter_red__185': 5046, 'fighter_blue__185': 6267, 'bet_blue__185
+': 58503, 'id__185': 420158, 'streak_blue__185': 1, 'date__185': datetime.dateti
+me(2025, 2, 16, 14, 26, 57, 203040, tzinfo=datetime.timezone.utc), 'bet_red__185
+': 360926, 'streak_red__185': 6, 'tier__185': 'B'}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-12-07 00:14:44,856 BotProcess-2 - INFO - bot [irc.py:89] - Received a PING,
+ sending PONG.
+2025-12-07 00:14:51,697 MainProcess - INFO - watchdog [run.py:322] - Services ar
+e healthy. Last bot heartbeat: 2025-12-07T03:13:46.457129+00:00
+2025-12-07 00:16:07,187 BotProcess-2 - INFO - bot [run.py:238] - Winner: Trunks
+mvc.
+2025-12-07 00:16:17,179 BotProcess-2 - INFO - bot [run.py:155] - New match. Yuka
+rin ex VS. Dream bison. Tier: A. Format: matchmaking.
+2025-12-07 00:16:24,193 BotProcess-2 - INFO - bot [run.py:183] - Placing bet: $1
+ on red
+2025-12-07 00:16:24,401 BotProcess-2 - INFO - src.salty_client [salty_client.py:
+72] - BET PLACED: $1 on RED
+2025-12-07 00:17:07,232 BotProcess-2 - INFO - bot [run.py:211] - Bets locked. Yu
+karin ex ($1,269,812). Dream bison ($3,112,597).
+2025-12-07 00:17:07,234 BotProcess-2 - INFO - bot [run.py:221] - Starting histor
+ical back-fill...
+2025-12-07 00:17:08,886 BotProcess-2 - ERROR - bot [run.py:242] - Error in main
+loop: (psycopg2.errors.ForeignKeyViolation) insert or update on table "match" vi
+olates foreign key constraint "match_fighter_red_fkey"
+DETAIL:  Key (fighter_red)=(3969) is not present in table "fighter".
+
+[SQL: INSERT INTO match (id, fighter_red, fighter_blue, winner, match_format, ti
+er, date, streak_red, streak_blue, bet_red, bet_blue, colour) VALUES (%(id__0)s,
+ %(fighter_red__0)s, %(fighter_blue__0)s, %(winner__0)s, %(match_format__0)s, %(
+tier__0)s, %(dat ... 77921 characters truncated ... )s, %(streak_red__349)s, %(s
+treak_blue__349)s, %(bet_red__349)s, %(bet_blue__349)s, %(colour__349)s)]
+[parameters: {'winner__0': 5622, 'match_format__0': 'tournament', 'colour__0': '
+Blue', 'fighter_red__0': 3969, 'fighter_blue__0': 5622, 'bet_blue__0': 100023, '
+id__0': 497408, 'streak_blue__0': -5, 'date__0': datetime.datetime(2025, 8, 24,
+17, 43, 48, 906278, tzinfo=datetime.timezone.utc), 'bet_red__0': 220092, 'streak
+_red__0': 2, 'tier__0': 'A', 'winner__1': 4513, 'match_format__1': 'tournament',
+ 'colour__1': 'Blue', 'fighter_red__1': 5622, 'fighter_blue__1': 4513, 'bet_blue
+__1': 352285, 'id__1': 497414, 'streak_blue__1': 2, 'date__1': datetime.datetime
+(2025, 8, 24, 18, 5, 30, 346705, tzinfo=datetime.timezone.utc), 'bet_red__1': 91
+869, 'streak_red__1': 1, 'tier__1': 'A', 'winner__2': 6012, 'match_format__2': '
+matchmaking', 'colour__2': 'Red', 'fighter_red__2': 6012, 'fighter_blue__2': 562
+2, 'bet_blue__2': 1772376, 'id__2': 500873, 'streak_blue__2': -1, 'date__2': dat
+etime.datetime(2025, 9, 2, 4, 27, 35, 87788, tzinfo=datetime.timezone.utc), 'bet
+_red__2': 2600476, 'streak_red__2': -3, 'tier__2': 'A', 'winner__3': 5622, 'matc
+h_format__3': 'matchmaking', 'colour__3': 'Blue', 'fighter_red__3': 7330, 'fight
+er_blue__3': 5622, 'bet_blue__3': 2277830, 'id__3': 502593, 'streak_blue__3': -2
+, 'date__3': datetime.datetime(2025, 9, 6, 7, 32, 10, 776781, tzinfo=datetime.ti
+mezone.utc), 'bet_red__3': 1174228, 'streak_red__3': -2, 'tier__3': 'A', 'winner
+__4': 2826, 'match_format__4': 'matchmaking' ... 4100 parameters truncated ... '
+streak_red__345': 2, 'tier__345': 'A', 'winner__346': 6671, 'match_format__346':
+ 'matchmaking', 'colour__346': 'Blue', 'fighter_red__346': 1404, 'fighter_blue__
+346': 6671, 'bet_blue__346': 3973445, 'id__346': 494468, 'streak_blue__346': -1,
+ 'date__346': datetime.datetime(2025, 8, 17, 14, 9, 2, 815502, tzinfo=datetime.t
+imezone.utc), 'bet_red__346': 1158665, 'streak_red__346': 3, 'tier__346': 'A', '
+winner__347': 6671, 'match_format__347': 'matchmaking', 'colour__347': 'Blue', '
+fighter_red__347': 5840, 'fighter_blue__347': 6671, 'bet_blue__347': 1643840, 'i
+d__347': 494507, 'streak_blue__347': 1, 'date__347': datetime.datetime(2025, 8,
+17, 16, 5, 44, 175530, tzinfo=datetime.timezone.utc), 'bet_red__347': 4340167, '
+streak_red__347': 2, 'tier__347': 'A', 'winner__348': 6671, 'match_format__348':
+ 'matchmaking', 'colour__348': 'Red', 'fighter_red__348': 6671, 'fighter_blue__3
+48': 7129, 'bet_blue__348': 1663255, 'id__348': 495317, 'streak_blue__348': -3,
+'date__348': datetime.datetime(2025, 8, 19, 14, 56, 0, 961811, tzinfo=datetime.t
+imezone.utc), 'bet_red__348': 2866344, 'streak_red__348': 2, 'tier__348': 'A', '
+winner__349': 3196, 'match_format__349': 'matchmaking', 'colour__349': 'Blue', '
+fighter_red__349': 6671, 'fighter_blue__349': 3196, 'bet_blue__349': 2371716, 'i
+d__349': 496195, 'streak_blue__349': 2, 'date__349': datetime.datetime(2025, 8,
+21, 18, 19, 25, 715383, tzinfo=datetime.timezone.utc), 'bet_red__349': 2026515,
+'streak_red__349': 3, 'tier__349': 'A'}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-12-07 00:18:44,090 BotProcess-2 - INFO - bot [run.py:238] - Winner: Yukarin
+ ex.
+2025-12-07 00:18:49,406 BotProcess-2 - INFO - bot [run.py:155] - New match. Wu-l
+ing VS. Sceptile. Tier: B. Format: matchmaking.
+2025-12-07 00:18:55,752 BotProcess-2 - INFO - bot [run.py:183] - Placing bet: $1
+ on red
+2025-12-07 00:18:56,106 BotProcess-2 - INFO - src.salty_client [salty_client.py:
+72] - BET PLACED: $1 on RED
+2025-12-07 00:19:31,160 BotProcess-2 - INFO - bot [irc.py:89] - Received a PING,
+ sending PONG.
+2025-12-07 00:19:37,335 BotProcess-2 - INFO - bot [run.py:211] - Bets locked. Wu
+-ling ($4,741,492). Sceptile ($1,716,706).
+2025-12-07 00:19:37,336 BotProcess-2 - INFO - bot [run.py:221] - Starting histor
+ical back-fill...
+2025-12-07 00:19:38,414 BotProcess-2 - ERROR - bot [run.py:242] - Error in main
+loop: (psycopg2.errors.ForeignKeyViolation) insert or update on table "match" vi
+olates foreign key constraint "match_fighter_red_fkey"
+DETAIL:  Key (fighter_red)=(1672) is not present in table "fighter".
+
+[SQL: INSERT INTO match (id, fighter_red, fighter_blue, winner, match_format, ti
+er, date, streak_red, streak_blue, bet_red, bet_blue, colour) VALUES (%(id__0)s,
+ %(fighter_red__0)s, %(fighter_blue__0)s, %(winner__0)s, %(match_format__0)s, %(
+tier__0)s, %(dat ... 47276 characters truncated ... )s, %(streak_red__214)s, %(s
+treak_blue__214)s, %(bet_red__214)s, %(bet_blue__214)s, %(colour__214)s)]
+[parameters: {'winner__0': 1672, 'match_format__0': 'matchmaking', 'colour__0':
+'Red', 'fighter_red__0': 1672, 'fighter_blue__0': 1968, 'bet_blue__0': 2863342,
+'id__0': 379861, 'streak_blue__0': 1, 'date__0': datetime.datetime(2024, 11, 13,
+ 15, 50, 22, 760510, tzinfo=datetime.timezone.utc), 'bet_red__0': 1017015, 'stre
+ak_red__0': -3, 'tier__0': 'A', 'winner__1': 3391, 'match_format__1': 'matchmaki
+ng', 'colour__1': 'Blue', 'fighter_red__1': 1968, 'fighter_blue__1': 3391, 'bet_
+blue__1': 5695884, 'id__1': 380416, 'streak_blue__1': -6, 'date__1': datetime.da
+tetime(2024, 11, 14, 21, 43, 58, 119166, tzinfo=datetime.timezone.utc), 'bet_red
+__1': 2452013, 'streak_red__1': -1, 'tier__1': 'A', 'winner__2': 6797, 'match_fo
+rmat__2': 'matchmaking', 'colour__2': 'Red', 'fighter_red__2': 6797, 'fighter_bl
+ue__2': 1968, 'bet_blue__2': 1887010, 'id__2': 380852, 'streak_blue__2': -2, 'da
+te__2': datetime.datetime(2024, 11, 15, 20, 44, 10, 242943, tzinfo=datetime.time
+zone.utc), 'bet_red__2': 3950224, 'streak_red__2': 4, 'tier__2': 'A', 'winner__3
+': 2211, 'match_format__3': 'matchmaking', 'colour__3': 'Red', 'fighter_red__3':
+ 2211, 'fighter_blue__3': 1968, 'bet_blue__3': 1514478, 'id__3': 390177, 'streak
+_blue__3': -3, 'date__3': datetime.datetime(2024, 12, 7, 4, 35, 1, 849550, tzinf
+o=datetime.timezone.utc), 'bet_red__3': 12560120, 'streak_red__3': 2, 'tier__3':
+ 'A', 'winner__4': 6551, 'match_format__4': 'matchmaking' ... 2480 parameters tr
+uncated ... 'streak_red__210': -6, 'tier__210': 'B', 'winner__211': 8771, 'match
+_format__211': 'matchmaking', 'colour__211': 'Blue', 'fighter_red__211': 6798, '
+fighter_blue__211': 8771, 'bet_blue__211': 3061582, 'id__211': 114395, 'streak_b
+lue__211': -7, 'date__211': datetime.datetime(2022, 11, 9, 23, 46, 48, 942774, t
+zinfo=datetime.timezone.utc), 'bet_red__211': 2984916, 'streak_red__211': -2, 't
+ier__211': 'B', 'winner__212': 8771, 'match_format__212': 'matchmaking', 'colour
+__212': 'Red', 'fighter_red__212': 8771, 'fighter_blue__212': 3910, 'bet_blue__2
+12': 1795225, 'id__212': 121176, 'streak_blue__212': -2, 'date__212': datetime.d
+atetime(2022, 12, 14, 8, 55, 26, 972596, tzinfo=datetime.timezone.utc), 'bet_red
+__212': 2707407, 'streak_red__212': 1, 'tier__212': 'B', 'winner__213': 6848, 'm
+atch_format__213': 'matchmaking', 'colour__213': 'Red', 'fighter_red__213': 6848
+, 'fighter_blue__213': 8771, 'bet_blue__213': 1951186, 'id__213': 196112, 'strea
+k_blue__213': -3, 'date__213': datetime.datetime(2023, 8, 7, 8, 16, 31, 881194,
+tzinfo=datetime.timezone.utc), 'bet_red__213': 4016083, 'streak_red__213': 2, 't
+ier__213': 'B', 'winner__214': 4002, 'match_format__214': 'matchmaking', 'colour
+__214': 'Red', 'fighter_red__214': 4002, 'fighter_blue__214': 8771, 'bet_blue__2
+14': 768738, 'id__214': 205036, 'streak_blue__214': -5, 'date__214': datetime.da
+tetime(2023, 9, 2, 13, 40, 6, 777, tzinfo=datetime.timezone.utc), 'bet_red__214'
+: 4189256, 'streak_red__214': -4, 'tier__214': 'B'}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-12-07 00:19:51,718 MainProcess - INFO - watchdog [run.py:322] - Services ar
+e healthy. Last bot heartbeat: 2025-12-07T03:18:44.354704+00:00
+2025-12-07 00:21:01,390 BotProcess-2 - INFO - bot [run.py:238] - Winner: Wu-ling
+.
+2025-12-07 00:21:11,425 BotProcess-2 - INFO - bot [run.py:155] - New match. Kira
+ yoshikage VS. Krang. Tier: A. Format: matchmaking.
+2025-12-07 00:21:13,685 BotProcess-2 - INFO - bot [run.py:183] - Placing bet: $1
+ on red
+2025-12-07 00:21:14,036 BotProcess-2 - INFO - src.salty_client [salty_client.py:
+72] - BET PLACED: $1 on RED
+2025-12-07 00:22:01,464 BotProcess-2 - INFO - bot [run.py:211] - Bets locked. Ki
+ra yoshikage ($3,431,944). Krang ($1,934,569).
+2025-12-07 00:22:01,464 BotProcess-2 - INFO - bot [run.py:221] - Starting histor
+ical back-fill...
+2025-12-07 00:22:02,542 BotProcess-2 - ERROR - bot [run.py:242] - Error in main
+loop: (psycopg2.errors.UniqueViolation) duplicate key value violates unique cons
+traint "match_pkey"
+DETAIL:  Key (id)=(540916) already exists.
+
+[SQL: INSERT INTO match (id, fighter_red, fighter_blue, winner, match_format, ti
+er, date, streak_red, streak_blue, bet_red, bet_blue, colour) VALUES (%(id__0)s,
+ %(fighter_red__0)s, %(fighter_blue__0)s, %(winner__0)s, %(match_format__0)s, %(
+tier__0)s, %(dat ... 47730 characters truncated ... )s, %(streak_red__216)s, %(s
+treak_blue__216)s, %(bet_red__216)s, %(bet_blue__216)s, %(colour__216)s)]
+[parameters: {'winner__0': 1672, 'match_format__0': 'matchmaking', 'colour__0':
+'Red', 'fighter_red__0': 1672, 'fighter_blue__0': 1968, 'bet_blue__0': 2863342,
+'id__0': 379861, 'streak_blue__0': 1, 'date__0': datetime.datetime(2024, 11, 13,
+ 15, 50, 22, 760510, tzinfo=datetime.timezone.utc), 'bet_red__0': 1017015, 'stre
+ak_red__0': -3, 'tier__0': 'A', 'winner__1': 3391, 'match_format__1': 'matchmaki
+ng', 'colour__1': 'Blue', 'fighter_red__1': 1968, 'fighter_blue__1': 3391, 'bet_
+blue__1': 5695884, 'id__1': 380416, 'streak_blue__1': -6, 'date__1': datetime.da
+tetime(2024, 11, 14, 21, 43, 58, 119166, tzinfo=datetime.timezone.utc), 'bet_red
+__1': 2452013, 'streak_red__1': -1, 'tier__1': 'A', 'winner__2': 6797, 'match_fo
+rmat__2': 'matchmaking', 'colour__2': 'Red', 'fighter_red__2': 6797, 'fighter_bl
+ue__2': 1968, 'bet_blue__2': 1887010, 'id__2': 380852, 'streak_blue__2': -2, 'da
+te__2': datetime.datetime(2024, 11, 15, 20, 44, 10, 242943, tzinfo=datetime.time
+zone.utc), 'bet_red__2': 3950224, 'streak_red__2': 4, 'tier__2': 'A', 'winner__3
+': 2211, 'match_format__3': 'matchmaking', 'colour__3': 'Red', 'fighter_red__3':
+ 2211, 'fighter_blue__3': 1968, 'bet_blue__3': 1514478, 'id__3': 390177, 'streak
+_blue__3': -3, 'date__3': datetime.datetime(2024, 12, 7, 4, 35, 1, 849550, tzinf
+o=datetime.timezone.utc), 'bet_red__3': 12560120, 'streak_red__3': 2, 'tier__3':
+ 'A', 'winner__4': 6551, 'match_format__4': 'matchmaking' ... 2504 parameters tr
+uncated ... 'streak_red__212': -2, 'tier__212': 'B', 'winner__213': 8771, 'match
+_format__213': 'matchmaking', 'colour__213': 'Blue', 'fighter_red__213': 7455, '
+fighter_blue__213': 8771, 'bet_blue__213': 1604511, 'id__213': 278664, 'streak_b
+lue__213': -3, 'date__213': datetime.datetime(2024, 3, 12, 13, 50, 52, 160480, t
+zinfo=datetime.timezone.utc), 'bet_red__213': 3048603, 'streak_red__213': 2, 'ti
+er__213': 'B', 'winner__214': 6762, 'match_format__214': 'matchmaking', 'colour_
+_214': 'Red', 'fighter_red__214': 6762, 'fighter_blue__214': 8771, 'bet_blue__21
+4': 1448898, 'id__214': 282822, 'streak_blue__214': 1, 'date__214': datetime.dat
+etime(2024, 3, 22, 21, 54, 59, 376702, tzinfo=datetime.timezone.utc), 'bet_red__
+214': 5738522, 'streak_red__214': 11, 'tier__214': 'B', 'winner__215': 8771, 'ma
+tch_format__215': 'matchmaking', 'colour__215': 'Blue', 'fighter_red__215': 4253
+, 'fighter_blue__215': 8771, 'bet_blue__215': 1505030, 'id__215': 293713, 'strea
+k_blue__215': -1, 'date__215': datetime.datetime(2024, 4, 18, 22, 1, 54, 620010,
+ tzinfo=datetime.timezone.utc), 'bet_red__215': 4880279, 'streak_red__215': -3,
+'tier__215': 'B', 'winner__216': 8888, 'match_format__216': 'matchmaking', 'colo
+ur__216': 'Blue', 'fighter_red__216': 8771, 'fighter_blue__216': 8888, 'bet_blue
+__216': 3651949, 'id__216': 362834, 'streak_blue__216': -1, 'date__216': datetim
+e.datetime(2024, 10, 6, 6, 8, 49, 121557, tzinfo=datetime.timezone.utc), 'bet_re
+d__216': 2697183, 'streak_red__216': -1, 'tier__216': 'B'}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-12-07 00:23:54,108 BotProcess-2 - INFO - bot [irc.py:89] - Received a PING,
+ sending PONG.
+2025-12-07 00:23:59,128 BotProcess-2 - INFO - bot [run.py:238] - Winner: Kira yo
+shikage.
+2025-12-07 00:24:07,555 BotProcess-2 - INFO - bot [run.py:155] - New match. Neco
+-arc VS. Primeus. Tier: S. Format: matchmaking.
+2025-12-07 00:24:09,648 BotProcess-2 - INFO - bot [run.py:183] - Placing bet: $1
+ on red
+2025-12-07 00:24:09,986 BotProcess-2 - INFO - src.salty_client [salty_client.py:
+72] - BET PLACED: $1 on RED
+2025-12-07 00:24:51,738 MainProcess - INFO - watchdog [run.py:322] - Services ar
+e healthy. Last bot heartbeat: 2025-12-07T03:23:47.718063+00:00
+2025-12-07 00:25:01,615 BotProcess-2 - INFO - bot [run.py:211] - Bets locked. Ne
+co-arc ($4,308,717). Primeus ($2,171,723).
+2025-12-07 00:25:01,616 BotProcess-2 - INFO - bot [run.py:221] - Starting histor
+ical back-fill...
+2025-12-07 00:25:03,351 BotProcess-2 - ERROR - bot [run.py:242] - Error in main
+loop: (psycopg2.errors.ForeignKeyViolation) insert or update on table "match" vi
+olates foreign key constraint "match_fighter_red_fkey"
+DETAIL:  Key (fighter_red)=(1806) is not present in table "fighter".
+
+[SQL: INSERT INTO match (id, fighter_red, fighter_blue, winner, match_format, ti
+er, date, streak_red, streak_blue, bet_red, bet_blue, colour) VALUES (%(id__0)s,
+ %(fighter_red__0)s, %(fighter_blue__0)s, %(winner__0)s, %(match_format__0)s, %(
+tier__0)s, %(dat ... 76786 characters truncated ... )s, %(streak_red__344)s, %(s
+treak_blue__344)s, %(bet_red__344)s, %(bet_blue__344)s, %(colour__344)s)]
+[parameters: {'winner__0': 1167, 'match_format__0': 'matchmaking', 'colour__0':
+'Blue', 'fighter_red__0': 1806, 'fighter_blue__0': 1167, 'bet_blue__0': 11819502
+9, 'id__0': 29350, 'streak_blue__0': 1, 'date__0': datetime.datetime(2022, 3, 8,
+ 16, 16, 28, 423075, tzinfo=datetime.timezone.utc), 'bet_red__0': 17526798, 'str
+eak_red__0': -1, 'tier__0': 'S', 'winner__1': 1167, 'match_format__1': 'matchmak
+ing', 'colour__1': 'Blue', 'fighter_red__1': 7888, 'fighter_blue__1': 1167, 'bet
+_blue__1': 124554249, 'id__1': 36822, 'streak_blue__1': -1, 'date__1': datetime.
+datetime(2022, 4, 3, 23, 30, 50, 967442, tzinfo=datetime.timezone.utc), 'bet_red
+__1': 9479275, 'streak_red__1': -2, 'tier__1': 'S', 'winner__2': 1167, 'match_fo
+rmat__2': 'matchmaking', 'colour__2': 'Red', 'fighter_red__2': 1167, 'fighter_bl
+ue__2': 4617, 'bet_blue__2': 2304728, 'id__2': 39421, 'streak_blue__2': -3, 'dat
+e__2': datetime.datetime(2022, 4, 10, 10, 55, 17, 84495, tzinfo=datetime.timezon
+e.utc), 'bet_red__2': 25162452, 'streak_red__2': 1, 'tier__2': 'S', 'winner__3':
+ 1167, 'match_format__3': 'matchmaking', 'colour__3': 'Blue', 'fighter_red__3':
+1648, 'fighter_blue__3': 1167, 'bet_blue__3': 23756692, 'id__3': 45032, 'streak_
+blue__3': 2, 'date__3': datetime.datetime(2022, 4, 26, 15, 58, 34, 717741, tzinf
+o=datetime.timezone.utc), 'bet_red__3': 28619547, 'streak_red__3': 2, 'tier__3':
+ 'S', 'winner__4': 3680, 'match_format__4': 'matchmaking' ... 4040 parameters tr
+uncated ... 'streak_red__340': 4, 'tier__340': 'S', 'winner__341': 2994, 'match_
+format__341': 'matchmaking', 'colour__341': 'Blue', 'fighter_red__341': 7709, 'f
+ighter_blue__341': 2994, 'bet_blue__341': 58262962, 'id__341': 18837, 'streak_bl
+ue__341': 4, 'date__341': datetime.datetime(2022, 2, 5, 18, 55, 51, 275216, tzin
+fo=datetime.timezone.utc), 'bet_red__341': 6295949, 'streak_red__341': -1, 'tier
+__341': 'S', 'winner__342': 2994, 'match_format__342': 'matchmaking', 'colour__3
+42': 'Red', 'fighter_red__342': 2994, 'fighter_blue__342': 5539, 'bet_blue__342'
+: 7243454, 'id__342': 23988, 'streak_blue__342': -1, 'date__342': datetime.datet
+ime(2022, 2, 22, 4, 21, 18, 731535, tzinfo=datetime.timezone.utc), 'bet_red__342
+': 18644847, 'streak_red__342': -1, 'tier__342': 'S', 'winner__343': 2994, 'matc
+h_format__343': 'matchmaking', 'colour__343': 'Blue', 'fighter_red__343': 6842,
+'fighter_blue__343': 2994, 'bet_blue__343': 39657171, 'id__343': 25531, 'streak_
+blue__343': 1, 'date__343': datetime.datetime(2022, 2, 27, 3, 52, 29, 767225, tz
+info=datetime.timezone.utc), 'bet_red__343': 1782053, 'streak_red__343': 1, 'tie
+r__343': 'S', 'winner__344': 2994, 'match_format__344': 'matchmaking', 'colour__
+344': 'Blue', 'fighter_red__344': 3525, 'fighter_blue__344': 2994, 'bet_blue__34
+4': 14914933, 'id__344': 26046, 'streak_blue__344': 2, 'date__344': datetime.dat
+etime(2022, 2, 28, 9, 26, 12, 827691, tzinfo=datetime.timezone.utc), 'bet_red__3
+44': 2346399, 'streak_red__344': -1, 'tier__344': 'S'}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-12-07 00:26:22,689 BotProcess-2 - INFO - bot [run.py:238] - Winner: Neco-ar
+c.
+2025-12-07 00:26:33,164 BotProcess-2 - INFO - bot [run.py:155] - New match. Kame
+n rider kabuto VS. Akaitsuki EX. Tier: S. Format: matchmaking.
+2025-12-07 00:26:35,236 BotProcess-2 - INFO - bot [run.py:183] - Placing bet: $1
+ on red
+2025-12-07 00:26:35,572 BotProcess-2 - INFO - src.salty_client [salty_client.py:
+72] - BET PLACED: $1 on RED
+2025-12-07 00:27:30,680 BotProcess-2 - INFO - bot [run.py:211] - Bets locked. Ka
+men rider kabuto ($2,709,131). Akaitsuki EX ($2,265,088).
+2025-12-07 00:27:30,680 BotProcess-2 - INFO - bot [run.py:221] - Starting histor
+ical back-fill...
+2025-12-07 00:27:32,515 BotProcess-2 - ERROR - bot [run.py:242] - Error in main
+loop: (psycopg2.errors.ForeignKeyViolation) insert or update on table "match" vi
+olates foreign key constraint "match_fighter_red_fkey"
+DETAIL:  Key (fighter_red)=(7252) is not present in table "fighter".
+
+[SQL: INSERT INTO match (id, fighter_red, fighter_blue, winner, match_format, ti
+er, date, streak_red, streak_blue, bet_red, bet_blue, colour) VALUES (%(id__0)s,
+ %(fighter_red__0)s, %(fighter_blue__0)s, %(winner__0)s, %(match_format__0)s, %(
+tier__0)s, %(dat ... 88817 characters truncated ... )s, %(streak_red__397)s, %(s
+treak_blue__397)s, %(bet_red__397)s, %(bet_blue__397)s, %(colour__397)s)]
+[parameters: {'winner__0': 2726, 'match_format__0': 'matchmaking', 'colour__0':
+'Blue', 'fighter_red__0': 7252, 'fighter_blue__0': 2726, 'bet_blue__0': 3613173,
+ 'id__0': 353757, 'streak_blue__0': -7, 'date__0': datetime.datetime(2024, 9, 15
+, 0, 49, 27, 655047, tzinfo=datetime.timezone.utc), 'bet_red__0': 2461444, 'stre
+ak_red__0': -5, 'tier__0': 'S', 'winner__1': 590, 'match_format__1': 'matchmakin
+g', 'colour__1': 'Red', 'fighter_red__1': 590, 'fighter_blue__1': 2726, 'bet_blu
+e__1': 1902299, 'id__1': 356835, 'streak_blue__1': 1, 'date__1': datetime.dateti
+me(2024, 9, 22, 8, 8, 15, 727802, tzinfo=datetime.timezone.utc), 'bet_red__1': 2
+825463, 'streak_red__1': -4, 'tier__1': 'S', 'winner__2': 2726, 'match_format__2
+': 'matchmaking', 'colour__2': 'Red', 'fighter_red__2': 2726, 'fighter_blue__2':
+ 4965, 'bet_blue__2': 2085412, 'id__2': 359998, 'streak_blue__2': 3, 'date__2':
+datetime.datetime(2024, 9, 29, 15, 12, 35, 87650, tzinfo=datetime.timezone.utc),
+ 'bet_red__2': 723985, 'streak_red__2': -1, 'tier__2': 'S', 'winner__3': 6410, '
+match_format__3': 'matchmaking', 'colour__3': 'Red', 'fighter_red__3': 6410, 'fi
+ghter_blue__3': 2726, 'bet_blue__3': 1091543, 'id__3': 364546, 'streak_blue__3':
+ 1, 'date__3': datetime.datetime(2024, 10, 10, 3, 3, 36, 70228, tzinfo=datetime.
+timezone.utc), 'bet_red__3': 22556102, 'streak_red__3': -1, 'tier__3': 'S', 'win
+ner__4': 245, 'match_format__4': 'matchmaking' ... 4676 parameters truncated ...
+ 'streak_red__393': 1, 'tier__393': 'S', 'winner__394': 4880, 'match_format__394
+': 'matchmaking', 'colour__394': 'Blue', 'fighter_red__394': 7189, 'fighter_blue
+__394': 4880, 'bet_blue__394': 13453105, 'id__394': 342873, 'streak_blue__394':
+-1, 'date__394': datetime.datetime(2024, 8, 20, 2, 7, 57, 238593, tzinfo=datetim
+e.timezone.utc), 'bet_red__394': 4027741, 'streak_red__394': -1, 'tier__394': 'S
+', 'winner__395': 7375, 'match_format__395': 'matchmaking', 'colour__395': 'Red'
+, 'fighter_red__395': 7375, 'fighter_blue__395': 7189, 'bet_blue__395': 1769097,
+ 'id__395': 344270, 'streak_blue__395': -2, 'date__395': datetime.datetime(2024,
+ 8, 23, 7, 59, 1, 93387, tzinfo=datetime.timezone.utc), 'bet_red__395': 6691776,
+ 'streak_red__395': -1, 'tier__395': 'S', 'winner__396': 7189, 'match_format__39
+6': 'matchmaking', 'colour__396': 'Red', 'fighter_red__396': 7189, 'fighter_blue
+__396': 612, 'bet_blue__396': 5308889, 'id__396': 344417, 'streak_blue__396': -2
+, 'date__396': datetime.datetime(2024, 8, 23, 15, 29, 49, 718758, tzinfo=datetim
+e.timezone.utc), 'bet_red__396': 1369596, 'streak_red__396': -3, 'tier__396': 'S
+', 'winner__397': 6295, 'match_format__397': 'matchmaking', 'colour__397': 'Blue
+', 'fighter_red__397': 7189, 'fighter_blue__397': 6295, 'bet_blue__397': 1064330
+3, 'id__397': 346418, 'streak_blue__397': -1, 'date__397': datetime.datetime(202
+4, 8, 28, 15, 17, 29, 350717, tzinfo=datetime.timezone.utc), 'bet_red__397': 132
+3575, 'streak_red__397': 1, 'tier__397': 'S'}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-12-07 00:28:19,900 BotProcess-2 - INFO - bot [irc.py:89] - Received a PING,
+ sending PONG.
+2025-12-07 00:28:53,060 BotProcess-2 - INFO - bot [run.py:238] - Winner: Kamen r
+ider kabuto.
+2025-12-07 00:29:03,130 BotProcess-2 - INFO - bot [run.py:155] - New match. M.bi
+son mvc2 VS. Hyo amano. Tier: S. Format: matchmaking.
+2025-12-07 00:29:09,485 BotProcess-2 - INFO - bot [run.py:183] - Placing bet: $1
+ on red
+2025-12-07 00:29:09,816 BotProcess-2 - INFO - src.salty_client [salty_client.py:
+72] - BET PLACED: $1 on RED
+2025-12-07 00:29:51,759 MainProcess - INFO - watchdog [run.py:322] - Services ar
+e healthy. Last bot heartbeat: 2025-12-07T03:28:48.046771+00:00
+2025-12-07 00:29:51,795 BotProcess-2 - INFO - bot [run.py:211] - Bets locked. M.
+bison mvc2 ($2,663,349). Hyo amano ($2,161,869).
+2025-12-07 00:29:51,795 BotProcess-2 - INFO - bot [run.py:221] - Starting histor
+ical back-fill...
+2025-12-07 00:29:53,397 BotProcess-2 - ERROR - bot [run.py:242] - Error in main
+loop: (psycopg2.errors.ForeignKeyViolation) insert or update on table "match" vi
+olates foreign key constraint "match_fighter_red_fkey"
+DETAIL:  Key (fighter_red)=(976) is not present in table "fighter".
+
+[SQL: INSERT INTO match (id, fighter_red, fighter_blue, winner, match_format, ti
+er, date, streak_red, streak_blue, bet_red, bet_blue, colour) VALUES (%(id__0)s,
+ %(fighter_red__0)s, %(fighter_blue__0)s, %(winner__0)s, %(match_format__0)s, %(
+tier__0)s, %(dat ... 77694 characters truncated ... )s, %(streak_red__348)s, %(s
+treak_blue__348)s, %(bet_red__348)s, %(bet_blue__348)s, %(colour__348)s)]
+[parameters: {'winner__0': 976, 'match_format__0': 'matchmaking', 'colour__0': '
+Red', 'fighter_red__0': 976, 'fighter_blue__0': 4179, 'bet_blue__0': 6237221, 'i
+d__0': 33083, 'streak_blue__0': -4, 'date__0': datetime.datetime(2022, 3, 25, 15
+, 16, 23, 322620, tzinfo=datetime.timezone.utc), 'bet_red__0': 10151285, 'streak
+_red__0': 3, 'tier__0': 'S', 'winner__1': 976, 'match_format__1': 'matchmaking',
+ 'colour__1': 'Blue', 'fighter_red__1': 6187, 'fighter_blue__1': 976, 'bet_blue_
+_1': 28146437, 'id__1': 35167, 'streak_blue__1': 4, 'date__1': datetime.datetime
+(2022, 3, 30, 19, 18, 19, 56623, tzinfo=datetime.timezone.utc), 'bet_red__1': 94
+05964, 'streak_red__1': -4, 'tier__1': 'S', 'winner__2': 1175, 'match_format__2'
+: 'matchmaking', 'colour__2': 'Red', 'fighter_red__2': 1175, 'fighter_blue__2':
+976, 'bet_blue__2': 13914975, 'id__2': 36795, 'streak_blue__2': 5, 'date__2': da
+tetime.datetime(2022, 4, 3, 22, 16, 1, 435048, tzinfo=datetime.timezone.utc), 'b
+et_red__2': 23731744, 'streak_red__2': 2, 'tier__2': 'S', 'winner__3': 976, 'mat
+ch_format__3': 'matchmaking', 'colour__3': 'Blue', 'fighter_red__3': 4524, 'figh
+ter_blue__3': 976, 'bet_blue__3': 17339520, 'id__3': 40550, 'streak_blue__3': -1
+, 'date__3': datetime.datetime(2022, 4, 13, 8, 13, 28, 699412, tzinfo=datetime.t
+imezone.utc), 'bet_red__3': 4177106, 'streak_red__3': 1, 'tier__3': 'S', 'winner
+__4': 976, 'match_format__4': 'matchmaking' ... 4088 parameters truncated ... 's
+treak_red__344': 2, 'tier__344': 'A', 'winner__345': 227, 'match_format__345': '
+matchmaking', 'colour__345': 'Blue', 'fighter_red__345': 3127, 'fighter_blue__34
+5': 227, 'bet_blue__345': 3100263, 'id__345': 93851, 'streak_blue__345': -1, 'da
+te__345': datetime.datetime(2022, 9, 3, 19, 38, 51, 787800, tzinfo=datetime.time
+zone.utc), 'bet_red__345': 4276187, 'streak_red__345': 3, 'tier__345': 'A', 'win
+ner__346': 3127, 'match_format__346': 'matchmaking', 'colour__346': 'Red', 'figh
+ter_red__346': 3127, 'fighter_blue__346': 4762, 'bet_blue__346': 5279222, 'id__3
+46': 93948, 'streak_blue__346': 3, 'date__346': datetime.datetime(2022, 9, 4, 1,
+ 38, 39, 141321, tzinfo=datetime.timezone.utc), 'bet_red__346': 4908525, 'streak
+_red__346': -1, 'tier__346': 'A', 'winner__347': 3127, 'match_format__347': 'tou
+rnament', 'colour__347': 'Red', 'fighter_red__347': 3127, 'fighter_blue__347': 4
+706, 'bet_blue__347': 207694, 'id__347': 94373, 'streak_blue__347': -1, 'date__3
+47': datetime.datetime(2022, 9, 12, 4, 24, 20, 721292, tzinfo=datetime.timezone.
+utc), 'bet_red__347': 811796, 'streak_red__347': 2, 'tier__347': 'A', 'winner__3
+48': 3019, 'match_format__348': 'tournament', 'colour__348': 'Blue', 'fighter_re
+d__348': 3127, 'fighter_blue__348': 3019, 'bet_blue__348': 721674, 'id__348': 94
+378, 'streak_blue__348': 2, 'date__348': datetime.datetime(2022, 9, 12, 4, 42, 5
+5, 850440, tzinfo=datetime.timezone.utc), 'bet_red__348': 842246, 'streak_red__3
+48': 3, 'tier__348': 'A'}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-12-07 00:30:53,047 BotProcess-2 - INFO - bot [run.py:238] - Winner: Hyo ama
+no.
+2025-12-07 00:31:01,854 BotProcess-2 - INFO - bot [run.py:155] - New match. Omak
+e VS. Gran torino. Tier: B. Format: matchmaking.
+2025-12-07 00:31:03,805 BotProcess-2 - INFO - bot [run.py:183] - Placing bet: $1
+ on red
+2025-12-07 00:31:04,149 BotProcess-2 - INFO - src.salty_client [salty_client.py:
+72] - BET PLACED: $1 on RED
+2025-12-07 00:31:47,887 BotProcess-2 - INFO - bot [run.py:211] - Bets locked. Om
+ake ($1,941,881). Gran torino ($2,254,790).
+2025-12-07 00:31:47,887 BotProcess-2 - INFO - bot [run.py:221] - Starting histor
+ical back-fill...
+2025-12-07 00:31:49,090 BotProcess-2 - ERROR - bot [run.py:242] - Error in main
+loop: (psycopg2.errors.ForeignKeyViolation) insert or update on table "match" vi
+olates foreign key constraint "match_fighter_red_fkey"
+DETAIL:  Key (fighter_red)=(3341) is not present in table "fighter".
+
+[SQL: INSERT INTO match (id, fighter_red, fighter_blue, winner, match_format, ti
+er, date, streak_red, streak_blue, bet_red, bet_blue, colour) VALUES (%(id__0)s,
+ %(fighter_red__0)s, %(fighter_blue__0)s, %(winner__0)s, %(match_format__0)s, %(
+tier__0)s, %(dat ... 58853 characters truncated ... )s, %(streak_red__265)s, %(s
+treak_blue__265)s, %(bet_red__265)s, %(bet_blue__265)s, %(colour__265)s)]
+[parameters: {'winner__0': 3341, 'match_format__0': 'tournament', 'colour__0': '
+Red', 'fighter_red__0': 3341, 'fighter_blue__0': 5629, 'bet_blue__0': 218548, 'i
+d__0': 486226, 'streak_blue__0': -5, 'date__0': datetime.datetime(2025, 7, 26, 1
+2, 22, 37, 983791, tzinfo=datetime.timezone.utc), 'bet_red__0': 1526321, 'streak
+_red__0': 7, 'tier__0': 'A', 'winner__1': 4691, 'match_format__1': 'matchmaking'
+, 'colour__1': 'Blue', 'fighter_red__1': 5629, 'fighter_blue__1': 4691, 'bet_blu
+e__1': 4453259, 'id__1': 494058, 'streak_blue__1': 2, 'date__1': datetime.dateti
+me(2025, 8, 16, 13, 41, 33, 223020, tzinfo=datetime.timezone.utc), 'bet_red__1':
+ 1096450, 'streak_red__1': -6, 'tier__1': 'A', 'winner__2': 3640, 'match_format_
+_2': 'matchmaking', 'colour__2': 'Blue', 'fighter_red__2': 5629, 'fighter_blue__
+2': 3640, 'bet_blue__2': 2657717, 'id__2': 501828, 'streak_blue__2': 3, 'date__2
+': datetime.datetime(2025, 9, 4, 11, 45, 45, 73543, tzinfo=datetime.timezone.utc
+), 'bet_red__2': 1578354, 'streak_red__2': -7, 'tier__2': 'A', 'winner__3': 5662
+, 'match_format__3': 'matchmaking', 'colour__3': 'Red', 'fighter_red__3': 5662,
+'fighter_blue__3': 5629, 'bet_blue__3': 1217564, 'id__3': 502483, 'streak_blue__
+3': -8, 'date__3': datetime.datetime(2025, 9, 6, 1, 10, 33, 740519, tzinfo=datet
+ime.timezone.utc), 'bet_red__3': 3184300, 'streak_red__3': -3, 'tier__3': 'A', '
+winner__4': 2332, 'match_format__4': 'matchmaking' ... 3092 parameters truncated
+ ... 'streak_red__261': -1, 'tier__261': 'B', 'winner__262': 1483, 'match_format
+__262': 'matchmaking', 'colour__262': 'Red', 'fighter_red__262': 1483, 'fighter_
+blue__262': 5487, 'bet_blue__262': 1582305, 'id__262': 448310, 'streak_blue__262
+': -2, 'date__262': datetime.datetime(2025, 4, 23, 11, 30, 48, 24392, tzinfo=dat
+etime.timezone.utc), 'bet_red__262': 3694086, 'streak_red__262': -2, 'tier__262'
+: 'B', 'winner__263': 1483, 'match_format__263': 'tournament', 'colour__263': 'B
+lue', 'fighter_red__263': 857, 'fighter_blue__263': 1483, 'bet_blue__263': 13872
+7, 'id__263': 452565, 'streak_blue__263': 1, 'date__263': datetime.datetime(2025
+, 5, 2, 22, 53, 13, 185078, tzinfo=datetime.timezone.utc), 'bet_red__263': 30340
+4, 'streak_red__263': -1, 'tier__263': 'B', 'winner__264': 1926, 'match_format__
+264': 'tournament', 'colour__264': 'Blue', 'fighter_red__264': 1483, 'fighter_bl
+ue__264': 1926, 'bet_blue__264': 97458, 'id__264': 452571, 'streak_blue__264': 2
+, 'date__264': datetime.datetime(2025, 5, 2, 23, 15, 50, 632031, tzinfo=datetime
+.timezone.utc), 'bet_red__264': 842529, 'streak_red__264': 2, 'tier__264': 'B',
+'winner__265': 6873, 'match_format__265': 'matchmaking', 'colour__265': 'Blue',
+'fighter_red__265': 1483, 'fighter_blue__265': 6873, 'bet_blue__265': 3062608, '
+id__265': 455680, 'streak_blue__265': -1, 'date__265': datetime.datetime(2025, 5
+, 10, 14, 13, 41, 295185, tzinfo=datetime.timezone.utc), 'bet_red__265': 1688492
+, 'streak_red__265': -1, 'tier__265': 'B'}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-12-07 00:33:01,782 BotProcess-2 - INFO - bot [irc.py:89] - Received a PING,
+ sending PONG.
+2025-12-07 00:33:06,803 BotProcess-2 - INFO - bot [run.py:238] - Winner: Omake.
+2025-12-07 00:33:11,930 BotProcess-2 - INFO - bot [run.py:155] - New match. Ryu-
+c VS. Merged zamasu. Tier: A. Format: matchmaking.
+2025-12-07 00:33:13,955 BotProcess-2 - INFO - bot [run.py:183] - Placing bet: $1
+ on red
+2025-12-07 00:33:14,295 BotProcess-2 - INFO - src.salty_client [salty_client.py:
+72] - BET PLACED: $1 on RED
+2025-12-07 00:34:04,387 BotProcess-2 - INFO - bot [run.py:211] - Bets locked. Ry
+u-c ($2,814,214). Merged zamasu ($1,542,983).
+2025-12-07 00:34:04,387 BotProcess-2 - INFO - bot [run.py:221] - Starting histor
+ical back-fill...
+2025-12-07 00:34:05,965 BotProcess-2 - ERROR - bot [run.py:242] - Error in main
+loop: (psycopg2.errors.ForeignKeyViolation) insert or update on table "match" vi
+olates foreign key constraint "match_fighter_red_fkey"
+DETAIL:  Key (fighter_red)=(2701) is not present in table "fighter".
+
+[SQL: INSERT INTO match (id, fighter_red, fighter_blue, winner, match_format, ti
+er, date, streak_red, streak_blue, bet_red, bet_blue, colour) VALUES (%(id__0)s,
+ %(fighter_red__0)s, %(fighter_blue__0)s, %(winner__0)s, %(match_format__0)s, %(
+tier__0)s, %(dat ... 75197 characters truncated ... )s, %(streak_red__337)s, %(s
+treak_blue__337)s, %(bet_red__337)s, %(bet_blue__337)s, %(colour__337)s)]
+[parameters: {'winner__0': 2701, 'match_format__0': 'matchmaking', 'colour__0':
+'Red', 'fighter_red__0': 2701, 'fighter_blue__0': 7401, 'bet_blue__0': 1080655,
+'id__0': 449194, 'streak_blue__0': 4, 'date__0': datetime.datetime(2025, 4, 25,
+9, 51, 52, 678766, tzinfo=datetime.timezone.utc), 'bet_red__0': 3159187, 'streak
+_red__0': 2, 'tier__0': 'A', 'winner__1': 2701, 'match_format__1': 'matchmaking'
+, 'colour__1': 'Blue', 'fighter_red__1': 235, 'fighter_blue__1': 2701, 'bet_blue
+__1': 5113022, 'id__1': 449454, 'streak_blue__1': 3, 'date__1': datetime.datetim
+e(2025, 4, 26, 0, 8, 52, 495955, tzinfo=datetime.timezone.utc), 'bet_red__1': 10
+65931, 'streak_red__1': -1, 'tier__1': 'A', 'winner__2': 2701, 'match_format__2'
+: 'matchmaking', 'colour__2': 'Blue', 'fighter_red__2': 2622, 'fighter_blue__2':
+ 2701, 'bet_blue__2': 3830120, 'id__2': 449553, 'streak_blue__2': 4, 'date__2':
+datetime.datetime(2025, 4, 26, 5, 45, 9, 999670, tzinfo=datetime.timezone.utc),
+'bet_red__2': 1924612, 'streak_red__2': -3, 'tier__2': 'A', 'winner__3': 6421, '
+match_format__3': 'matchmaking', 'colour__3': 'Red', 'fighter_red__3': 6421, 'fi
+ghter_blue__3': 2701, 'bet_blue__3': 2962857, 'id__3': 452668, 'streak_blue__3':
+ 5, 'date__3': datetime.datetime(2025, 5, 3, 4, 40, 50, 49564, tzinfo=datetime.t
+imezone.utc), 'bet_red__3': 2541915, 'streak_red__3': -1, 'tier__3': 'A', 'winne
+r__4': 2701, 'match_format__4': 'matchmaking' ... 3956 parameters truncated ...
+'streak_red__333': 1, 'tier__333': 'A', 'winner__334': 1607, 'match_format__334'
+: 'matchmaking', 'colour__334': 'Blue', 'fighter_red__334': 2342, 'fighter_blue_
+_334': 1607, 'bet_blue__334': 740929, 'id__334': 368616, 'streak_blue__334': 1,
+'date__334': datetime.datetime(2024, 10, 19, 9, 28, 2, 166937, tzinfo=datetime.t
+imezone.utc), 'bet_red__334': 4505098, 'streak_red__334': -2, 'tier__334': 'A',
+'winner__335': 2342, 'match_format__335': 'matchmaking', 'colour__335': 'Red', '
+fighter_red__335': 2342, 'fighter_blue__335': 2787, 'bet_blue__335': 2444245, 'i
+d__335': 383904, 'streak_blue__335': -2, 'date__335': datetime.datetime(2024, 11
+, 22, 17, 53, 31, 83683, tzinfo=datetime.timezone.utc), 'bet_red__335': 3250486,
+ 'streak_red__335': -3, 'tier__335': 'A', 'winner__336': 2342, 'match_format__33
+6': 'matchmaking', 'colour__336': 'Blue', 'fighter_red__336': 3060, 'fighter_blu
+e__336': 2342, 'bet_blue__336': 2580685, 'id__336': 385670, 'streak_blue__336':
+1, 'date__336': datetime.datetime(2024, 11, 26, 18, 33, 51, 728388, tzinfo=datet
+ime.timezone.utc), 'bet_red__336': 6662914, 'streak_red__336': 2, 'tier__336': '
+A', 'winner__337': 4291, 'match_format__337': 'matchmaking', 'colour__337': 'Red
+', 'fighter_red__337': 4291, 'fighter_blue__337': 2342, 'bet_blue__337': 1378259
+, 'id__337': 441930, 'streak_blue__337': 1, 'date__337': datetime.datetime(2025,
+ 4, 9, 6, 7, 57, 478333, tzinfo=datetime.timezone.utc), 'bet_red__337': 5429269,
+ 'streak_red__337': 2, 'tier__337': 'A'}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-12-07 00:34:51,779 MainProcess - INFO - watchdog [run.py:322] - Services ar
+e healthy. Last bot heartbeat: 2025-12-07T03:33:44.340684+00:00
+2025-12-07 00:35:34,039 BotProcess-2 - INFO - bot [run.py:238] - Winner: Ryu-c.
+2025-12-07 00:35:39,141 BotProcess-2 - INFO - bot [run.py:155] - New match. Hibi
+ki takane VS. Chad EX7. Tier: S. Format: matchmaking.
+2025-12-07 00:35:41,243 BotProcess-2 - INFO - bot [run.py:183] - Placing bet: $1
+ on red
+2025-12-07 00:35:41,590 BotProcess-2 - INFO - src.salty_client [salty_client.py:
+72] - BET PLACED: $1 on RED
+Process Process-1:
+Process BotProcess-2:
+Traceback (most recent call last):
+  File "C:\github\saltyboyC\applications\bot\main.py", line 50, in <module>
+Traceback (most recent call last):
+    run(log_path)
+  File "C:\Users\diego\AppData\Local\Programs\Python\Python312\Lib\multiprocessi
+ng\process.py", line 314, in _bootstrap
+    self.run()
+  File "C:\github\saltyboyC\applications\bot\src\run.py", line 307, in run
+  File "C:\Users\diego\AppData\Local\Programs\Python\Python312\Lib\multiprocessi
+ng\process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+Traceback (most recent call last):
+  File "C:\github\saltyboyC\applications\bot\src\app_logging.py", line 45, in ru
+n_listener
+    sleep(1)
+    watchdog_log_attenuator = 0
+  File "C:\Users\diego\AppData\Local\Programs\Python\Python312\Lib\multiprocessi
+ng\process.py", line 314, in _bootstrap
+    self.run()
+KeyboardInterrupt
+^^^^^^^^^^^^^^
+  File "C:\github\saltyboyC\applications\bot\src\run.py", line 144, in run
+    # ------------------------------------
+KeyboardInterrupt
+  File "C:\github\saltyboyC\applications\bot\src\irc.py", line 110, in listen
+    time.sleep(5)
+KeyboardInterrupt
+^C
+diego@DESKTOP-ATMQK14 MINGW64 /c/github/saltyboyC/applications/bot (main)
+$ poetry run python main.py
+2025-12-07 00:38:20,685 Process-1 - INFO - root [app_logging.py:38] - Log level
+set to: INFO
+2025-12-07 00:38:11,527 MainProcess - INFO - watchdog [run.py:256] - Running bot
+ watchdog
+2025-12-07 00:38:20,681 BotProcess-2 - INFO - bot [run.py:110] - Bot started
+2025-12-07 00:38:23,545 BotProcess-2 - INFO - src.salty_client [salty_client.py:
+41] - Successfully logged into SaltyBet.
+2025-12-07 00:38:23,545 BotProcess-2 - INFO - bot [run.py:125] - Headless Bettin
+g: ENABLED (Logged in)
+2025-12-07 00:38:24,256 BotProcess-2 - INFO - bot [irc.py:185] - Authenticating
+as katzuya3
+Training AI Model on current database...
+Not enough data to train (35 matches). Using defaults.
+2025-12-07 00:38:24,725 BotProcess-2 - INFO - bot [irc.py:190] - :tmi.twitch.tv
+001 katzuya3 :Welcome, GLHF!
+2025-12-07 00:38:24,725 BotProcess-2 - INFO - bot [irc.py:192] - Authenticated s
+uccessfully!
+2025-12-07 00:38:24,725 BotProcess-2 - INFO - bot [irc.py:64] - Joining channel
+saltybet...
+2025-12-07 00:38:24,947 BotProcess-2 - INFO - bot [irc.py:70] - :katzuya3!katzuy
+a3@katzuya3.tmi.twitch.tv JOIN #saltybet
+2025-12-07 00:38:24,947 BotProcess-2 - INFO - bot [irc.py:70] - :katzuya3.tmi.tw
+itch.tv 353 katzuya3 = #saltybet :katzuya3
+2025-12-07 00:38:24,947 BotProcess-2 - INFO - bot [irc.py:70] - :katzuya3.tmi.tw
+itch.tv 366 katzuya3 #saltybet :End of /NAMES list
+2025-12-07 00:38:24,947 BotProcess-2 - INFO - bot [irc.py:72] - Joined successfu
+lly!
+2025-12-07 00:38:24,947 BotProcess-2 - INFO - bot [run.py:136] - Initializing AI
+ Brain...
+2025-12-07 00:38:25,062 BotProcess-2 - INFO - bot [run.py:141] - Not enough data
+ yet. Using default weights.
+2025-12-07 00:41:24,312 BotProcess-2 - INFO - bot [run.py:160] - New match. Ciel
+ kagura VS. Albus. Tier: S. Format: matchmaking.
+2025-12-07 00:41:40,312 BotProcess-2 - INFO - bot [run.py:187] - Placing bet: $1
+ on red
+2025-12-07 00:41:40,660 BotProcess-2 - INFO - src.salty_client [salty_client.py:
+72] - BET PLACED: $1 on RED
+2025-12-07 00:42:14,358 BotProcess-2 - INFO - bot [run.py:210] - Bets locked. Re
+d: $2,654,286. Blue: $2,319,663.
+2025-12-07 00:42:14,358 BotProcess-2 - INFO - bot [run.py:218] - Back-filling hi
+storical data...
+2025-12-07 00:42:16,206 BotProcess-2 - ERROR - bot [run.py:244] - Error in main
+loop: (psycopg2.errors.ForeignKeyViolation) insert or update on table "match" vi
+olates foreign key constraint "match_fighter_red_fkey"
+DETAIL:  Key (fighter_red)=(6415) is not present in table "fighter".
+
+[SQL: INSERT INTO match (id, fighter_red, fighter_blue, winner, match_format, ti
+er, date, streak_red, streak_blue, bet_red, bet_blue, colour) VALUES (%(id__0)s,
+ %(fighter_red__0)s, %(fighter_blue__0)s, %(winner__0)s, %(match_format__0)s, %(
+tier__0)s, %(dat ... 84277 characters truncated ... )s, %(streak_red__377)s, %(s
+treak_blue__377)s, %(bet_red__377)s, %(bet_blue__377)s, %(colour__377)s)]
+[parameters: {'streak_blue__0': -7, 'id__0': 238341, 'match_format__0': 'matchma
+king', 'colour__0': 'Red', 'winner__0': 6415, 'fighter_red__0': 6415, 'fighter_b
+lue__0': 328, 'tier__0': 'S', 'bet_red__0': 715821, 'bet_blue__0': 4717376, 'dat
+e__0': datetime.datetime(2023, 11, 30, 18, 34, 8, 974039, tzinfo=datetime.timezo
+ne.utc), 'streak_red__0': -2, 'streak_blue__1': 1, 'id__1': 243048, 'match_forma
+t__1': 'matchmaking', 'colour__1': 'Blue', 'winner__1': 6415, 'fighter_red__1':
+340, 'fighter_blue__1': 6415, 'tier__1': 'S', 'bet_red__1': 4740842, 'bet_blue__
+1': 1795860, 'date__1': datetime.datetime(2023, 12, 13, 19, 48, 11, 886210, tzin
+fo=datetime.timezone.utc), 'streak_red__1': 3, 'streak_blue__2': -4, 'id__2': 24
+7672, 'match_format__2': 'matchmaking', 'colour__2': 'Blue', 'winner__2': 6454,
+'fighter_red__2': 6415, 'fighter_blue__2': 6454, 'tier__2': 'S', 'bet_red__2': 1
+873460, 'bet_blue__2': 2300690, 'date__2': datetime.datetime(2023, 12, 25, 17, 4
+1, 51, 106274, tzinfo=datetime.timezone.utc), 'streak_red__2': 2, 'streak_blue__
+3': -1, 'id__3': 262642, 'match_format__3': 'matchmaking', 'colour__3': 'Red', '
+winner__3': 2435, 'fighter_red__3': 2435, 'fighter_blue__3': 6415, 'tier__3': 'S
+', 'bet_red__3': 6387338, 'bet_blue__3': 1129091, 'date__3': datetime.datetime(2
+024, 1, 31, 12, 4, 4, 659636, tzinfo=datetime.timezone.utc), 'streak_red__3': -1
+, 'streak_blue__4': -1, 'id__4': 262806 ... 4436 parameters truncated ... 'date_
+_373': datetime.datetime(2023, 10, 13, 14, 18, 48, 828340, tzinfo=datetime.timez
+one.utc), 'streak_red__373': -6, 'streak_blue__374': -7, 'id__374': 221180, 'mat
+ch_format__374': 'matchmaking', 'colour__374': 'Red', 'winner__374': 4815, 'figh
+ter_red__374': 4815, 'fighter_blue__374': 320, 'tier__374': 'S', 'bet_red__374':
+ 3013098, 'bet_blue__374': 1475441, 'date__374': datetime.datetime(2023, 10, 16,
+ 9, 8, 27, 189052, tzinfo=datetime.timezone.utc), 'streak_red__374': -1, 'streak
+_blue__375': -9, 'id__375': 224213, 'match_format__375': 'tournament', 'colour__
+375': 'Red', 'winner__375': 1011, 'fighter_red__375': 1011, 'fighter_blue__375':
+ 320, 'tier__375': 'S', 'bet_red__375': 430191, 'bet_blue__375': 97667, 'date__3
+75': datetime.datetime(2023, 10, 25, 4, 50, 58, 835370, tzinfo=datetime.timezone
+.utc), 'streak_red__375': 3, 'streak_blue__376': -10, 'id__376': 225182, 'match_
+format__376': 'matchmaking', 'colour__376': 'Red', 'winner__376': 2906, 'fighter
+_red__376': 2906, 'fighter_blue__376': 320, 'tier__376': 'S', 'bet_red__376': 67
+42947, 'bet_blue__376': 901106, 'date__376': datetime.datetime(2023, 10, 27, 12,
+ 37, 48, 336381, tzinfo=datetime.timezone.utc), 'streak_red__376': -1, 'streak_b
+lue__377': -11, 'id__377': 228537, 'match_format__377': 'matchmaking', 'colour__
+377': 'Red', 'winner__377': 5756, 'fighter_red__377': 5756, 'fighter_blue__377':
+ 320, 'tier__377': 'S', 'bet_red__377': 11077789, 'bet_blue__377': 1610833, 'dat
+e__377': datetime.datetime(2023, 11, 5, 18, 5, 4, 168809, tzinfo=datetime.timezo
+ne.utc), 'streak_red__377': 2}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-12-07 00:43:06,302 BotProcess-2 - INFO - bot [irc.py:89] - Received a PING,
+ sending PONG.
+2025-12-07 00:43:11,659 MainProcess - INFO - watchdog [run.py:309] - Services he
+althy.
+2025-12-07 00:44:36,490 BotProcess-2 - INFO - bot [run.py:229] - Winner: Ciel ka
+gura.
+2025-12-07 00:44:44,463 BotProcess-2 - INFO - bot [run.py:160] - New match. Heih
+achi mishima VS. Totoro. Tier: P. Format: matchmaking.
+2025-12-07 00:44:46,470 BotProcess-2 - INFO - bot [run.py:187] - Placing bet: $1
+ on red
+2025-12-07 00:44:46,804 BotProcess-2 - INFO - src.salty_client [salty_client.py:
+72] - BET PLACED: $1 on RED
+2025-12-07 00:45:36,912 BotProcess-2 - INFO - bot [run.py:210] - Bets locked. Re
+d: $1,620,257. Blue: $4,285,107.
+2025-12-07 00:45:36,912 BotProcess-2 - INFO - bot [run.py:218] - Back-filling hi
+storical data...
+2025-12-07 00:45:37,034 BotProcess-2 - ERROR - bot [run.py:244] - Error in main
+loop: (psycopg2.errors.ForeignKeyViolation) insert or update on table "match" vi
+olates foreign key constraint "match_fighter_red_fkey"
+DETAIL:  Key (fighter_red)=(8541) is not present in table "fighter".
+
+[SQL: INSERT INTO match (id, fighter_red, fighter_blue, winner, match_format, ti
+er, date, streak_red, streak_blue, bet_red, bet_blue, colour) VALUES (%(id__0)s,
+ %(fighter_red__0)s, %(fighter_blue__0)s, %(winner__0)s, %(match_format__0)s, %(
+tier__0)s, %(dat ... 3541 characters truncated ... e__17)s, %(streak_red__17)s,
+%(streak_blue__17)s, %(bet_red__17)s, %(bet_blue__17)s, %(colour__17)s)]
+[parameters: {'streak_blue__0': 1, 'id__0': 469788, 'match_format__0': 'matchmak
+ing', 'colour__0': 'Blue', 'winner__0': 7931, 'fighter_red__0': 8541, 'fighter_b
+lue__0': 7931, 'tier__0': 'P', 'bet_red__0': 1181033, 'bet_blue__0': 3657958, 'd
+ate__0': datetime.datetime(2025, 6, 14, 18, 2, 3, 264817, tzinfo=datetime.timezo
+ne.utc), 'streak_red__0': -18, 'streak_blue__1': 1, 'id__1': 225439, 'match_form
+at__1': 'matchmaking', 'colour__1': 'Blue', 'winner__1': 8718, 'fighter_red__1':
+ 7931, 'fighter_blue__1': 8718, 'tier__1': 'P', 'bet_red__1': 1862011, 'bet_blue
+__1': 3612546, 'date__1': datetime.datetime(2023, 10, 28, 3, 10, 34, 456040, tzi
+nfo=datetime.timezone.utc), 'streak_red__1': -1, 'streak_blue__2': 1, 'id__2': 3
+63762, 'match_format__2': 'matchmaking', 'colour__2': 'Red', 'winner__2': 10175,
+ 'fighter_red__2': 10175, 'fighter_blue__2': 7931, 'tier__2': 'P', 'bet_red__2':
+ 2795157, 'bet_blue__2': 656325, 'date__2': datetime.datetime(2024, 10, 8, 8, 20
+, 44, 410628, tzinfo=datetime.timezone.utc), 'streak_red__2': 11, 'streak_blue__
+3': -2, 'id__3': 318829, 'match_format__3': 'matchmaking', 'colour__3': 'Red', '
+winner__3': 7931, 'fighter_red__3': 7931, 'fighter_blue__3': 8724, 'tier__3': 'P
+', 'bet_red__3': 1399280, 'bet_blue__3': 1529657, 'date__3': datetime.datetime(2
+024, 6, 21, 9, 10, 16, 379333, tzinfo=datetime.timezone.utc), 'streak_red__3': -
+2, 'streak_blue__4': -1, 'id__4': 439698 ... 116 parameters truncated ... 'date_
+_13': datetime.datetime(2025, 1, 8, 22, 10, 3, 627601, tzinfo=datetime.timezone.
+utc), 'streak_red__13': 2, 'streak_blue__14': -1, 'id__14': 443299, 'match_forma
+t__14': 'matchmaking', 'colour__14': 'Blue', 'winner__14': 1924, 'fighter_red__1
+4': 4604, 'fighter_blue__14': 1924, 'tier__14': 'P', 'bet_red__14': 1864834, 'be
+t_blue__14': 3324804, 'date__14': datetime.datetime(2025, 4, 12, 6, 20, 8, 87423
+8, tzinfo=datetime.timezone.utc), 'streak_red__14': -2, 'streak_blue__15': 0, 'i
+d__15': 486041, 'match_format__15': 'matchmaking', 'colour__15': 'Blue', 'winner
+__15': 3197, 'fighter_red__15': 4604, 'fighter_blue__15': 3197, 'tier__15': 'P',
+ 'bet_red__15': 5185526, 'bet_blue__15': 2219383, 'date__15': datetime.datetime(
+2025, 7, 26, 2, 38, 56, 654748, tzinfo=datetime.timezone.utc), 'streak_red__15':
+ -3, 'streak_blue__16': -5, 'id__16': 35966, 'match_format__16': 'tournament', '
+colour__16': 'Red', 'winner__16': 4604, 'fighter_red__16': 4604, 'fighter_blue__
+16': 4982, 'tier__16': 'P', 'bet_red__16': 623098, 'bet_blue__16': 229065, 'date
+__16': datetime.datetime(2022, 4, 1, 20, 37, 47, 309722, tzinfo=datetime.timezon
+e.utc), 'streak_red__16': -1, 'streak_blue__17': 1, 'id__17': 35973, 'match_form
+at__17': 'tournament', 'colour__17': 'Red', 'winner__17': 9020, 'fighter_red__17
+': 9020, 'fighter_blue__17': 4604, 'tier__17': 'P', 'bet_red__17': 895582, 'bet_
+blue__17': 735492, 'date__17': datetime.datetime(2022, 4, 1, 20, 57, 6, 339015,
+tzinfo=datetime.timezone.utc), 'streak_red__17': 5}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-12-07 00:47:04,586 BotProcess-2 - INFO - bot [run.py:229] - Winner: Totoro.
+2025-12-07 00:47:09,719 BotProcess-2 - INFO - bot [irc.py:89] - Received a PING,
+ sending PONG.
+2025-12-07 00:47:14,916 BotProcess-2 - INFO - bot [run.py:160] - New match. Z gu
+ndam VS. Rin natsume. Tier: S. Format: matchmaking.
+2025-12-07 00:47:29,364 BotProcess-2 - INFO - bot [run.py:187] - Placing bet: $1
+ on red
+2025-12-07 00:47:29,762 BotProcess-2 - INFO - src.salty_client [salty_client.py:
+72] - BET PLACED: $1 on RED
+2025-12-07 00:47:58,617 BotProcess-2 - INFO - bot [run.py:210] - Bets locked. Re
+d: $1,763,454. Blue: $3,147,194.
+2025-12-07 00:47:58,617 BotProcess-2 - INFO - bot [run.py:218] - Back-filling hi
+storical data...
+2025-12-07 00:48:00,694 BotProcess-2 - ERROR - bot [run.py:244] - Error in main
+loop: (psycopg2.errors.ForeignKeyViolation) insert or update on table "match" vi
+olates foreign key constraint "match_fighter_red_fkey"
+DETAIL:  Key (fighter_red)=(2363) is not present in table "fighter".
+
+[SQL: INSERT INTO match (id, fighter_red, fighter_blue, winner, match_format, ti
+er, date, streak_red, streak_blue, bet_red, bet_blue, colour) VALUES (%(id__0)s,
+ %(fighter_red__0)s, %(fighter_blue__0)s, %(winner__0)s, %(match_format__0)s, %(
+tier__0)s, %(dat ... 78602 characters truncated ... )s, %(streak_red__352)s, %(s
+treak_blue__352)s, %(bet_red__352)s, %(bet_blue__352)s, %(colour__352)s)]
+[parameters: {'streak_blue__0': -1, 'id__0': 431622, 'match_format__0': 'matchma
+king', 'colour__0': 'Red', 'winner__0': 2363, 'fighter_red__0': 2363, 'fighter_b
+lue__0': 1579, 'tier__0': 'S', 'bet_red__0': 7218838, 'bet_blue__0': 6401975, 'd
+ate__0': datetime.datetime(2025, 3, 16, 3, 41, 35, 786610, tzinfo=datetime.timez
+one.utc), 'streak_red__0': -10, 'streak_blue__1': 1, 'id__1': 433483, 'match_for
+mat__1': 'matchmaking', 'colour__1': 'Red', 'winner__1': 2025, 'fighter_red__1':
+ 2025, 'fighter_blue__1': 2363, 'tier__1': 'S', 'bet_red__1': 3334230, 'bet_blue
+__1': 2566882, 'date__1': datetime.datetime(2025, 3, 20, 10, 56, 47, 241967, tzi
+nfo=datetime.timezone.utc), 'streak_red__1': 2, 'streak_blue__2': -1, 'id__2': 4
+35566, 'match_format__2': 'matchmaking', 'colour__2': 'Blue', 'winner__2': 4017,
+ 'fighter_red__2': 2363, 'fighter_blue__2': 4017, 'tier__2': 'S', 'bet_red__2':
+2232822, 'bet_blue__2': 2730870, 'date__2': datetime.datetime(2025, 3, 25, 7, 40
+, 46, 360961, tzinfo=datetime.timezone.utc), 'streak_red__2': -1, 'streak_blue__
+3': 1, 'id__3': 437302, 'match_format__3': 'matchmaking', 'colour__3': 'Red', 'w
+inner__3': 2363, 'fighter_red__3': 2363, 'fighter_blue__3': 1425, 'tier__3': 'S'
+, 'bet_red__3': 1600948, 'bet_blue__3': 2325879, 'date__3': datetime.datetime(20
+25, 3, 29, 7, 5, 27, 737463, tzinfo=datetime.timezone.utc), 'streak_red__3': -2,
+ 'streak_blue__4': 1, 'id__4': 437488 ... 4136 parameters truncated ... 'date__3
+48': datetime.datetime(2024, 12, 16, 6, 7, 8, 581175, tzinfo=datetime.timezone.u
+tc), 'streak_red__348': -6, 'streak_blue__349': -7, 'id__349': 396873, 'match_fo
+rmat__349': 'tournament', 'colour__349': 'Red', 'winner__349': 61, 'fighter_red_
+_349': 61, 'fighter_blue__349': 4606, 'tier__349': 'S', 'bet_red__349': 179308,
+'bet_blue__349': 131961, 'date__349': datetime.datetime(2024, 12, 23, 0, 18, 57,
+ 80552, tzinfo=datetime.timezone.utc), 'streak_red__349': -5, 'streak_blue__350'
+: -8, 'id__350': 400389, 'match_format__350': 'matchmaking', 'colour__350': 'Red
+', 'winner__350': 5338, 'fighter_red__350': 5338, 'fighter_blue__350': 4606, 'ti
+er__350': 'S', 'bet_red__350': 8357178, 'bet_blue__350': 1966686, 'date__350': d
+atetime.datetime(2024, 12, 31, 8, 56, 40, 63380, tzinfo=datetime.timezone.utc),
+'streak_red__350': 1, 'streak_blue__351': -1, 'id__351': 401918, 'match_format__
+351': 'matchmaking', 'colour__351': 'Blue', 'winner__351': 3160, 'fighter_red__3
+51': 4606, 'fighter_blue__351': 3160, 'tier__351': 'S', 'bet_red__351': 2634603,
+ 'bet_blue__351': 4109591, 'date__351': datetime.datetime(2025, 1, 4, 4, 20, 18,
+ 602864, tzinfo=datetime.timezone.utc), 'streak_red__351': -9, 'streak_blue__352
+': 1, 'id__352': 403178, 'match_format__352': 'matchmaking', 'colour__352': 'Blu
+e', 'winner__352': 1262, 'fighter_red__352': 4606, 'fighter_blue__352': 1262, 't
+ier__352': 'S', 'bet_red__352': 2248174, 'bet_blue__352': 3230912, 'date__352':
+datetime.datetime(2025, 1, 7, 6, 58, 44, 880198, tzinfo=datetime.timezone.utc),
+'streak_red__352': -10}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-12-07 00:48:11,682 MainProcess - INFO - watchdog [run.py:309] - Services he
+althy.
+2025-12-07 00:49:49,704 BotProcess-2 - INFO - bot [run.py:229] - Winner: Rin nat
+sume.
+2025-12-07 00:49:54,807 BotProcess-2 - INFO - bot [run.py:160] - New match. Bubb
+les VS. V.akiha. Tier: P. Format: matchmaking.
+2025-12-07 00:49:56,936 BotProcess-2 - INFO - bot [run.py:187] - Placing bet: $1
+ on red
+2025-12-07 00:49:57,285 BotProcess-2 - INFO - src.salty_client [salty_client.py:
+72] - BET PLACED: $1 on RED
+2025-12-07 00:50:47,394 BotProcess-2 - INFO - bot [run.py:210] - Bets locked. Re
+d: $2,355,891. Blue: $1,832,543.
+2025-12-07 00:50:47,394 BotProcess-2 - INFO - bot [run.py:218] - Back-filling hi
+storical data...
+2025-12-07 00:50:47,526 BotProcess-2 - ERROR - bot [run.py:244] - Error in main
+loop: (psycopg2.errors.ForeignKeyViolation) insert or update on table "match" vi
+olates foreign key constraint "match_fighter_red_fkey"
+DETAIL:  Key (fighter_red)=(9820) is not present in table "fighter".
+
+[SQL: INSERT INTO match (id, fighter_red, fighter_blue, winner, match_format, ti
+er, date, streak_red, streak_blue, bet_red, bet_blue, colour) VALUES (%(id__0)s,
+ %(fighter_red__0)s, %(fighter_blue__0)s, %(winner__0)s, %(match_format__0)s, %(
+tier__0)s, %(dat ... 5691 characters truncated ... e__27)s, %(streak_red__27)s,
+%(streak_blue__27)s, %(bet_red__27)s, %(bet_blue__27)s, %(colour__27)s)]
+[parameters: {'streak_blue__0': 5, 'id__0': 410290, 'match_format__0': 'matchmak
+ing', 'colour__0': 'Blue', 'winner__0': 9243, 'fighter_red__0': 9820, 'fighter_b
+lue__0': 9243, 'tier__0': 'P', 'bet_red__0': 1816207, 'bet_blue__0': 3584658, 'd
+ate__0': datetime.datetime(2025, 1, 24, 9, 42, 18, 253943, tzinfo=datetime.timez
+one.utc), 'streak_red__0': 1, 'streak_blue__1': -1, 'id__1': 418533, 'match_form
+at__1': 'matchmaking', 'colour__1': 'Red', 'winner__1': 9243, 'fighter_red__1':
+9243, 'fighter_blue__1': 9813, 'tier__1': 'P', 'bet_red__1': 4069657, 'bet_blue_
+_1': 1101778, 'date__1': datetime.datetime(2025, 2, 12, 17, 38, 4, 574925, tzinf
+o=datetime.timezone.utc), 'streak_red__1': 6, 'streak_blue__2': -1, 'id__2': 126
+651, 'match_format__2': 'matchmaking', 'colour__2': 'Red', 'winner__2': 9243, 'f
+ighter_red__2': 9243, 'fighter_blue__2': 8591, 'tier__2': 'P', 'bet_red__2': 326
+2004, 'bet_blue__2': 2093475, 'date__2': datetime.datetime(2022, 12, 30, 6, 42,
+54, 911008, tzinfo=datetime.timezone.utc), 'streak_red__2': 6, 'streak_blue__3':
+ -1, 'id__3': 187084, 'match_format__3': 'matchmaking', 'colour__3': 'Blue', 'wi
+nner__3': 9243, 'fighter_red__3': 10191, 'fighter_blue__3': 9243, 'tier__3': 'P'
+, 'bet_red__3': 781615, 'bet_blue__3': 5593344, 'date__3': datetime.datetime(202
+3, 7, 14, 20, 58, 48, 156607, tzinfo=datetime.timezone.utc), 'streak_red__3': -5
+, 'streak_blue__4': -1, 'id__4': 213939 ... 236 parameters truncated ... 'date__
+23': datetime.datetime(2022, 1, 21, 20, 14, 45, 856080, tzinfo=datetime.timezone
+.utc), 'streak_red__23': -1, 'streak_blue__24': -2, 'id__24': 81410, 'match_form
+at__24': 'matchmaking', 'colour__24': 'Blue', 'winner__24': 7700, 'fighter_red__
+24': 6654, 'fighter_blue__24': 7700, 'tier__24': 'P', 'bet_red__24': 1292584, 'b
+et_blue__24': 4818144, 'date__24': datetime.datetime(2022, 7, 30, 14, 0, 48, 159
+34, tzinfo=datetime.timezone.utc), 'streak_red__24': -5, 'streak_blue__25': -1,
+'id__25': 139392, 'match_format__25': 'matchmaking', 'colour__25': 'Blue', 'winn
+er__25': 7700, 'fighter_red__25': 9989, 'fighter_blue__25': 7700, 'tier__25': 'P
+', 'bet_red__25': 814411, 'bet_blue__25': 2024578, 'date__25': datetime.datetime
+(2023, 2, 16, 14, 14, 54, 826081, tzinfo=datetime.timezone.utc), 'streak_red__25
+': -3, 'streak_blue__26': 6, 'id__26': 286831, 'match_format__26': 'matchmaking'
+, 'colour__26': 'Red', 'winner__26': 7700, 'fighter_red__26': 7700, 'fighter_blu
+e__26': 5195, 'tier__26': 'P', 'bet_red__26': 1633543, 'bet_blue__26': 2079488,
+'date__26': datetime.datetime(2024, 4, 1, 18, 13, 18, 224787, tzinfo=datetime.ti
+mezone.utc), 'streak_red__26': -1, 'streak_blue__27': 1, 'id__27': 359870, 'matc
+h_format__27': 'matchmaking', 'colour__27': 'Blue', 'winner__27': 7700, 'fighter
+_red__27': 9562, 'fighter_blue__27': 7700, 'tier__27': 'P', 'bet_red__27': 17240
+04, 'bet_blue__27': 2480893, 'date__27': datetime.datetime(2024, 9, 29, 8, 23, 3
+0, 348915, tzinfo=datetime.timezone.utc), 'streak_red__27': 1}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-12-07 00:51:40,130 BotProcess-2 - INFO - bot [irc.py:89] - Received a PING,
+ sending PONG.
+2025-12-07 00:52:48,801 BotProcess-2 - INFO - bot [run.py:229] - Winner: V.akiha
+.
+2025-12-07 00:52:54,821 BotProcess-2 - INFO - bot [run.py:160] - New match. Viol
+ent gunter VS. Saiki kof. Tier: S. Format: matchmaking.
+2025-12-07 00:52:57,289 BotProcess-2 - INFO - bot [run.py:187] - Placing bet: $1
+ on red
+2025-12-07 00:52:57,493 BotProcess-2 - INFO - src.salty_client [salty_client.py:
+72] - BET PLACED: $1 on RED
+2025-12-07 00:53:11,705 MainProcess - INFO - watchdog [run.py:309] - Services he
+althy.
+2025-12-07 00:53:48,861 BotProcess-2 - INFO - bot [run.py:210] - Bets locked. Re
+d: $1,671,392. Blue: $3,130,714.
+2025-12-07 00:53:48,861 BotProcess-2 - INFO - bot [run.py:218] - Back-filling hi
+storical data...
+2025-12-07 00:53:50,424 BotProcess-2 - ERROR - bot [run.py:244] - Error in main
+loop: (psycopg2.errors.ForeignKeyViolation) insert or update on table "match" vi
+olates foreign key constraint "match_fighter_red_fkey"
+DETAIL:  Key (fighter_red)=(4921) is not present in table "fighter".
+
+[SQL: INSERT INTO match (id, fighter_red, fighter_blue, winner, match_format, ti
+er, date, streak_red, streak_blue, bet_red, bet_blue, colour) VALUES (%(id__0)s,
+ %(fighter_red__0)s, %(fighter_blue__0)s, %(winner__0)s, %(match_format__0)s, %(
+tier__0)s, %(dat ... 74062 characters truncated ... )s, %(streak_red__332)s, %(s
+treak_blue__332)s, %(bet_red__332)s, %(bet_blue__332)s, %(colour__332)s)]
+[parameters: {'streak_blue__0': 4, 'id__0': 64862, 'match_format__0': 'matchmaki
+ng', 'colour__0': 'Blue', 'winner__0': 3641, 'fighter_red__0': 4921, 'fighter_bl
+ue__0': 3641, 'tier__0': 'S', 'bet_red__0': 2788160, 'bet_blue__0': 14023364, 'd
+ate__0': datetime.datetime(2022, 6, 19, 13, 21, 11, 462833, tzinfo=datetime.time
+zone.utc), 'streak_red__0': -1, 'streak_blue__1': -2, 'id__1': 66571, 'match_for
+mat__1': 'matchmaking', 'colour__1': 'Red', 'winner__1': 157, 'fighter_red__1':
+157, 'fighter_blue__1': 4921, 'tier__1': 'S', 'bet_red__1': 58265500, 'bet_blue_
+_1': 74334617, 'date__1': datetime.datetime(2022, 6, 23, 18, 5, 26, 403663, tzin
+fo=datetime.timezone.utc), 'streak_red__1': -1, 'streak_blue__2': 1, 'id__2': 66
+745, 'match_format__2': 'tournament', 'colour__2': 'Blue', 'winner__2': 3793, 'f
+ighter_red__2': 4921, 'fighter_blue__2': 3793, 'tier__2': 'S', 'bet_red__2': 321
+027, 'bet_blue__2': 784864, 'date__2': datetime.datetime(2022, 6, 24, 3, 59, 2,
+46528, tzinfo=datetime.timezone.utc), 'streak_red__2': -3, 'streak_blue__3': -2,
+ 'id__3': 76519, 'match_format__3': 'matchmaking', 'colour__3': 'Blue', 'winner_
+_3': 2912, 'fighter_red__3': 4921, 'fighter_blue__3': 2912, 'tier__3': 'S', 'bet
+_red__3': 3410012, 'bet_blue__3': 103921348, 'date__3': datetime.datetime(2022,
+7, 17, 23, 16, 52, 46562, tzinfo=datetime.timezone.utc), 'streak_red__3': -4, 's
+treak_blue__4': -1, 'id__4': 78216 ... 3896 parameters truncated ... 'date__328'
+: datetime.datetime(2025, 12, 2, 2, 25, 50, 226873, tzinfo=datetime.timezone.utc
+), 'streak_red__328': -1, 'streak_blue__329': -1, 'id__329': 538953, 'match_form
+at__329': 'matchmaking', 'colour__329': 'Red', 'winner__329': 353, 'fighter_red_
+_329': 353, 'fighter_blue__329': 1755, 'tier__329': 'S', 'bet_red__329': 2470155
+, 'bet_blue__329': 828384, 'date__329': datetime.datetime(2025, 12, 2, 14, 8, 5,
+ 766820, tzinfo=datetime.timezone.utc), 'streak_red__329': -2, 'streak_blue__330
+': -3, 'id__330': 191, 'match_format__330': 'matchmaking', 'colour__330': 'Blue'
+, 'winner__330': 353, 'fighter_red__330': 352, 'fighter_blue__330': 353, 'tier__
+330': 'S', 'bet_red__330': 4971180, 'bet_blue__330': 9399424, 'date__330': datet
+ime.datetime(2021, 12, 20, 8, 24, 12, 903645, tzinfo=datetime.timezone.utc), 'st
+reak_red__330': 1, 'streak_blue__331': 1, 'id__331': 3850, 'match_format__331':
+'matchmaking', 'colour__331': 'Blue', 'winner__331': 353, 'fighter_red__331': 14
+4, 'fighter_blue__331': 353, 'tier__331': 'S', 'bet_red__331': 10140114, 'bet_bl
+ue__331': 11044040, 'date__331': datetime.datetime(2021, 12, 29, 7, 39, 7, 47189
+9, tzinfo=datetime.timezone.utc), 'streak_red__331': -1, 'streak_blue__332': 2,
+'id__332': 7729, 'match_format__332': 'matchmaking', 'colour__332': 'Red', 'winn
+er__332': 2866, 'fighter_red__332': 2866, 'fighter_blue__332': 353, 'tier__332':
+ 'S', 'bet_red__332': 5860765, 'bet_blue__332': 16004540, 'date__332': datetime.
+datetime(2022, 1, 7, 22, 51, 17, 575130, tzinfo=datetime.timezone.utc), 'streak_
+red__332': -2}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-12-07 00:55:40,932 BotProcess-2 - INFO - bot [run.py:229] - Winner: Violent
+ gunter.
+2025-12-07 00:55:50,946 BotProcess-2 - INFO - bot [run.py:160] - New match. Jin
+kisaragi VS. Sakai yuuji. Tier: B. Format: matchmaking.
+2025-12-07 00:55:57,216 BotProcess-2 - INFO - bot [run.py:187] - Placing bet: $1
+ on red
+2025-12-07 00:55:57,569 BotProcess-2 - INFO - src.salty_client [salty_client.py:
+72] - BET PLACED: $1 on RED
+2025-12-07 00:56:02,602 BotProcess-2 - INFO - bot [irc.py:89] - Received a PING,
+ sending PONG.
+2025-12-07 00:56:40,995 BotProcess-2 - INFO - bot [run.py:210] - Bets locked. Re
+d: $2,492,809. Blue: $2,171,068.
+2025-12-07 00:56:40,995 BotProcess-2 - INFO - bot [run.py:218] - Back-filling hi
+storical data...
+2025-12-07 00:56:42,213 BotProcess-2 - ERROR - bot [run.py:244] - Error in main
+loop: (psycopg2.errors.ForeignKeyViolation) insert or update on table "match" vi
+olates foreign key constraint "match_fighter_red_fkey"
+DETAIL:  Key (fighter_red)=(2439) is not present in table "fighter".
+
+[SQL: INSERT INTO match (id, fighter_red, fighter_blue, winner, match_format, ti
+er, date, streak_red, streak_blue, bet_red, bet_blue, colour) VALUES (%(id__0)s,
+ %(fighter_red__0)s, %(fighter_blue__0)s, %(winner__0)s, %(match_format__0)s, %(
+tier__0)s, %(dat ... 42736 characters truncated ... )s, %(streak_red__194)s, %(s
+treak_blue__194)s, %(bet_red__194)s, %(bet_blue__194)s, %(colour__194)s)]
+[parameters: {'streak_blue__0': 1, 'id__0': 240426, 'match_format__0': 'matchmak
+ing', 'colour__0': 'Blue', 'winner__0': 4778, 'fighter_red__0': 2439, 'fighter_b
+lue__0': 4778, 'tier__0': 'B', 'bet_red__0': 2016027, 'bet_blue__0': 2848576, 'd
+ate__0': datetime.datetime(2023, 12, 7, 2, 18, 37, 362495, tzinfo=datetime.timez
+one.utc), 'streak_red__0': 1, 'streak_blue__1': 2, 'id__1': 245175, 'match_forma
+t__1': 'matchmaking', 'colour__1': 'Blue', 'winner__1': 4778, 'fighter_red__1':
+4455, 'fighter_blue__1': 4778, 'tier__1': 'B', 'bet_red__1': 2036089, 'bet_blue_
+_1': 1623611, 'date__1': datetime.datetime(2023, 12, 19, 20, 46, 15, 787763, tzi
+nfo=datetime.timezone.utc), 'streak_red__1': 1, 'streak_blue__2': 3, 'id__2': 24
+8543, 'match_format__2': 'matchmaking', 'colour__2': 'Red', 'winner__2': 7818, '
+fighter_red__2': 7818, 'fighter_blue__2': 4778, 'tier__2': 'B', 'bet_red__2': 51
+89486, 'bet_blue__2': 1776771, 'date__2': datetime.datetime(2023, 12, 27, 20, 26
+, 20, 66297, tzinfo=datetime.timezone.utc), 'streak_red__2': -1, 'streak_blue__3
+': -2, 'id__3': 261868, 'match_format__3': 'matchmaking', 'colour__3': 'Red', 'w
+inner__3': 4778, 'fighter_red__3': 4778, 'fighter_blue__3': 1966, 'tier__3': 'B'
+, 'bet_red__3': 2790263, 'bet_blue__3': 1967258, 'date__3': datetime.datetime(20
+24, 1, 29, 14, 16, 32, 751806, tzinfo=datetime.timezone.utc), 'streak_red__3': -
+2, 'streak_blue__4': 1, 'id__4': 267436 ... 2240 parameters truncated ... 'date_
+_190': datetime.datetime(2025, 8, 16, 11, 32, 57, 139486, tzinfo=datetime.timezo
+ne.utc), 'streak_red__190': 1, 'streak_blue__191': 4, 'id__191': 509452, 'match_
+format__191': 'matchmaking', 'colour__191': 'Red', 'winner__191': 4801, 'fighter
+_red__191': 4801, 'fighter_blue__191': 6178, 'tier__191': 'B', 'bet_red__191': 3
+237412, 'bet_blue__191': 1148072, 'date__191': datetime.datetime(2025, 9, 22, 23
+, 38, 53, 983062, tzinfo=datetime.timezone.utc), 'streak_red__191': -1, 'streak_
+blue__192': -5, 'id__192': 27414, 'match_format__192': 'matchmaking', 'colour__1
+92': 'Red', 'winner__192': 4801, 'fighter_red__192': 4801, 'fighter_blue__192':
+4363, 'tier__192': 'B', 'bet_red__192': 9921361, 'bet_blue__192': 4643582, 'date
+__192': datetime.datetime(2022, 3, 3, 19, 53, 11, 841965, tzinfo=datetime.timezo
+ne.utc), 'streak_red__192': 1, 'streak_blue__193': 1, 'id__193': 37674, 'match_f
+ormat__193': 'matchmaking', 'colour__193': 'Blue', 'winner__193': 4740, 'fighter
+_red__193': 4801, 'fighter_blue__193': 4740, 'tier__193': 'B', 'bet_red__193': 4
+096602, 'bet_blue__193': 25608294, 'date__193': datetime.datetime(2022, 4, 6, 1,
+ 26, 48, 23619, tzinfo=datetime.timezone.utc), 'streak_red__193': 5, 'streak_blu
+e__194': -1, 'id__194': 39878, 'match_format__194': 'matchmaking', 'colour__194'
+: 'Blue', 'winner__194': 4801, 'fighter_red__194': 6392, 'fighter_blue__194': 48
+01, 'tier__194': 'B', 'bet_red__194': 11963722, 'bet_blue__194': 5402819, 'date_
+_194': datetime.datetime(2022, 4, 11, 14, 38, 43, 855830, tzinfo=datetime.timezo
+ne.utc), 'streak_red__194': -2}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+Process Process-1:
+Traceback (most recent call last):
+  File "C:\github\saltyboyC\applications\bot\main.py", line 50, in <module>
+Traceback (most recent call last):
+  File "C:\Users\diego\AppData\Local\Programs\Python\Python312\Lib\multiprocessi
+ng\process.py", line 314, in _bootstrap
+    self.run()
+    run(log_path)
+  File "C:\Users\diego\AppData\Local\Programs\Python\Python312\Lib\multiprocessi
+ng\process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\github\saltyboyC\applications\bot\src\run.py", line 304, in run
+  File "C:\github\saltyboyC\applications\bot\src\app_logging.py", line 45, in ru
+n_listener
+    sleep(1)
+KeyboardInterrupt
+    restart_bot = True
+^^^^^^^^^^
+KeyboardInterrupt
+^C
+diego@DESKTOP-ATMQK14 MINGW64 /c/github/saltyboyC/applications/bot (main)
+$ poetry run python main.py
+2025-12-07 00:57:37,364 Process-1 - INFO - root [app_logging.py:38] - Log level
+set to: INFO
+2025-12-07 00:57:28,828 MainProcess - INFO - watchdog [run.py:280] - Running bot
+ watchdog
+2025-12-07 00:57:37,301 BotProcess-2 - INFO - bot [run.py:148] - Bot started
+2025-12-07 00:57:40,144 BotProcess-2 - INFO - src.salty_client [salty_client.py:
+41] - Successfully logged into SaltyBet.
+2025-12-07 00:57:40,144 BotProcess-2 - INFO - bot [run.py:161] - Headless Bettin
+g: ENABLED (Logged in)
+2025-12-07 00:57:40,867 BotProcess-2 - INFO - bot [irc.py:185] - Authenticating
+as katzuya3
+2025-12-07 00:57:41,285 BotProcess-2 - INFO - bot [irc.py:190] - :tmi.twitch.tv
+001 katzuya3 :Welcome, GLHF!
+2025-12-07 00:57:41,285 BotProcess-2 - INFO - bot [irc.py:192] - Authenticated s
+uccessfully!
+2025-12-07 00:57:41,285 BotProcess-2 - INFO - bot [irc.py:64] - Joining channel
+saltybet...
+Training AI Model on current database...
+Not enough data to train (40 matches). Using defaults.
+2025-12-07 00:57:41,506 BotProcess-2 - INFO - bot [irc.py:70] - :katzuya3!katzuy
+a3@katzuya3.tmi.twitch.tv JOIN #saltybet
+2025-12-07 00:57:41,506 BotProcess-2 - INFO - bot [irc.py:70] -
+2025-12-07 00:57:41,506 BotProcess-2 - INFO - bot [irc.py:70] - :katzuya3.tmi.tw
+itch.tv 353 katzuya3 = #saltybet :katzuya3
+2025-12-07 00:57:41,513 BotProcess-2 - INFO - bot [irc.py:70] - :katzuya3.tmi.tw
+itch.tv 366 katzuya3 #saltybet :End of /NAMES list
+2025-12-07 00:57:41,513 BotProcess-2 - INFO - bot [irc.py:72] - Joined successfu
+lly!
+2025-12-07 00:57:41,513 BotProcess-2 - INFO - bot [run.py:170] - Initializing AI
+ Brain...
+2025-12-07 00:57:41,597 BotProcess-2 - INFO - bot [run.py:175] - Not enough data
+ yet. Using default weights.
+2025-12-07 00:58:26,088 BotProcess-2 - INFO - bot [run.py:190] - New match. Leon
+ard carlyle VS. Sakura svc chaos. Tier: S. Format: matchmaking.
+2025-12-07 00:58:28,212 BotProcess-2 - INFO - bot [run.py:215] - Placing bet: $1
+ on red
+2025-12-07 00:58:28,419 BotProcess-2 - INFO - src.salty_client [salty_client.py:
+72] - BET PLACED: $1 on RED
+2025-12-07 00:59:15,099 BotProcess-2 - INFO - bot [run.py:236] - Bets locked. Re
+d: $3,634,610. Blue: $1,549,453.
+2025-12-07 00:59:15,109 BotProcess-2 - INFO - bot [run.py:243] - Back-filling hi
+storical data...
+2025-12-07 00:59:15,161 BotProcess-2 - INFO - bot [run.py:71] - Created missing
+fighter: Jin kisaragi (4778)
+2025-12-07 00:59:16,094 BotProcess-2 - INFO - bot [run.py:71] - Created missing
+fighter: Sakai yuuji (4801)
+2025-12-07 00:59:16,845 BotProcess-2 - INFO - bot [run.py:249] - Back-filled 2 m
+atches.
+2025-12-07 01:00:45,179 BotProcess-2 - INFO - bot [run.py:255] - Winner: Leonard
+ carlyle.
+2025-12-07 01:00:51,172 BotProcess-2 - INFO - bot [run.py:190] - New match. Baki
+-hanma ex VS. Omega shenron. Tier: A. Format: matchmaking.
+2025-12-07 01:00:53,312 BotProcess-2 - INFO - bot [run.py:215] - Placing bet: $1
+ on red
+2025-12-07 01:00:53,663 BotProcess-2 - INFO - src.salty_client [salty_client.py:
+72] - BET PLACED: $1 on RED
+2025-12-07 01:01:41,216 BotProcess-2 - INFO - bot [run.py:236] - Bets locked. Re
+d: $4,279,248. Blue: $2,057,063.
+2025-12-07 01:01:41,216 BotProcess-2 - INFO - bot [run.py:243] - Back-filling hi
+storical data...
+2025-12-07 01:01:41,246 BotProcess-2 - INFO - bot [run.py:71] - Created missing
+fighter: Baki-hanma ex (3626)
+2025-12-07 01:01:42,631 BotProcess-2 - INFO - bot [run.py:71] - Created missing
+fighter: Omega shenron (373)
+2025-12-07 01:01:44,166 BotProcess-2 - INFO - bot [run.py:249] - Back-filled 5 m
+atches.
+2025-12-07 01:01:49,204 BotProcess-2 - INFO - bot [irc.py:89] - Received a PING,
+ sending PONG.
+2025-12-07 01:02:28,950 MainProcess - INFO - watchdog [run.py:329] - Services he
+althy.
+2025-12-07 01:04:24,555 BotProcess-2 - INFO - bot [run.py:255] - Winner: Baki-ha
+nma ex.
+2025-12-07 01:04:31,350 BotProcess-2 - INFO - bot [run.py:190] - New match. Boot
+leg goku VS. Veemon. Tier: P. Format: matchmaking.
+2025-12-07 01:04:45,302 BotProcess-2 - INFO - bot [run.py:215] - Placing bet: $1
+ on red
+2025-12-07 01:04:45,656 BotProcess-2 - INFO - src.salty_client [salty_client.py:
+72] - BET PLACED: $1 on RED
+2025-12-07 01:05:15,373 BotProcess-2 - INFO - bot [run.py:236] - Bets locked. Re
+d: $2,098,049. Blue: $3,003,857.
+2025-12-07 01:05:15,373 BotProcess-2 - INFO - bot [run.py:243] - Back-filling hi
+storical data...
+2025-12-07 01:05:15,394 BotProcess-2 - INFO - bot [run.py:71] - Created missing
+fighter: Bootleg goku (9533)
+2025-12-07 01:05:15,475 BotProcess-2 - INFO - bot [run.py:71] - Created missing
+fighter: Veemon (3142)
+2025-12-07 01:05:15,543 BotProcess-2 - INFO - bot [run.py:251] - No new/valid ma
+tches to back-fill.
+2025-12-07 01:06:35,699 BotProcess-2 - INFO - bot [irc.py:89] - Received a PING,
+ sending PONG.
+2025-12-07 01:07:28,976 MainProcess - INFO - watchdog [run.py:329] - Services he
+althy.
+2025-12-07 01:07:41,497 BotProcess-2 - INFO - bot [run.py:255] - Winner: Veemon.
+2025-12-07 01:07:51,487 BotProcess-2 - INFO - bot [run.py:190] - New match. Kobu
+ta VS. Mima EX. Tier: A. Format: matchmaking.
+2025-12-07 01:07:54,323 BotProcess-2 - INFO - bot [run.py:215] - Placing bet: $1
+ on red
+2025-12-07 01:07:54,678 BotProcess-2 - INFO - src.salty_client [salty_client.py:
+72] - BET PLACED: $1 on RED
+2025-12-07 01:08:44,758 BotProcess-2 - INFO - bot [run.py:236] - Bets locked. Re
+d: $5,022,023. Blue: $1,588,522.
+2025-12-07 01:08:44,759 BotProcess-2 - INFO - bot [run.py:243] - Back-filling hi
+storical data...
+2025-12-07 01:08:44,887 BotProcess-2 - INFO - bot [run.py:71] - Created missing
+fighter: Kobuta (1038)
+2025-12-07 01:08:46,145 BotProcess-2 - INFO - bot [run.py:71] - Created missing
+fighter: Mima EX (4383)
+2025-12-07 01:08:47,512 BotProcess-2 - INFO - bot [run.py:249] - Back-filled 2 m
+atches.
+2025-12-07 01:10:07,613 BotProcess-2 - INFO - bot [run.py:255] - Winner: Mima EX
+.
+2025-12-07 01:10:12,680 BotProcess-2 - INFO - bot [run.py:190] - New match. Kyuk
+etsuki_satsuki VS. Enja ex. Tier: A. Format: matchmaking.
+2025-12-07 01:10:14,768 BotProcess-2 - INFO - bot [run.py:215] - Placing bet: $1
+ on red
+2025-12-07 01:10:15,109 BotProcess-2 - INFO - src.salty_client [salty_client.py:
+72] - BET PLACED: $1 on RED
+2025-12-07 01:11:05,625 BotProcess-2 - INFO - bot [run.py:236] - Bets locked. Re
+d: $2,833,793. Blue: $1,773,958.
+2025-12-07 01:11:05,625 BotProcess-2 - INFO - bot [run.py:243] - Back-filling hi
+storical data...
+2025-12-07 01:11:05,679 BotProcess-2 - INFO - bot [run.py:71] - Created missing
+fighter: Kyuketsuki_satsuki (5273)
+2025-12-07 01:11:07,045 BotProcess-2 - INFO - bot [run.py:71] - Created missing
+fighter: Enja ex (407)
+2025-12-07 01:11:08,333 BotProcess-2 - INFO - bot [run.py:249] - Back-filled 2 m
+atches.
+2025-12-07 01:11:13,347 BotProcess-2 - INFO - bot [irc.py:89] - Received a PING,
+ sending PONG.
+2025-12-07 01:12:28,997 MainProcess - INFO - watchdog [run.py:329] - Services he
+althy.
+2025-12-07 01:12:41,678 BotProcess-2 - INFO - bot [run.py:255] - Winner: Kyukets
+uki_satsuki.
+2025-12-07 01:12:46,782 BotProcess-2 - INFO - bot [run.py:190] - New match. Ayu&
+misuzu&mizuka VS. Kimberly browning. Tier: S. Format: matchmaking.
+2025-12-07 01:12:48,768 BotProcess-2 - INFO - bot [run.py:215] - Placing bet: $1
+ on red
+2025-12-07 01:12:49,107 BotProcess-2 - INFO - src.salty_client [salty_client.py:
+72] - BET PLACED: $1 on RED
+2025-12-07 01:13:39,280 BotProcess-2 - INFO - bot [run.py:236] - Bets locked. Re
+d: $4,202,126. Blue: $1,624,507.
+2025-12-07 01:13:39,280 BotProcess-2 - INFO - bot [run.py:243] - Back-filling hi
+storical data...
+2025-12-07 01:13:39,297 BotProcess-2 - INFO - bot [run.py:71] - Created missing
+fighter: Ayu&misuzu&mizuka (3451)
+2025-12-07 01:13:40,857 BotProcess-2 - INFO - bot [run.py:71] - Created missing
+fighter: Kimberly browning (2533)
+2025-12-07 01:13:42,378 BotProcess-2 - INFO - bot [run.py:249] - Back-filled 5 m
+atches.
+2025-12-07 01:15:32,632 BotProcess-2 - INFO - bot [run.py:255] - Winner: Ayu&mis
+uzu&mizuka.
+2025-12-07 01:15:37,807 BotProcess-2 - INFO - bot [run.py:190] - New match. Neko
+ re VS. Diamondswag12. Tier: A. Format: matchmaking.
+2025-12-07 01:15:43,869 BotProcess-2 - INFO - bot [run.py:215] - Placing bet: $1
+ on red
+2025-12-07 01:15:44,230 BotProcess-2 - INFO - src.salty_client [salty_client.py:
+72] - BET PLACED: $1 on RED
+2025-12-07 01:15:49,272 BotProcess-2 - INFO - bot [irc.py:89] - Received a PING,
+ sending PONG.
+2025-12-07 01:16:41,861 BotProcess-2 - INFO - bot [run.py:236] - Bets locked. Re
+d: $1,350,282. Blue: $2,539,719.
+2025-12-07 01:16:41,861 BotProcess-2 - INFO - bot [run.py:243] - Back-filling hi
+storical data...
+2025-12-07 01:16:41,877 BotProcess-2 - INFO - bot [run.py:71] - Created missing
+fighter: Neko re (1200)
+2025-12-07 01:16:43,252 BotProcess-2 - INFO - bot [run.py:71] - Created missing
+fighter: Diamondswag12 (1685)
+2025-12-07 01:16:44,631 BotProcess-2 - INFO - bot [run.py:249] - Back-filled 3 m
+atches.
+2025-12-07 01:17:29,020 MainProcess - INFO - watchdog [run.py:329] - Services he
+althy.
+2025-12-07 01:18:53,642 BotProcess-2 - INFO - bot [run.py:255] - Winner: Neko re
+.
+2025-12-07 01:19:06,485 BotProcess-2 - INFO - bot [run.py:190] - New match. Tu s
+hou VS. Krang. Tier: A. Format: matchmaking.
+2025-12-07 01:19:20,620 BotProcess-2 - INFO - bot [run.py:215] - Placing bet: $1
+ on red
+2025-12-07 01:19:20,959 BotProcess-2 - INFO - src.salty_client [salty_client.py:
+72] - BET PLACED: $1 on RED
+2025-12-07 01:19:56,056 BotProcess-2 - INFO - bot [run.py:236] - Bets locked. Re
+d: $2,883,921. Blue: $1,130,830.
+2025-12-07 01:19:56,056 BotProcess-2 - INFO - bot [run.py:243] - Back-filling hi
+storical data...
+2025-12-07 01:19:56,076 BotProcess-2 - INFO - bot [run.py:71] - Created missing
+fighter: Tu shou (7421)
+2025-12-07 01:19:58,729 BotProcess-2 - INFO - bot [run.py:251] - No new/valid ma
+tches to back-fill.
+2025-12-07 01:20:36,641 BotProcess-2 - INFO - bot [irc.py:89] - Received a PING,
+ sending PONG.
+2025-12-07 01:22:12,121 BotProcess-2 - INFO - bot [run.py:255] - Winner: Krang.
+2025-12-07 01:22:22,114 BotProcess-2 - INFO - bot [run.py:190] - New match. Rei
+EX VS. Kula. Tier: S. Format: matchmaking.
+2025-12-07 01:22:24,316 BotProcess-2 - INFO - bot [run.py:215] - Placing bet: $1
+ on red
+2025-12-07 01:22:24,653 BotProcess-2 - INFO - src.salty_client [salty_client.py:
+72] - BET PLACED: $1 on RED
+2025-12-07 01:22:29,045 MainProcess - INFO - watchdog [run.py:329] - Services he
+althy.
+Process BotProcess-2:
+Traceback (most recent call last):
+Process Process-1:
+  File "C:\github\saltyboyC\applications\bot\main.py", line 50, in <module>
+    run(log_path)
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "C:\github\saltyboyC\applications\bot\src\run.py", line 324, in run
+  File "C:\Users\diego\AppData\Local\Programs\Python\Python312\Lib\multiprocessi
+ng\process.py", line 314, in _bootstrap
+    self.run()
+  File "C:\Users\diego\AppData\Local\Programs\Python\Python312\Lib\multiprocessi
+ng\process.py", line 314, in _bootstrap
+    self.run()
+    port=int(os.environ["POSTGRES_PORT"]),
+  File "C:\github\saltyboyC\applications\bot\src\run.py", line 180, in run
+    saved_match_info: dict | None = None
+    ^^^^^^^^^^^^^^
+  File "C:\Users\diego\AppData\Local\Programs\Python\Python312\Lib\multiprocessi
+ng\process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\github\saltyboyC\applications\bot\src\irc.py", line 110, in listen
+    time.sleep(5)
+KeyboardInterrupt
+  File "C:\github\saltyboyC\applications\bot\src\app_logging.py", line 45, in ru
+n_listener
+    sleep(1)
+KeyboardInterrupt
+^C
+diego@DESKTOP-ATMQK14 MINGW64 /c/github/saltyboyC/applications/bot (main)
+$ poetry run python main.py
+2025-12-07 01:23:42,812 Process-1 - INFO - root [app_logging.py:38] - Log level
+set to: INFO
+2025-12-07 01:23:34,533 MainProcess - INFO - watchdog [run.py:312] - Running bot
+ watchdog
+2025-12-07 01:23:42,853 BotProcess-2 - INFO - bot [run.py:157] - Bot started
+2025-12-07 01:23:45,505 BotProcess-2 - INFO - src.salty_client [salty_client.py:
+41] - Successfully logged into SaltyBet.
+2025-12-07 01:23:45,505 BotProcess-2 - INFO - bot [run.py:172] - Headless Bettin
+g: ENABLED (Logged in)
+2025-12-07 01:23:46,232 BotProcess-2 - INFO - bot [irc.py:185] - Authenticating
+as katzuya3
+2025-12-07 01:23:46,669 BotProcess-2 - INFO - bot [irc.py:190] - :tmi.twitch.tv
+001 katzuya3 :Welcome, GLHF!
+2025-12-07 01:23:46,669 BotProcess-2 - INFO - bot [irc.py:192] - Authenticated s
+uccessfully!
+2025-12-07 01:23:46,669 BotProcess-2 - INFO - bot [irc.py:64] - Joining channel
+saltybet...
+Training AI Model on current database...
+Training Complete. New Weights: {'intercept': 0.2057490817586413, 'tier_elo': 0.
+0022719238036547013, 'h2h': 0.0, 'comp': 0.0}
+2025-12-07 01:23:46,877 BotProcess-2 - INFO - bot [irc.py:70] - :katzuya3!katzuy
+a3@katzuya3.tmi.twitch.tv JOIN #saltybet
+2025-12-07 01:23:46,887 BotProcess-2 - INFO - bot [irc.py:70] -
+2025-12-07 01:23:46,887 BotProcess-2 - INFO - bot [irc.py:70] - :katzuya3.tmi.tw
+itch.tv 353 katzuya3 = #saltybet :katzuya3
+2025-12-07 01:23:46,887 BotProcess-2 - INFO - bot [irc.py:70] - :katzuya3.tmi.tw
+itch.tv 366 katzuya3 #saltybet :End of /NAMES list
+2025-12-07 01:23:46,887 BotProcess-2 - INFO - bot [irc.py:72] - Joined successfu
+lly!
+2025-12-07 01:23:46,887 BotProcess-2 - INFO - bot [run.py:183] - Initializing AI
+ Brain...
+2025-12-07 01:23:47,251 BotProcess-2 - INFO - bot [run.py:186] - Brain updated w
+ith custom weights: {'intercept': 0.2057490817586413, 'tier_elo': 0.002271923803
+6547013, 'h2h': 0.0, 'comp': 0.0}
+2025-12-07 01:24:58,242 BotProcess-2 - INFO - bot [run.py:207] - New match. Kira
+ra VS. Knightman mvc. Tier: S. Format: matchmaking.
+2025-12-07 01:25:00,408 BotProcess-2 - INFO - bot [run.py:234] - Placing bet: $1
+ on red
+2025-12-07 01:25:00,876 BotProcess-2 - INFO - src.salty_client [salty_client.py:
+72] - BET PLACED: $1 on RED
+2025-12-07 01:25:51,003 BotProcess-2 - INFO - bot [run.py:257] - Bets locked. Re
+d: $4,465,589. Blue: $1,563,322.
+2025-12-07 01:25:51,003 BotProcess-2 - INFO - bot [run.py:265] - Back-filling hi
+storical data...
+2025-12-07 01:25:51,070 BotProcess-2 - INFO - bot [run.py:71] - Created missing
+fighter: Kirara (7110)
+2025-12-07 01:25:51,086 BotProcess-2 - INFO - bot [run.py:71] - Created missing
+fighter: Knightman mvc (6231)
+2025-12-07 01:25:54,884 BotProcess-2 - INFO - bot [run.py:278] - Back-filled 6 m
+atches.
+2025-12-07 01:27:08,917 BotProcess-2 - INFO - bot [run.py:285] - Winner: Knightm
+an mvc.
+2025-12-07 01:27:18,392 BotProcess-2 - INFO - bot [run.py:207] - New match. Gold
+en axe VS. Godzilla2014. Tier: B. Format: matchmaking.
+2025-12-07 01:27:32,451 BotProcess-2 - INFO - bot [run.py:234] - Placing bet: $1
+ on red
+2025-12-07 01:27:32,796 BotProcess-2 - INFO - src.salty_client [salty_client.py:
+72] - BET PLACED: $1 on RED
+2025-12-07 01:28:02,383 BotProcess-2 - INFO - bot [run.py:257] - Bets locked. Re
+d: $1,992,567. Blue: $2,234,680.
+2025-12-07 01:28:02,383 BotProcess-2 - INFO - bot [run.py:265] - Back-filling hi
+storical data...
+2025-12-07 01:28:02,402 BotProcess-2 - INFO - bot [run.py:71] - Created missing
+fighter: Golden axe (7821)
+2025-12-07 01:28:02,412 BotProcess-2 - INFO - bot [run.py:71] - Created missing
+fighter: Godzilla2014 (7415)
+2025-12-07 01:28:04,680 BotProcess-2 - INFO - bot [run.py:278] - Back-filled 2 m
+atches.
+2025-12-07 01:28:24,728 BotProcess-2 - INFO - bot [irc.py:89] - Received a PING,
+ sending PONG.
+2025-12-07 01:28:34,650 MainProcess - INFO - watchdog [run.py:361] - Services he
+althy.
+2025-12-07 01:31:00,077 BotProcess-2 - INFO - bot [run.py:285] - Winner: Godzill
+a2014.
+2025-12-07 01:31:05,125 BotProcess-2 - INFO - bot [run.py:207] - New match. Cb v
+alimes VS. Kohaku EX2. Tier: S. Format: matchmaking.
+2025-12-07 01:31:07,163 BotProcess-2 - INFO - bot [run.py:234] - Placing bet: $1
+ on red
+2025-12-07 01:31:07,516 BotProcess-2 - INFO - src.salty_client [salty_client.py:
+72] - BET PLACED: $1 on RED
+2025-12-07 01:31:58,565 BotProcess-2 - INFO - bot [run.py:257] - Bets locked. Re
+d: $1,945,357. Blue: $2,126,033.
+2025-12-07 01:31:58,565 BotProcess-2 - INFO - bot [run.py:265] - Back-filling hi
+storical data...
+2025-12-07 01:32:00,743 BotProcess-2 - ERROR - bot [run.py:300] - Error in main
+loop: (psycopg2.errors.UniqueViolation) duplicate key value violates unique cons
+traint "match_pkey"
+DETAIL:  Key (id)=(540941) already exists.
+
+[SQL: INSERT INTO match (id, fighter_red, fighter_blue, winner, match_format, ti
+er, date, streak_red, streak_blue, bet_red, bet_blue, colour) VALUES (%(id__0)s,
+ %(fighter_red__0)s, %(fighter_blue__0)s, %(winner__0)s, %(match_format__0)s, %(
+tier__0)s, %(dat ... 197 characters truncated ...  %(date__1)s, %(streak_red__1)
+s, %(streak_blue__1)s, %(bet_red__1)s, %(bet_blue__1)s, %(colour__1)s)]
+[parameters: {'streak_blue__0': -4, 'bet_blue__0': 2234680, 'streak_red__0': 5,
+'date__0': datetime.datetime(2025, 12, 7, 4, 31, 2, 498967, tzinfo=datetime.time
+zone.utc), 'fighter_red__0': 7821, 'id__0': 540941, 'bet_red__0': 1992567, 'winn
+er__0': 7415, 'fighter_blue__0': 7415, 'match_format__0': 'matchmaking', 'colour
+__0': 'Blue', 'tier__0': 'B', 'streak_blue__1': -4, 'bet_blue__1': 2234680, 'str
+eak_red__1': 5, 'date__1': datetime.datetime(2025, 12, 7, 4, 31, 2, 498967, tzin
+fo=datetime.timezone.utc), 'fighter_red__1': 7821, 'id__1': 540941, 'bet_red__1'
+: 1992567, 'winner__1': 7415, 'fighter_blue__1': 7415, 'match_format__1': 'match
+making', 'colour__1': 'Blue', 'tier__1': 'B'}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-12-07 01:32:29,093 BotProcess-2 - INFO - bot [irc.py:89] - Received a PING,
+ sending PONG.
+2025-12-07 01:33:34,675 MainProcess - INFO - watchdog [run.py:361] - Services he
+althy.
+2025-12-07 01:33:52,600 BotProcess-2 - INFO - bot [run.py:285] - Winner: Kohaku
+EX2.
+2025-12-07 01:34:02,615 BotProcess-2 - INFO - bot [run.py:207] - New match. Soni
+c EX2 VS. Aiai. Tier: B. Format: matchmaking.
+2025-12-07 01:34:04,739 BotProcess-2 - INFO - bot [run.py:234] - Placing bet: $1
+ on red
+2025-12-07 01:34:05,092 BotProcess-2 - INFO - src.salty_client [salty_client.py:
+72] - BET PLACED: $1 on RED
+2025-12-07 01:34:56,314 BotProcess-2 - INFO - bot [run.py:257] - Bets locked. Re
+d: $3,536,630. Blue: $1,672,367.
+2025-12-07 01:34:56,314 BotProcess-2 - INFO - bot [run.py:265] - Back-filling hi
+storical data...
+2025-12-07 01:34:56,342 BotProcess-2 - INFO - bot [run.py:71] - Created missing
+fighter: Sonic EX2 (5037)
+2025-12-07 01:34:56,362 BotProcess-2 - INFO - bot [run.py:71] - Created missing
+fighter: Aiai (1447)
+2025-12-07 01:34:58,183 BotProcess-2 - INFO - bot [run.py:280] - No new/valid ma
+tches to back-fill.
+2025-12-07 01:37:00,712 BotProcess-2 - INFO - bot [irc.py:89] - Received a PING,
+ sending PONG.
+2025-12-07 01:37:05,741 BotProcess-2 - INFO - bot [run.py:285] - Winner: Aiai.
+2025-12-07 01:37:14,767 BotProcess-2 - INFO - bot [run.py:207] - New match. Dora
+emon EX3 VS. Copy x. Tier: A. Format: matchmaking.
+2025-12-07 01:37:28,843 BotProcess-2 - INFO - bot [run.py:234] - Placing bet: $1
+ on red
+2025-12-07 01:37:29,191 BotProcess-2 - INFO - src.salty_client [salty_client.py:
+72] - BET PLACED: $1 on RED
+2025-12-07 01:38:04,789 BotProcess-2 - INFO - bot [run.py:257] - Bets locked. Re
+d: $1,575,937. Blue: $4,456,290.
+2025-12-07 01:38:04,789 BotProcess-2 - INFO - bot [run.py:265] - Back-filling hi
+storical data...
+2025-12-07 01:38:04,808 BotProcess-2 - INFO - bot [run.py:71] - Created missing
+fighter: Doraemon EX3 (3051)
+2025-12-07 01:38:04,822 BotProcess-2 - INFO - bot [run.py:71] - Created missing
+fighter: Copy x (1100)
+2025-12-07 01:38:07,588 BotProcess-2 - INFO - bot [run.py:278] - Back-filled 3 m
+atches.
+2025-12-07 01:38:34,695 MainProcess - INFO - watchdog [run.py:361] - Services he
+althy.
+2025-12-07 01:40:44,925 BotProcess-2 - INFO - bot [run.py:285] - Winner: Copy x.
+2025-12-07 01:40:54,927 BotProcess-2 - INFO - bot [run.py:207] - New match. Ramb
+o VS. Ss6 sei-abab. Tier: B. Format: matchmaking.
+2025-12-07 01:41:08,737 BotProcess-2 - INFO - bot [run.py:234] - Placing bet: $1
+ on red
+2025-12-07 01:41:09,096 BotProcess-2 - INFO - src.salty_client [salty_client.py:
+72] - BET PLACED: $1 on RED
+2025-12-07 01:41:48,490 BotProcess-2 - INFO - bot [irc.py:89] - Received a PING,
+ sending PONG.
+2025-12-07 01:41:53,507 BotProcess-2 - INFO - bot [run.py:257] - Bets locked. Re
+d: $2,688,055. Blue: $2,112,541.
+2025-12-07 01:41:53,507 BotProcess-2 - INFO - bot [run.py:265] - Back-filling hi
+storical data...
+2025-12-07 01:41:53,526 BotProcess-2 - INFO - bot [run.py:71] - Created missing
+fighter: Rambo (2806)
+2025-12-07 01:41:53,542 BotProcess-2 - INFO - bot [run.py:71] - Created missing
+fighter: Ss6 sei-abab (2027)
+2025-12-07 01:41:55,446 BotProcess-2 - INFO - bot [run.py:278] - Back-filled 2 m
+atches.
+2025-12-07 01:42:55,023 BotProcess-2 - INFO - bot [run.py:285] - Winner: Rambo.
+2025-12-07 01:43:00,107 BotProcess-2 - INFO - bot [run.py:207] - New match. Nono
+n jakuzure VS. Sion_alien. Tier: S. Format: matchmaking.
+2025-12-07 01:43:02,159 BotProcess-2 - INFO - bot [run.py:234] - Placing bet: $1
+ on red
+2025-12-07 01:43:02,510 BotProcess-2 - INFO - src.salty_client [salty_client.py:
+72] - BET PLACED: $1 on RED
+2025-12-07 01:43:34,715 MainProcess - INFO - watchdog [run.py:361] - Services he
+althy.
+2025-12-07 01:43:57,633 BotProcess-2 - INFO - bot [run.py:257] - Bets locked. Re
+d: $1,158,498. Blue: $2,828,519.
+2025-12-07 01:43:57,633 BotProcess-2 - INFO - bot [run.py:265] - Back-filling hi
+storical data...
+2025-12-07 01:43:59,368 BotProcess-2 - ERROR - bot [run.py:300] - Error in main
+loop: (psycopg2.errors.UniqueViolation) duplicate key value violates unique cons
+traint "match_pkey"
+DETAIL:  Key (id)=(540945) already exists.
+
+[SQL: INSERT INTO match (id, fighter_red, fighter_blue, winner, match_format, ti
+er, date, streak_red, streak_blue, bet_red, bet_blue, colour) VALUES (%(id__0)s,
+ %(fighter_red__0)s, %(fighter_blue__0)s, %(winner__0)s, %(match_format__0)s, %(
+tier__0)s, %(dat ... 197 characters truncated ...  %(date__1)s, %(streak_red__1)
+s, %(streak_blue__1)s, %(bet_red__1)s, %(bet_blue__1)s, %(colour__1)s)]
+[parameters: {'streak_blue__0': -1, 'bet_blue__0': 2112541, 'streak_red__0': -3,
+ 'date__0': datetime.datetime(2025, 12, 7, 4, 42, 58, 825623, tzinfo=datetime.ti
+mezone.utc), 'fighter_red__0': 2806, 'id__0': 540945, 'bet_red__0': 2688055, 'wi
+nner__0': 2806, 'fighter_blue__0': 2027, 'match_format__0': 'matchmaking', 'colo
+ur__0': 'Red', 'tier__0': 'B', 'streak_blue__1': -1, 'bet_blue__1': 2112541, 'st
+reak_red__1': -3, 'date__1': datetime.datetime(2025, 12, 7, 4, 42, 58, 825623, t
+zinfo=datetime.timezone.utc), 'fighter_red__1': 2806, 'id__1': 540945, 'bet_red_
+_1': 2688055, 'winner__1': 2806, 'fighter_blue__1': 2027, 'match_format__1': 'ma
+tchmaking', 'colour__1': 'Red', 'tier__1': 'B'}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-12-07 01:45:19,506 BotProcess-2 - INFO - bot [run.py:285] - Winner: Sion_al
+ien.
+2025-12-07 01:45:32,298 BotProcess-2 - INFO - bot [run.py:207] - New match. Domi
+no bertha VS. Pluto the sailor man. Tier: S. Format: matchmaking.
+2025-12-07 01:45:46,125 BotProcess-2 - INFO - bot [run.py:234] - Placing bet: $1
+ on red
+2025-12-07 01:45:46,468 BotProcess-2 - INFO - src.salty_client [salty_client.py:
+72] - BET PLACED: $1 on RED
+2025-12-07 01:46:18,930 BotProcess-2 - INFO - bot [irc.py:89] - Received a PING,
+ sending PONG.
+2025-12-07 01:46:23,946 BotProcess-2 - INFO - bot [run.py:257] - Bets locked. Re
+d: $4,161,054. Blue: $1,368,382.
+2025-12-07 01:46:23,946 BotProcess-2 - INFO - bot [run.py:265] - Back-filling hi
+storical data...
+2025-12-07 01:46:23,981 BotProcess-2 - INFO - bot [run.py:71] - Created missing
+fighter: Domino bertha (2126)
+2025-12-07 01:46:23,999 BotProcess-2 - INFO - bot [run.py:71] - Created missing
+fighter: Pluto the sailor man (3781)
+2025-12-07 01:46:27,731 BotProcess-2 - INFO - bot [run.py:278] - Back-filled 7 m
+atches.
+2025-12-07 01:48:29,266 BotProcess-2 - INFO - bot [run.py:285] - Winner: Domino
+bertha.
+2025-12-07 01:48:34,737 MainProcess - INFO - watchdog [run.py:361] - Services he
+althy.
+2025-12-07 01:48:44,704 BotProcess-2 - INFO - bot [run.py:207] - New match. Goku
+ ssb VS. A'. Tier: A. Format: matchmaking.
+2025-12-07 01:48:58,192 BotProcess-2 - INFO - bot [run.py:234] - Placing bet: $1
+ on red
+2025-12-07 01:48:58,542 BotProcess-2 - INFO - src.salty_client [salty_client.py:
+72] - BET PLACED: $1 on RED
+2025-12-07 01:49:31,412 BotProcess-2 - INFO - bot [run.py:257] - Bets locked. Re
+d: $2,231,506. Blue: $1,460,053.
+2025-12-07 01:49:31,412 BotProcess-2 - INFO - bot [run.py:265] - Back-filling hi
+storical data...
+2025-12-07 01:49:31,442 BotProcess-2 - INFO - bot [run.py:71] - Created missing
+fighter: Goku ssb (4545)
+2025-12-07 01:49:31,463 BotProcess-2 - INFO - bot [run.py:71] - Created missing
+fighter: A' (6898)
+2025-12-07 01:49:34,648 BotProcess-2 - INFO - bot [run.py:278] - Back-filled 2 m
+atches.
+2025-12-07 01:50:42,839 BotProcess-2 - INFO - bot [irc.py:89] - Received a PING,
+ sending PONG.
+2025-12-07 01:52:15,429 BotProcess-2 - INFO - bot [run.py:285] - Winner: Goku ss
+b.
+Process Process-1:
+Traceback (most recent call last):
+  File "C:\github\saltyboyC\applications\bot\main.py", line 50, in <module>
+    run(log_path)
+  File "C:\github\saltyboyC\applications\bot\src\run.py", line 356, in run
+Traceback (most recent call last):
+    if restart_bot is True:
+  File "C:\Users\diego\AppData\Local\Programs\Python\Python312\Lib\multiprocessi
+ng\process.py", line 314, in _bootstrap
+    self.run()
+    ^^^^^^^^^^^^^^
+KeyboardInterrupt
+  File "C:\Users\diego\AppData\Local\Programs\Python\Python312\Lib\multiprocessi
+ng\process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\github\saltyboyC\applications\bot\src\app_logging.py", line 45, in ru
+n_listener
+    sleep(1)
+KeyboardInterrupt
+^C
+diego@DESKTOP-ATMQK14 MINGW64 /c/github/saltyboyC/applications/bot (main)
+$ poetry run python main.py
+2025-12-07 01:52:53,508 Process-1 - INFO - root [app_logging.py:38] - Log level
+set to: INFO
+2025-12-07 01:52:44,068 MainProcess - INFO - watchdog [run.py:322] - Running bot
+ watchdog
+2025-12-07 01:52:53,529 BotProcess-2 - INFO - bot [run.py:165] - Bot started
+2025-12-07 01:52:56,225 BotProcess-2 - INFO - src.salty_client [salty_client.py:
+41] - Successfully logged into SaltyBet.
+2025-12-07 01:52:56,225 BotProcess-2 - INFO - bot [run.py:180] - Headless Bettin
+g: ENABLED (Logged in)
+2025-12-07 01:52:56,939 BotProcess-2 - INFO - bot [irc.py:185] - Authenticating
+as katzuya3
+2025-12-07 01:52:57,358 BotProcess-2 - INFO - bot [irc.py:190] - :tmi.twitch.tv
+001 katzuya3 :Welcome, GLHF!
+2025-12-07 01:52:57,358 BotProcess-2 - INFO - bot [irc.py:192] - Authenticated s
+uccessfully!
+2025-12-07 01:52:57,358 BotProcess-2 - INFO - bot [irc.py:64] - Joining channel
+saltybet...
+Training AI Model on current database...
+Training Complete. New Weights: {'intercept': 0.08062559304646076, 'tier_elo': 0
+.0009523014475074464, 'h2h': 0.0, 'comp': 0.0}
+2025-12-07 01:52:57,588 BotProcess-2 - INFO - bot [irc.py:70] - :katzuya3!katzuy
+a3@katzuya3.tmi.twitch.tv JOIN #saltybet
+2025-12-07 01:52:57,588 BotProcess-2 - INFO - bot [irc.py:70] -
+2025-12-07 01:52:57,588 BotProcess-2 - INFO - bot [irc.py:70] - :katzuya3.tmi.tw
+itch.tv 353 katzuya3 = #saltybet :katzuya3
+2025-12-07 01:52:57,588 BotProcess-2 - INFO - bot [irc.py:70] - :katzuya3.tmi.tw
+itch.tv 366 katzuya3 #saltybet :End of /NAMES list
+2025-12-07 01:52:57,588 BotProcess-2 - INFO - bot [irc.py:72] - Joined successfu
+lly!
+2025-12-07 01:52:57,588 BotProcess-2 - INFO - bot [run.py:191] - Initializing AI
+ Brain...
+2025-12-07 01:52:57,763 BotProcess-2 - INFO - bot [run.py:194] - Brain updated w
+ith custom weights: {'intercept': 0.08062559304646076, 'tier_elo': 0.00095230144
+75074464, 'h2h': 0.0, 'comp': 0.0}
+2025-12-07 01:54:55,527 BotProcess-2 - INFO - bot [run.py:215] - New match. Mast
+a gambit VS. Killer whale. Tier: S. Format: matchmaking.
+2025-12-07 01:54:57,740 BotProcess-2 - INFO - bot [run.py:242] - Placing bet: $1
+ on red
+2025-12-07 01:54:58,074 BotProcess-2 - INFO - src.salty_client [salty_client.py:
+72] - BET PLACED: $1 on RED
+2025-12-07 01:55:45,566 BotProcess-2 - INFO - bot [run.py:265] - Bets locked. Re
+d: $2,005,052. Blue: $13,869,761.
+2025-12-07 01:55:45,566 BotProcess-2 - INFO - bot [run.py:273] - Back-filling hi
+storical data...
+2025-12-07 01:55:45,628 BotProcess-2 - INFO - bot [run.py:71] - Created missing
+fighter: Masta gambit (1090)
+2025-12-07 01:55:45,659 BotProcess-2 - INFO - bot [run.py:71] - Created missing
+fighter: Killer whale (1085)
+2025-12-07 01:55:49,005 BotProcess-2 - INFO - bot [run.py:288] - Back-filled 5 m
+atches.
+2025-12-07 01:57:05,622 BotProcess-2 - INFO - bot [run.py:295] - Winner: Killer
+whale.
+2025-12-07 01:57:11,644 BotProcess-2 - INFO - bot [run.py:215] - New match. Kagu
+ya.luna VS. Aya hasebe. Tier: S. Format: matchmaking.
+2025-12-07 01:57:13,784 BotProcess-2 - INFO - bot [run.py:242] - Placing bet: $1
+ on red
+2025-12-07 01:57:14,116 BotProcess-2 - INFO - src.salty_client [salty_client.py:
+72] - BET PLACED: $1 on RED
+2025-12-07 01:57:44,197 MainProcess - INFO - watchdog [run.py:371] - Services he
+althy.
+2025-12-07 01:57:49,217 BotProcess-2 - INFO - bot [irc.py:89] - Received a PING,
+ sending PONG.
+2025-12-07 01:58:11,698 BotProcess-2 - INFO - bot [run.py:265] - Bets locked. Re
+d: $2,553,442. Blue: $1,516,085.
+2025-12-07 01:58:11,698 BotProcess-2 - INFO - bot [run.py:273] - Back-filling hi
+storical data...
+2025-12-07 01:58:11,718 BotProcess-2 - INFO - bot [run.py:71] - Created missing
+fighter: Kaguya.luna (230)
+2025-12-07 01:58:11,728 BotProcess-2 - INFO - bot [run.py:71] - Created missing
+fighter: Aya hasebe (3898)
+2025-12-07 01:58:15,569 BotProcess-2 - INFO - bot [run.py:288] - Back-filled 7 m
+atches.
+2025-12-07 02:00:45,791 BotProcess-2 - INFO - bot [run.py:295] - Winner: Kaguya.
+luna.
+2025-12-07 02:00:55,793 BotProcess-2 - INFO - bot [run.py:215] - New match. Haiy
+oru_konton VS. Rasyouzin miduki. Tier: S. Format: matchmaking.
+2025-12-07 02:00:59,358 BotProcess-2 - INFO - bot [run.py:242] - Placing bet: $1
+ on red
+2025-12-07 02:00:59,709 BotProcess-2 - INFO - src.salty_client [salty_client.py:
+72] - BET PLACED: $1 on RED
+2025-12-07 02:01:49,814 BotProcess-2 - INFO - bot [run.py:265] - Bets locked. Re
+d: $2,242,917. Blue: $4,601,785.
+2025-12-07 02:01:49,814 BotProcess-2 - INFO - bot [run.py:273] - Back-filling hi
+storical data...
+2025-12-07 02:01:49,840 BotProcess-2 - INFO - bot [run.py:71] - Created missing
+fighter: Haiyoru_konton (2932)
+2025-12-07 02:01:49,861 BotProcess-2 - INFO - bot [run.py:71] - Created missing
+fighter: Rasyouzin miduki (5542)
+2025-12-07 02:01:53,922 BotProcess-2 - INFO - bot [run.py:288] - Back-filled 10
+matches.
+2025-12-07 02:02:32,370 BotProcess-2 - INFO - bot [irc.py:89] - Received a PING,
+ sending PONG.
+2025-12-07 02:02:44,220 MainProcess - INFO - watchdog [run.py:371] - Services he
+althy.
+2025-12-07 02:03:01,894 BotProcess-2 - INFO - bot [run.py:295] - Winner: Rasyouz
+in miduki.
+2025-12-07 02:03:11,901 BotProcess-2 - INFO - bot [run.py:215] - New match. Fern
+andeath a VS. Rugal 5th. Tier: X. Format: matchmaking.
+2025-12-07 02:03:13,738 BotProcess-2 - INFO - bot [run.py:242] - Placing bet: $1
+ on red
+2025-12-07 02:03:14,095 BotProcess-2 - INFO - src.salty_client [salty_client.py:
+72] - BET PLACED: $1 on RED
+2025-12-07 02:04:07,793 BotProcess-2 - INFO - bot [run.py:265] - Bets locked. Re
+d: $1,651,386. Blue: $2,913,626.
+2025-12-07 02:04:07,793 BotProcess-2 - INFO - bot [run.py:273] - Back-filling hi
+storical data...
+2025-12-07 02:04:07,819 BotProcess-2 - INFO - bot [run.py:71] - Created missing
+fighter: Fernandeath a (7256)
+2025-12-07 02:04:07,840 BotProcess-2 - INFO - bot [run.py:71] - Created missing
+fighter: Rugal 5th (2233)
+2025-12-07 02:04:08,389 BotProcess-2 - INFO - bot [run.py:290] - No new/valid ma
+tches to back-fill.
+2025-12-07 02:05:09,009 BotProcess-2 - INFO - bot [run.py:295] - Winner: Fernand
+eath a.
+2025-12-07 02:05:15,988 BotProcess-2 - INFO - bot [run.py:215] - New match. Tfk
+VS. Mvc3 alice buster. Tier: A. Format: matchmaking.
+2025-12-07 02:05:18,607 BotProcess-2 - INFO - bot [run.py:242] - Placing bet: $1
+ on red
+2025-12-07 02:05:18,961 BotProcess-2 - INFO - src.salty_client [salty_client.py:
+72] - BET PLACED: $1 on RED
+2025-12-07 02:06:06,031 BotProcess-2 - INFO - bot [run.py:265] - Bets locked. Re
+d: $1,722,300. Blue: $2,363,590.
+2025-12-07 02:06:06,031 BotProcess-2 - INFO - bot [run.py:273] - Back-filling hi
+storical data...
+2025-12-07 02:06:06,049 BotProcess-2 - INFO - bot [run.py:71] - Created missing
+fighter: Tfk (6322)
+2025-12-07 02:06:06,069 BotProcess-2 - INFO - bot [run.py:71] - Created missing
+fighter: Mvc3 alice buster (4674)
+2025-12-07 02:06:09,446 BotProcess-2 - INFO - bot [run.py:288] - Back-filled 3 m
+atches.
+2025-12-07 02:07:28,554 BotProcess-2 - INFO - bot [irc.py:89] - Received a PING,
+ sending PONG.
+2025-12-07 02:07:44,242 MainProcess - INFO - watchdog [run.py:371] - Services he
+althy.
+2025-12-07 02:09:02,179 BotProcess-2 - INFO - bot [run.py:295] - Winner: Tfk.
+2025-12-07 02:09:12,157 BotProcess-2 - INFO - bot [run.py:215] - New match. Real
+ shishioh VS. Zuepia. Tier: S. Format: matchmaking.
+2025-12-07 02:09:14,514 BotProcess-2 - INFO - bot [run.py:242] - Placing bet: $1
+ on red
+2025-12-07 02:09:14,868 BotProcess-2 - INFO - src.salty_client [salty_client.py:
+72] - BET PLACED: $1 on RED
+2025-12-07 02:10:04,948 BotProcess-2 - INFO - bot [run.py:265] - Bets locked. Re
+d: $4,817,057. Blue: $1,834,787.
+2025-12-07 02:10:04,948 BotProcess-2 - INFO - bot [run.py:273] - Back-filling hi
+storical data...
+2025-12-07 02:10:04,964 BotProcess-2 - INFO - bot [run.py:71] - Created missing
+fighter: Real shishioh (4995)
+2025-12-07 02:10:04,990 BotProcess-2 - INFO - bot [run.py:71] - Created missing
+fighter: Zuepia (3866)
+2025-12-07 02:10:08,813 BotProcess-2 - INFO - bot [run.py:288] - Back-filled 12
+matches.
+2025-12-07 02:11:22,255 BotProcess-2 - INFO - bot [run.py:295] - Winner: Real sh
+ishioh.
+2025-12-07 02:11:32,264 BotProcess-2 - INFO - bot [run.py:215] - New match. Subz
+ero Ninja VS. Aquaman. Tier: P. Format: matchmaking.
+2025-12-07 02:11:37,185 BotProcess-2 - INFO - bot [run.py:242] - Placing bet: $1
+ on red
+2025-12-07 02:11:37,534 BotProcess-2 - INFO - src.salty_client [salty_client.py:
+72] - BET PLACED: $1 on RED
+2025-12-07 02:11:42,562 BotProcess-2 - INFO - bot [irc.py:89] - Received a PING,
+ sending PONG.
+2025-12-07 02:12:22,285 BotProcess-2 - INFO - bot [run.py:265] - Bets locked. Re
+d: $1,459,113. Blue: $3,359,122.
+2025-12-07 02:12:22,289 BotProcess-2 - INFO - bot [run.py:273] - Back-filling hi
+storical data...
+2025-12-07 02:12:22,305 BotProcess-2 - INFO - bot [run.py:71] - Created missing
+fighter: Subzero Ninja (10010)
+2025-12-07 02:12:22,321 BotProcess-2 - INFO - bot [run.py:71] - Created missing
+fighter: Aquaman (8258)
+2025-12-07 02:12:22,534 BotProcess-2 - INFO - bot [run.py:290] - No new/valid ma
+tches to back-fill.
+2025-12-07 02:12:44,266 MainProcess - INFO - watchdog [run.py:371] - Services he
+althy.
+2025-12-07 02:15:02,406 BotProcess-2 - INFO - bot [run.py:295] - Winner: Aquaman
+.
+2025-12-07 02:15:12,464 BotProcess-2 - INFO - bot [run.py:215] - New match. Mag-
+fuckin'-neto VS. Kamui(arrange). Tier: S. Format: matchmaking.
+2025-12-07 02:15:14,694 BotProcess-2 - INFO - bot [run.py:242] - Placing bet: $1
+ on red
+2025-12-07 02:15:14,894 BotProcess-2 - INFO - src.salty_client [salty_client.py:
+72] - BET PLACED: $1 on RED
+2025-12-07 02:15:41,685 BotProcess-2 - INFO - bot [irc.py:89] - Received a PING,
+ sending PONG.
+2025-12-07 02:16:02,435 BotProcess-2 - INFO - bot [run.py:265] - Bets locked. Re
+d: $3,593,464. Blue: $1,707,973.
+2025-12-07 02:16:02,436 BotProcess-2 - INFO - bot [run.py:273] - Back-filling hi
+storical data...
+2025-12-07 02:16:02,466 BotProcess-2 - INFO - bot [run.py:71] - Created missing
+fighter: Mag-fuckin'-neto (5466)
+2025-12-07 02:16:02,483 BotProcess-2 - INFO - bot [run.py:71] - Created missing
+fighter: Kamui(arrange) (4845)
+2025-12-07 02:16:06,941 BotProcess-2 - INFO - bot [run.py:288] - Back-filled 9 m
+atches.
+2025-12-07 02:17:27,160 BotProcess-2 - INFO - bot [run.py:295] - Winner: Mag-fuc
+kin'-neto.
+2025-12-07 02:17:32,526 BotProcess-2 - INFO - bot [run.py:215] - New match. Hana
+yama VS. Ange EX. Tier: S. Format: matchmaking.
+2025-12-07 02:17:35,110 BotProcess-2 - INFO - bot [run.py:242] - Placing bet: $1
+ on red
+2025-12-07 02:17:35,460 BotProcess-2 - INFO - src.salty_client [salty_client.py:
+72] - BET PLACED: $1 on RED
+2025-12-07 02:17:44,289 MainProcess - INFO - watchdog [run.py:371] - Services he
+althy.
+2025-12-07 02:18:28,555 BotProcess-2 - INFO - bot [run.py:265] - Bets locked. Re
+d: $4,160,015. Blue: $1,490,658.
+2025-12-07 02:18:28,555 BotProcess-2 - INFO - bot [run.py:273] - Back-filling hi
+storical data...
+2025-12-07 02:18:28,571 BotProcess-2 - INFO - bot [run.py:71] - Created missing
+fighter: Hanayama (565)
+2025-12-07 02:18:28,584 BotProcess-2 - INFO - bot [run.py:71] - Created missing
+fighter: Ange EX (1409)
+2025-12-07 02:18:32,313 BotProcess-2 - INFO - bot [run.py:288] - Back-filled 11
+matches.
+2025-12-07 02:19:52,450 BotProcess-2 - INFO - bot [irc.py:89] - Received a PING,
+ sending PONG.
+2025-12-07 02:20:02,644 BotProcess-2 - INFO - bot [run.py:295] - Winner: Hanayam
+a.
+2025-12-07 02:20:12,656 BotProcess-2 - INFO - bot [run.py:215] - New match. Wind
+-se VS. Dark phoenix. Tier: A. Format: matchmaking.
+2025-12-07 02:20:16,953 BotProcess-2 - INFO - bot [run.py:242] - Placing bet: $1
+ on red
+2025-12-07 02:20:17,310 BotProcess-2 - INFO - src.salty_client [salty_client.py:
+72] - BET PLACED: $1 on RED
+2025-12-07 02:21:07,500 BotProcess-2 - INFO - bot [run.py:265] - Bets locked. Re
+d: $2,450,456. Blue: $2,167,984.
+2025-12-07 02:21:07,500 BotProcess-2 - INFO - bot [run.py:273] - Back-filling hi
+storical data...
+2025-12-07 02:21:07,518 BotProcess-2 - INFO - bot [run.py:71] - Created missing
+fighter: Wind-se (4343)
+2025-12-07 02:21:07,544 BotProcess-2 - INFO - bot [run.py:71] - Created missing
+fighter: Dark phoenix (5164)
+2025-12-07 02:21:10,960 BotProcess-2 - INFO - bot [run.py:288] - Back-filled 4 m
+atches.
+2025-12-07 02:22:44,308 MainProcess - INFO - watchdog [run.py:371] - Services he
+althy.
+2025-12-07 02:23:58,807 BotProcess-2 - INFO - bot [run.py:295] - Winner: Dark ph
+oenix.
+2025-12-07 02:24:08,829 BotProcess-2 - INFO - bot [run.py:215] - New match. Blac
+k rock shooter VS. Clarice_di_lanza. Tier: S. Format: matchmaking.
+2025-12-07 02:24:22,447 BotProcess-2 - INFO - bot [run.py:242] - Placing bet: $1
+ on red
+2025-12-07 02:24:22,799 BotProcess-2 - INFO - src.salty_client [salty_client.py:
+72] - BET PLACED: $1 on RED
+2025-12-07 02:24:27,818 BotProcess-2 - INFO - bot [irc.py:89] - Received a PING,
+ sending PONG.
+2025-12-07 02:25:02,885 BotProcess-2 - INFO - bot [run.py:265] - Bets locked. Re
+d: $2,291,776. Blue: $2,074,727.
+2025-12-07 02:25:02,885 BotProcess-2 - INFO - bot [run.py:273] - Back-filling hi
+storical data...
+2025-12-07 02:25:02,905 BotProcess-2 - INFO - bot [run.py:71] - Created missing
+fighter: Black rock shooter (5961)
+2025-12-07 02:25:02,940 BotProcess-2 - INFO - bot [run.py:71] - Created missing
+fighter: Clarice_di_lanza (1679)
+2025-12-07 02:25:07,726 BotProcess-2 - INFO - bot [run.py:288] - Back-filled 11
+matches.
+2025-12-07 02:26:52,949 BotProcess-2 - INFO - bot [run.py:295] - Winner: Clarice
+_di_lanza.
+2025-12-07 02:26:58,945 BotProcess-2 - INFO - bot [run.py:215] - New match. Pete
+r griffin VS. Akys. Tier: B. Format: matchmaking.
+2025-12-07 02:27:01,027 BotProcess-2 - INFO - bot [run.py:242] - Placing bet: $1
+ on red
+2025-12-07 02:27:01,379 BotProcess-2 - INFO - src.salty_client [salty_client.py:
+72] - BET PLACED: $1 on RED
+2025-12-07 02:27:44,330 MainProcess - INFO - watchdog [run.py:371] - Services he
+althy.
+2025-12-07 02:27:51,498 BotProcess-2 - INFO - bot [run.py:265] - Bets locked. Re
+d: $2,450,871. Blue: $1,508,086.
+2025-12-07 02:27:51,498 BotProcess-2 - INFO - bot [run.py:273] - Back-filling hi
+storical data...
+2025-12-07 02:27:51,515 BotProcess-2 - INFO - bot [run.py:71] - Created missing
+fighter: Peter griffin (7577)
+2025-12-07 02:27:51,530 BotProcess-2 - INFO - bot [run.py:71] - Created missing
+fighter: Akys (8339)
+2025-12-07 02:27:53,884 BotProcess-2 - INFO - bot [run.py:288] - Back-filled 3 m
+atches.
+2025-12-07 02:28:30,510 BotProcess-2 - INFO - bot [irc.py:89] - Received a PING,
+ sending PONG.
+2025-12-07 02:31:16,892 BotProcess-2 - INFO - bot [run.py:295] - Winner: Peter g
+riffin.
+2025-12-07 02:31:23,145 BotProcess-2 - INFO - bot [run.py:215] - New match. Astr
+analent ex VS. Deezer. Tier: S. Format: matchmaking.
+2025-12-07 02:31:25,276 BotProcess-2 - INFO - bot [run.py:242] - Placing bet: $1
+ on red
+2025-12-07 02:31:25,625 BotProcess-2 - INFO - src.salty_client [salty_client.py:
+72] - BET PLACED: $1 on RED
+2025-12-07 02:32:13,177 BotProcess-2 - INFO - bot [run.py:265] - Bets locked. Re
+d: $1,294,049. Blue: $2,917,763.
+2025-12-07 02:32:13,177 BotProcess-2 - INFO - bot [run.py:273] - Back-filling hi
+storical data...
+2025-12-07 02:32:13,199 BotProcess-2 - INFO - bot [run.py:71] - Created missing
+fighter: Astranalent ex (7210)
+2025-12-07 02:32:13,210 BotProcess-2 - INFO - bot [run.py:71] - Created missing
+fighter: Deezer (2788)
+2025-12-07 02:32:17,236 BotProcess-2 - INFO - bot [run.py:288] - Back-filled 16
+matches.
+2025-12-07 02:32:29,215 BotProcess-2 - INFO - bot [irc.py:89] - Received a PING,
+ sending PONG.
+2025-12-07 02:32:44,350 MainProcess - INFO - watchdog [run.py:371] - Services he
+althy.
+2025-12-07 02:33:53,233 BotProcess-2 - INFO - bot [run.py:295] - Winner: Deezer.
+2025-12-07 02:34:03,310 BotProcess-2 - INFO - bot [run.py:215] - New match. J la
+nce VS. Imit ultraseven. Tier: A. Format: matchmaking.
+2025-12-07 02:34:06,405 BotProcess-2 - INFO - bot [run.py:242] - Placing bet: $1
+ on red
+2025-12-07 02:34:06,748 BotProcess-2 - INFO - src.salty_client [salty_client.py:
+72] - BET PLACED: $1 on RED
+2025-12-07 02:34:56,906 BotProcess-2 - INFO - bot [run.py:265] - Bets locked. Re
+d: $1,754,389. Blue: $2,651,156.
+2025-12-07 02:34:56,907 BotProcess-2 - INFO - bot [run.py:273] - Back-filling hi
+storical data...
+2025-12-07 02:34:57,002 BotProcess-2 - INFO - bot [run.py:71] - Created missing
+fighter: J lance (3426)
+2025-12-07 02:34:57,048 BotProcess-2 - INFO - bot [run.py:71] - Created missing
+fighter: Imit ultraseven (4157)
+2025-12-07 02:35:00,468 BotProcess-2 - INFO - bot [run.py:288] - Back-filled 4 m
+atches.
+2025-12-07 02:36:35,345 BotProcess-2 - INFO - bot [run.py:295] - Winner: Imit ul
+traseven.
+2025-12-07 02:36:45,353 BotProcess-2 - INFO - bot [run.py:215] - New match. Raiy
+a VS. Hatate_himekaidou. Tier: B. Format: matchmaking.
+2025-12-07 02:36:48,041 BotProcess-2 - INFO - bot [run.py:242] - Placing bet: $1
+ on red
+2025-12-07 02:36:48,386 BotProcess-2 - INFO - src.salty_client [salty_client.py:
+72] - BET PLACED: $1 on RED
+2025-12-07 02:36:53,403 BotProcess-2 - INFO - bot [irc.py:89] - Received a PING,
+ sending PONG.
+2025-12-07 02:37:38,840 BotProcess-2 - INFO - bot [run.py:265] - Bets locked. Re
+d: $1,726,630. Blue: $12,183,794.
+2025-12-07 02:37:38,841 BotProcess-2 - INFO - bot [run.py:273] - Back-filling hi
+storical data...
+2025-12-07 02:37:38,873 BotProcess-2 - INFO - bot [run.py:71] - Created missing
+fighter: Raiya (1171)
+2025-12-07 02:37:38,889 BotProcess-2 - INFO - bot [run.py:71] - Created missing
+fighter: Hatate_himekaidou (2471)
+2025-12-07 02:37:40,766 BotProcess-2 - INFO - bot [run.py:288] - Back-filled 3 m
+atches.
+2025-12-07 02:37:44,368 MainProcess - INFO - watchdog [run.py:371] - Services he
+althy.
+2025-12-07 02:39:35,456 BotProcess-2 - INFO - bot [run.py:295] - Winner: Hatate_
+himekaidou.
+2025-12-07 02:39:45,469 BotProcess-2 - INFO - bot [run.py:215] - New match. Neig
+e pebble VS. G rugal CVS. Tier: B. Format: matchmaking.
+2025-12-07 02:39:47,646 BotProcess-2 - INFO - bot [run.py:242] - Placing bet: $1
+ on red
+2025-12-07 02:39:47,998 BotProcess-2 - INFO - src.salty_client [salty_client.py:
+72] - BET PLACED: $1 on RED
+2025-12-07 02:40:39,658 BotProcess-2 - INFO - bot [run.py:265] - Bets locked. Re
+d: $1,589,310. Blue: $2,286,357.
+2025-12-07 02:40:39,659 BotProcess-2 - INFO - bot [run.py:273] - Back-filling hi
+storical data...
+2025-12-07 02:40:39,683 BotProcess-2 - INFO - bot [run.py:71] - Created missing
+fighter: Neige pebble (4740)
+2025-12-07 02:40:39,700 BotProcess-2 - INFO - bot [run.py:71] - Created missing
+fighter: G rugal CVS (4490)
+2025-12-07 02:40:42,021 BotProcess-2 - INFO - bot [run.py:288] - Back-filled 6 m
+atches.
+2025-12-07 02:41:08,707 BotProcess-2 - INFO - bot [irc.py:89] - Received a PING,
+ sending PONG.
+2025-12-07 02:42:31,282 BotProcess-2 - INFO - bot [run.py:295] - Winner: G rugal
+ CVS.
+2025-12-07 02:42:36,484 BotProcess-2 - INFO - bot [run.py:215] - New match. Kura
+ma VS. Balrog IV. Tier: P. Format: matchmaking.
+2025-12-07 02:42:38,452 BotProcess-2 - INFO - bot [run.py:242] - Placing bet: $1
+ on red
+2025-12-07 02:42:38,810 BotProcess-2 - INFO - src.salty_client [salty_client.py:
+72] - BET PLACED: $1 on RED
+2025-12-07 02:42:44,392 MainProcess - INFO - watchdog [run.py:371] - Services he
+althy.
+2025-12-07 02:43:28,878 BotProcess-2 - INFO - bot [run.py:265] - Bets locked. Re
+d: $2,436,138. Blue: $1,894,574.
+2025-12-07 02:43:28,878 BotProcess-2 - INFO - bot [run.py:273] - Back-filling hi
+storical data...
+2025-12-07 02:43:28,898 BotProcess-2 - INFO - bot [run.py:71] - Created missing
+fighter: Kurama (2987)
+2025-12-07 02:43:28,918 BotProcess-2 - INFO - bot [run.py:71] - Created missing
+fighter: Balrog IV (9768)
+2025-12-07 02:43:29,141 BotProcess-2 - INFO - bot [run.py:290] - No new/valid ma
+tches to back-fill.
+2025-12-07 02:45:09,730 BotProcess-2 - INFO - bot [run.py:295] - Winner: Kurama.
+2025-12-07 02:45:15,721 BotProcess-2 - INFO - bot [run.py:215] - New match. Cybo
+rg EX VS. Benimaru945. Tier: B. Format: matchmaking.
+2025-12-07 02:45:18,018 BotProcess-2 - INFO - bot [run.py:242] - Placing bet: $1
+ on red
+2025-12-07 02:45:18,356 BotProcess-2 - INFO - src.salty_client [salty_client.py:
+72] - BET PLACED: $1 on RED
+2025-12-07 02:45:42,116 BotProcess-2 - INFO - bot [irc.py:89] - Received a PING,
+ sending PONG.
+2025-12-07 02:46:05,757 BotProcess-2 - INFO - bot [run.py:265] - Bets locked. Re
+d: $2,240,682. Blue: $4,305,751.
+2025-12-07 02:46:05,757 BotProcess-2 - INFO - bot [run.py:273] - Back-filling hi
+storical data...
+2025-12-07 02:46:05,776 BotProcess-2 - INFO - bot [run.py:71] - Created missing
+fighter: Cyborg EX (5865)
+2025-12-07 02:46:05,796 BotProcess-2 - INFO - bot [run.py:71] - Created missing
+fighter: Benimaru945 (4569)
+2025-12-07 02:46:08,494 BotProcess-2 - INFO - bot [run.py:288] - Back-filled 1 m
+atches.
+2025-12-07 02:47:29,820 BotProcess-2 - INFO - bot [run.py:295] - Winner: Benimar
+u945.
+2025-12-07 02:47:35,816 BotProcess-2 - INFO - bot [run.py:215] - New match. Bloo
+d VS. Ken CVS. Tier: B. Format: matchmaking.
+2025-12-07 02:47:37,903 BotProcess-2 - INFO - bot [run.py:242] - Placing bet: $1
+ on red
+2025-12-07 02:47:38,236 BotProcess-2 - INFO - src.salty_client [salty_client.py:
+72] - BET PLACED: $1 on RED
+2025-12-07 02:47:44,413 MainProcess - INFO - watchdog [run.py:371] - Services he
+althy.
+2025-12-07 02:48:28,342 BotProcess-2 - INFO - bot [run.py:265] - Bets locked. Re
+d: $2,525,568. Blue: $2,172,073.
+2025-12-07 02:48:28,342 BotProcess-2 - INFO - bot [run.py:273] - Back-filling hi
+storical data...
+2025-12-07 02:48:28,358 BotProcess-2 - INFO - bot [run.py:71] - Created missing
+fighter: Blood (5937)
+2025-12-07 02:48:28,377 BotProcess-2 - INFO - bot [run.py:71] - Created missing
+fighter: Ken CVS (614)
+2025-12-07 02:48:30,499 BotProcess-2 - INFO - bot [run.py:288] - Back-filled 4 m
+atches.
+2025-12-07 02:49:35,942 BotProcess-2 - INFO - bot [run.py:295] - Winner: Blood.
+2025-12-07 02:49:41,297 BotProcess-2 - INFO - bot [run.py:215] - New match. Bloo
+d VS. Renamon Dv2. Tier: B. Format: matchmaking.
+2025-12-07 02:49:45,578 BotProcess-2 - INFO - bot [run.py:242] - Placing bet: $1
+ on red
+2025-12-07 02:49:45,935 BotProcess-2 - INFO - src.salty_client [salty_client.py:
+72] - BET PLACED: $1 on RED
+2025-12-07 02:50:14,860 BotProcess-2 - INFO - bot [irc.py:89] - Received a PING,
+ sending PONG.
+2025-12-07 02:50:34,982 BotProcess-2 - INFO - bot [run.py:265] - Bets locked. Re
+d: $5,689,406. Blue: $1,768,994.
+2025-12-07 02:50:34,983 BotProcess-2 - INFO - bot [run.py:273] - Back-filling hi
+storical data...
+2025-12-07 02:50:35,117 BotProcess-2 - INFO - bot [run.py:71] - Created missing
+fighter: Renamon Dv2 (6469)
+2025-12-07 02:50:37,540 BotProcess-2 - INFO - bot [run.py:288] - Back-filled 2 m
+atches.
+2025-12-07 02:51:51,057 BotProcess-2 - INFO - bot [run.py:295] - Winner: Blood.
+2025-12-07 02:51:56,096 BotProcess-2 - INFO - bot [run.py:215] - New match. Mict
+lan excessive VS. Clone zero. Tier: X. Format: matchmaking.
+2025-12-07 02:51:57,966 BotProcess-2 - INFO - bot [run.py:242] - Placing bet: $1
+ on red
+2025-12-07 02:51:58,172 BotProcess-2 - INFO - src.salty_client [salty_client.py:
+72] - BET PLACED: $1 on RED
+2025-12-07 02:52:44,432 MainProcess - INFO - watchdog [run.py:371] - Services he
+althy.
+2025-12-07 02:52:50,059 BotProcess-2 - INFO - bot [run.py:265] - Bets locked. Re
+d: $1,967,152. Blue: $2,499,328.
+2025-12-07 02:52:50,059 BotProcess-2 - INFO - bot [run.py:273] - Back-filling hi
+storical data...
+2025-12-07 02:52:50,086 BotProcess-2 - INFO - bot [run.py:71] - Created missing
+fighter: Mictlan excessive (3006)
+2025-12-07 02:52:50,110 BotProcess-2 - INFO - bot [run.py:71] - Created missing
+fighter: Clone zero (7578)
+2025-12-07 02:52:50,823 BotProcess-2 - INFO - bot [run.py:288] - Back-filled 2 m
+atches.
+2025-12-07 02:55:11,036 BotProcess-2 - INFO - bot [irc.py:89] - Received a PING,
+ sending PONG.
+2025-12-07 02:55:40,158 BotProcess-2 - INFO - bot [run.py:295] - Winner: Clone z
+ero.
+2025-12-07 02:55:50,167 BotProcess-2 - INFO - bot [run.py:215] - New match. Hanc
+ock EX VS. Foz. Tier: B. Format: matchmaking.
+2025-12-07 02:56:04,795 BotProcess-2 - INFO - bot [run.py:242] - Placing bet: $1
+ on red
+2025-12-07 02:56:05,197 BotProcess-2 - INFO - src.salty_client [salty_client.py:
+72] - BET PLACED: $1 on RED
+2025-12-07 02:56:40,357 BotProcess-2 - INFO - bot [run.py:265] - Bets locked. Re
+d: $1,997,395. Blue: $2,423,593.
+2025-12-07 02:56:40,357 BotProcess-2 - INFO - bot [run.py:273] - Back-filling hi
+storical data...
+2025-12-07 02:56:40,431 BotProcess-2 - INFO - bot [run.py:71] - Created missing
+fighter: Hancock EX (7790)
+2025-12-07 02:56:40,508 BotProcess-2 - INFO - bot [run.py:71] - Created missing
+fighter: Foz (4707)
+2025-12-07 02:56:42,703 BotProcess-2 - INFO - bot [run.py:288] - Back-filled 3 m
+atches.
+2025-12-07 02:57:44,450 MainProcess - INFO - watchdog [run.py:371] - Services he
+althy.
+2025-12-07 02:58:56,359 BotProcess-2 - INFO - bot [run.py:295] - Winner: Hancock
+ EX.
+2025-12-07 02:59:06,317 BotProcess-2 - INFO - bot [run.py:215] - New match. Athe
+na x VS. Raphael 0d. Tier: A. Format: matchmaking.
+2025-12-07 02:59:09,636 BotProcess-2 - INFO - bot [run.py:242] - Placing bet: $1
+ on red
+2025-12-07 02:59:09,977 BotProcess-2 - INFO - src.salty_client [salty_client.py:
+72] - BET PLACED: $1 on RED
+2025-12-07 03:00:00,339 BotProcess-2 - INFO - bot [run.py:265] - Bets locked. Re
+d: $3,198,851. Blue: $1,688,199.
+2025-12-07 03:00:00,340 BotProcess-2 - INFO - bot [run.py:273] - Back-filling hi
+storical data...
+2025-12-07 03:00:00,486 BotProcess-2 - INFO - bot [run.py:71] - Created missing
+fighter: Athena x (2288)
+2025-12-07 03:00:00,514 BotProcess-2 - INFO - bot [run.py:71] - Created missing
+fighter: Raphael 0d (3599)
+2025-12-07 03:00:03,991 BotProcess-2 - INFO - bot [run.py:288] - Back-filled 2 m
+atches.
+2025-12-07 03:00:09,002 BotProcess-2 - INFO - bot [irc.py:89] - Received a PING,
+ sending PONG.
+2025-12-07 03:02:14,228 BotProcess-2 - INFO - bot [run.py:295] - Winner: Athena
+x.
+2025-12-07 03:02:22,491 BotProcess-2 - INFO - bot [run.py:215] - New match. Kame
+n rider kabuto VS. Nami mvc. Tier: S. Format: matchmaking.
+2025-12-07 03:02:37,026 BotProcess-2 - INFO - bot [run.py:242] - Placing bet: $1
+ on red
+2025-12-07 03:02:37,402 BotProcess-2 - INFO - src.salty_client [salty_client.py:
+72] - BET PLACED: $1 on RED
+2025-12-07 03:02:44,477 MainProcess - INFO - watchdog [run.py:371] - Services he
+althy.
+2025-12-07 03:03:12,549 BotProcess-2 - INFO - bot [run.py:265] - Bets locked. Re
+d: $2,487,252. Blue: $1,279,120.
+2025-12-07 03:03:12,549 BotProcess-2 - INFO - bot [run.py:273] - Back-filling hi
+storical data...
+2025-12-07 03:03:12,602 BotProcess-2 - ERROR - bot [run.py:74] - Failed to creat
+e fighter Kamen rider kabuto: (psycopg2.errors.UniqueViolation) duplicate key va
+lue violates unique constraint "fighter_name_key"
+DETAIL:  Key (name)=(Kamen rider kabuto) already exists.
+
+[SQL: INSERT INTO fighter (id, name, tier, elo, tier_elo, best_streak, created_t
+ime, last_updated, prev_tier) VALUES (%(id)s, %(name)s, %(tier)s, %(elo)s, %(tie
+r_elo)s, %(best_streak)s, %(created_time)s, %(last_updated)s, %(prev_tier)s)]
+[parameters: {'id': 2726, 'name': 'Kamen rider kabuto', 'tier': 'S', 'elo': 1316
+, 'tier_elo': 1298, 'best_streak': 0, 'created_time': datetime.datetime(2025, 12
+, 7, 6, 3, 12, 561907, tzinfo=datetime.timezone.utc), 'last_updated': datetime.d
+atetime(2025, 12, 7, 6, 3, 12, 561907, tzinfo=datetime.timezone.utc), 'prev_tier
+': 'S'}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-12-07 03:03:12,627 BotProcess-2 - INFO - bot [run.py:71] - Created missing
+fighter: Nami mvc (3046)
+2025-12-07 03:03:17,226 BotProcess-2 - INFO - bot [run.py:288] - Back-filled 4 m
+atches.
+2025-12-07 03:04:22,316 BotProcess-2 - INFO - bot [irc.py:89] - Received a PING,
+ sending PONG.
+2025-12-07 03:06:12,687 BotProcess-2 - INFO - bot [run.py:295] - Winner: Kamen r
+ider kabuto.
+2025-12-07 03:06:22,677 BotProcess-2 - INFO - bot [run.py:215] - New match. Supe
+r goku VS. Bruno bucciarati. Tier: B. Format: matchmaking.
+2025-12-07 03:06:25,099 BotProcess-2 - INFO - bot [run.py:242] - Placing bet: $1
+ on red
+2025-12-07 03:06:25,439 BotProcess-2 - INFO - src.salty_client [salty_client.py:
+72] - BET PLACED: $1 on RED
+2025-12-07 03:07:15,589 BotProcess-2 - INFO - bot [run.py:265] - Bets locked. Re
+d: $1,456,234. Blue: $3,488,862.
+2025-12-07 03:07:15,589 BotProcess-2 - INFO - bot [run.py:273] - Back-filling hi
+storical data...
+2025-12-07 03:07:15,597 BotProcess-2 - ERROR - bot [run.py:74] - Failed to creat
+e fighter Kamen rider kabuto: (psycopg2.errors.UniqueViolation) duplicate key va
+lue violates unique constraint "fighter_name_key"
+DETAIL:  Key (name)=(Kamen rider kabuto) already exists.
+
+[SQL: INSERT INTO fighter (id, name, tier, elo, tier_elo, best_streak, created_t
+ime, last_updated, prev_tier) VALUES (%(id)s, %(name)s, %(tier)s, %(elo)s, %(tie
+r_elo)s, %(best_streak)s, %(created_time)s, %(last_updated)s, %(prev_tier)s)]
+[parameters: {'id': 2726, 'name': 'Kamen rider kabuto', 'tier': 'S', 'elo': 1329
+, 'tier_elo': 1311, 'best_streak': 0, 'created_time': datetime.datetime(2025, 12
+, 7, 6, 7, 15, 597146, tzinfo=datetime.timezone.utc), 'last_updated': datetime.d
+atetime(2025, 12, 7, 6, 7, 15, 597146, tzinfo=datetime.timezone.utc), 'prev_tier
+': 'S'}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-12-07 03:07:19,433 BotProcess-2 - INFO - bot [run.py:290] - No new/valid ma
+tches to back-fill.
+2025-12-07 03:07:44,527 MainProcess - INFO - watchdog [run.py:371] - Services he
+althy.
+2025-12-07 03:08:52,649 BotProcess-2 - INFO - bot [irc.py:89] - Received a PING,
+ sending PONG.
+2025-12-07 03:09:42,834 BotProcess-2 - INFO - bot [run.py:295] - Winner: Bruno b
+ucciarati.
+2025-12-07 03:09:47,907 BotProcess-2 - INFO - bot [run.py:215] - New match. Teru
+mi VS. Black battler. Tier: A. Format: matchmaking.
+2025-12-07 03:09:50,205 BotProcess-2 - INFO - bot [run.py:242] - Placing bet: $1
+ on red
+2025-12-07 03:09:50,542 BotProcess-2 - INFO - src.salty_client [salty_client.py:
+72] - BET PLACED: $1 on RED
+2025-12-07 03:10:42,868 BotProcess-2 - INFO - bot [run.py:265] - Bets locked. Re
+d: $2,699,313. Blue: $894,430.
+2025-12-07 03:10:42,869 BotProcess-2 - INFO - bot [run.py:273] - Back-filling hi
+storical data...
+2025-12-07 03:10:42,886 BotProcess-2 - ERROR - bot [run.py:74] - Failed to creat
+e fighter Super goku: (psycopg2.errors.UniqueViolation) duplicate key value viol
+ates unique constraint "fighter_name_key"
+DETAIL:  Key (name)=(Super goku) already exists.
+
+[SQL: INSERT INTO fighter (id, name, tier, elo, tier_elo, best_streak, created_t
+ime, last_updated, prev_tier) VALUES (%(id)s, %(name)s, %(tier)s, %(elo)s, %(tie
+r_elo)s, %(best_streak)s, %(created_time)s, %(last_updated)s, %(prev_tier)s)]
+[parameters: {'id': 4151, 'name': 'Super goku', 'tier': 'B', 'elo': 1377, 'tier_
+elo': 1412, 'best_streak': 0, 'created_time': datetime.datetime(2025, 12, 7, 6,
+10, 42, 877185, tzinfo=datetime.timezone.utc), 'last_updated': datetime.datetime
+(2025, 12, 7, 6, 10, 42, 877185, tzinfo=datetime.timezone.utc), 'prev_tier': 'B'
+}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-12-07 03:10:42,903 BotProcess-2 - ERROR - bot [run.py:74] - Failed to creat
+e fighter Bruno bucciarati: (psycopg2.errors.UniqueViolation) duplicate key valu
+e violates unique constraint "fighter_name_key"
+DETAIL:  Key (name)=(Bruno bucciarati) already exists.
+
+[SQL: INSERT INTO fighter (id, name, tier, elo, tier_elo, best_streak, created_t
+ime, last_updated, prev_tier) VALUES (%(id)s, %(name)s, %(tier)s, %(elo)s, %(tie
+r_elo)s, %(best_streak)s, %(created_time)s, %(last_updated)s, %(prev_tier)s)]
+[parameters: {'id': 8559, 'name': 'Bruno bucciarati', 'tier': 'B', 'elo': 1543,
+'tier_elo': 1575, 'best_streak': 0, 'created_time': datetime.datetime(2025, 12,
+7, 6, 10, 42, 894223, tzinfo=datetime.timezone.utc), 'last_updated': datetime.da
+tetime(2025, 12, 7, 6, 10, 42, 894223, tzinfo=datetime.timezone.utc), 'prev_tier
+': 'B'}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-12-07 03:10:44,718 BotProcess-2 - INFO - bot [run.py:290] - No new/valid ma
+tches to back-fill.
+2025-12-07 03:12:12,940 BotProcess-2 - INFO - bot [run.py:295] - Winner: Terumi.
+2025-12-07 03:12:22,941 BotProcess-2 - INFO - bot [run.py:215] - New match. Zero
+ nightmare remake VS. Dirty kf master. Tier: B. Format: matchmaking.
+2025-12-07 03:12:25,051 BotProcess-2 - INFO - bot [run.py:242] - Placing bet: $1
+ on red
+2025-12-07 03:12:25,405 BotProcess-2 - INFO - src.salty_client [salty_client.py:
+72] - BET PLACED: $1 on RED
+2025-12-07 03:12:44,549 MainProcess - INFO - watchdog [run.py:371] - Services he
+althy.
+2025-12-07 03:13:15,481 BotProcess-2 - INFO - bot [irc.py:89] - Received a PING,
+ sending PONG.
+2025-12-07 03:13:20,506 BotProcess-2 - INFO - bot [run.py:265] - Bets locked. Re
+d: $1,770,009. Blue: $4,412,498.
+2025-12-07 03:13:20,507 BotProcess-2 - INFO - bot [run.py:273] - Back-filling hi
+storical data...
+2025-12-07 03:13:20,524 BotProcess-2 - INFO - bot [run.py:71] - Created missing
+fighter: Zero nightmare remake (1935)
+2025-12-07 03:13:20,541 BotProcess-2 - INFO - bot [run.py:71] - Created missing
+fighter: Dirty kf master (8378)
+2025-12-07 03:13:22,748 BotProcess-2 - INFO - bot [run.py:290] - No new/valid ma
+tches to back-fill.
+2025-12-07 03:15:37,064 BotProcess-2 - INFO - bot [run.py:295] - Winner: Zero ni
+ghtmare remake.
+2025-12-07 03:15:47,084 BotProcess-2 - INFO - bot [run.py:215] - New match. Tenj
+ou-jin VS. Houraisan kaguya. Tier: A. Format: matchmaking.
+2025-12-07 03:15:50,302 BotProcess-2 - INFO - bot [run.py:242] - Placing bet: $1
+ on red
+2025-12-07 03:15:50,651 BotProcess-2 - INFO - src.salty_client [salty_client.py:
+72] - BET PLACED: $1 on RED
+2025-12-07 03:16:40,808 BotProcess-2 - INFO - bot [run.py:265] - Bets locked. Re
+d: $1,630,780. Blue: $4,133,662.
+2025-12-07 03:16:40,808 BotProcess-2 - INFO - bot [run.py:273] - Back-filling hi
+storical data...
+2025-12-07 03:16:40,822 BotProcess-2 - INFO - bot [run.py:71] - Created missing
+fighter: Tenjou-jin (2871)
+2025-12-07 03:16:40,843 BotProcess-2 - INFO - bot [run.py:71] - Created missing
+fighter: Houraisan kaguya (643)
+2025-12-07 03:16:44,477 BotProcess-2 - INFO - bot [run.py:288] - Back-filled 5 m
+atches.
+2025-12-07 03:17:44,575 MainProcess - INFO - watchdog [run.py:371] - Services he
+althy.
+2025-12-07 03:18:04,629 BotProcess-2 - INFO - bot [irc.py:89] - Received a PING,
+ sending PONG.
+2025-12-07 03:18:49,239 BotProcess-2 - INFO - bot [run.py:295] - Winner: Tenjou-
+jin.
+2025-12-07 03:18:59,238 BotProcess-2 - INFO - bot [run.py:215] - New match. Oroc
+himaru VS. Haru-chan. Tier: B. Format: matchmaking.
+2025-12-07 03:19:12,672 BotProcess-2 - INFO - bot [run.py:242] - Placing bet: $1
+ on red
+2025-12-07 03:19:13,030 BotProcess-2 - INFO - src.salty_client [salty_client.py:
+72] - BET PLACED: $1 on RED
+2025-12-07 03:19:39,276 BotProcess-2 - INFO - bot [run.py:265] - Bets locked. Re
+d: $1,580,703. Blue: $4,023,152.
+2025-12-07 03:19:39,276 BotProcess-2 - INFO - bot [run.py:273] - Back-filling hi
+storical data...
+2025-12-07 03:19:39,292 BotProcess-2 - INFO - bot [run.py:71] - Created missing
+fighter: Orochimaru (8513)
+2025-12-07 03:19:39,308 BotProcess-2 - INFO - bot [run.py:71] - Created missing
+fighter: Haru-chan (4228)
+2025-12-07 03:19:41,494 BotProcess-2 - INFO - bot [run.py:288] - Back-filled 3 m
+atches.
+2025-12-07 03:22:16,999 BotProcess-2 - INFO - bot [run.py:295] - Winner: Haru-ch
+an.
+2025-12-07 03:22:23,392 BotProcess-2 - INFO - bot [run.py:215] - New match. Kita
+naininjya VS. Xigbar. Tier: S. Format: matchmaking.
+2025-12-07 03:22:36,927 BotProcess-2 - INFO - bot [run.py:242] - Placing bet: $1
+ on red
+2025-12-07 03:22:37,269 BotProcess-2 - INFO - src.salty_client [salty_client.py:
+72] - BET PLACED: $1 on RED
+2025-12-07 03:22:42,300 BotProcess-2 - INFO - bot [irc.py:89] - Received a PING,
+ sending PONG.
+2025-12-07 03:22:44,594 MainProcess - INFO - watchdog [run.py:371] - Services he
+althy.
+2025-12-07 03:23:03,419 BotProcess-2 - INFO - bot [run.py:265] - Bets locked. Re
+d: $2,526,912. Blue: $1,546,177.
+2025-12-07 03:23:03,419 BotProcess-2 - INFO - bot [run.py:273] - Back-filling hi
+storical data...
+2025-12-07 03:23:03,450 BotProcess-2 - INFO - bot [run.py:71] - Created missing
+fighter: Kitanaininjya (2406)
+2025-12-07 03:23:03,473 BotProcess-2 - INFO - bot [run.py:71] - Created missing
+fighter: Xigbar (5858)
+2025-12-07 03:23:07,405 BotProcess-2 - INFO - bot [run.py:288] - Back-filled 7 m
+atches.
+2025-12-07 03:24:03,468 BotProcess-2 - INFO - bot [run.py:295] - Winner: Xigbar.
+2025-12-07 03:24:13,490 BotProcess-2 - INFO - bot [run.py:215] - New match. Spar
+kster VS. Rozwel j. Tier: S. Format: matchmaking.
+2025-12-07 03:24:15,658 BotProcess-2 - INFO - bot [run.py:242] - Placing bet: $1
+ on red
+2025-12-07 03:24:15,999 BotProcess-2 - INFO - src.salty_client [salty_client.py:
+72] - BET PLACED: $1 on RED
+2025-12-07 03:25:06,128 BotProcess-2 - INFO - bot [run.py:265] - Bets locked. Re
+d: $3,005,507. Blue: $1,559,230.
+2025-12-07 03:25:06,128 BotProcess-2 - INFO - bot [run.py:273] - Back-filling hi
+storical data...
+2025-12-07 03:25:06,139 BotProcess-2 - INFO - bot [run.py:71] - Created missing
+fighter: Sparkster (1203)
+2025-12-07 03:25:06,160 BotProcess-2 - INFO - bot [run.py:71] - Created missing
+fighter: Rozwel j (4967)
+2025-12-07 03:25:10,134 BotProcess-2 - INFO - bot [run.py:288] - Back-filled 13
+matches.
+2025-12-07 03:27:00,392 BotProcess-2 - INFO - bot [run.py:295] - Winner: Rozwel
+j.
+2025-12-07 03:27:07,002 BotProcess-2 - INFO - bot [irc.py:89] - Received a PING,
+ sending PONG.
+2025-12-07 03:27:12,024 BotProcess-2 - INFO - bot [run.py:215] - New match. Poln
+areff (part 5) VS. Blade. Tier: A. Format: matchmaking.
+2025-12-07 03:27:25,458 BotProcess-2 - INFO - bot [run.py:242] - Placing bet: $1
+ on red
+2025-12-07 03:27:25,808 BotProcess-2 - INFO - src.salty_client [salty_client.py:
+72] - BET PLACED: $1 on RED
+2025-12-07 03:27:44,622 MainProcess - INFO - watchdog [run.py:371] - Services he
+althy.
+2025-12-07 03:28:00,971 BotProcess-2 - INFO - bot [run.py:265] - Bets locked. Re
+d: $1,482,976. Blue: $2,652,145.
+2025-12-07 03:28:00,971 BotProcess-2 - INFO - bot [run.py:273] - Back-filling hi
+storical data...
+2025-12-07 03:28:01,009 BotProcess-2 - INFO - bot [run.py:71] - Created missing
+fighter: Polnareff (part 5) (3281)
+2025-12-07 03:28:01,033 BotProcess-2 - INFO - bot [run.py:71] - Created missing
+fighter: Blade (1394)
+2025-12-07 03:28:04,400 BotProcess-2 - INFO - bot [run.py:288] - Back-filled 13
+matches.
+2025-12-07 03:30:24,612 BotProcess-2 - INFO - bot [run.py:295] - Winner: Blade.
+2025-12-07 03:30:29,781 BotProcess-2 - INFO - bot [run.py:215] - New match. Gees
+e_ff3rb VS. Fordy-z. Tier: A. Format: matchmaking.
+2025-12-07 03:30:32,435 BotProcess-2 - INFO - bot [run.py:242] - Placing bet: $1
+ on red
+2025-12-07 03:30:32,834 BotProcess-2 - INFO - src.salty_client [salty_client.py:
+72] - BET PLACED: $1 on RED
+2025-12-07 03:31:22,968 BotProcess-2 - INFO - bot [run.py:265] - Bets locked. Re
+d: $1,665,435. Blue: $4,560,672.
+2025-12-07 03:31:22,968 BotProcess-2 - INFO - bot [run.py:273] - Back-filling hi
+storical data...
+2025-12-07 03:31:22,998 BotProcess-2 - INFO - bot [run.py:71] - Created missing
+fighter: Geese_ff3rb (2323)
+2025-12-07 03:31:23,028 BotProcess-2 - INFO - bot [run.py:71] - Created missing
+fighter: Fordy-z (5491)
+2025-12-07 03:31:26,198 BotProcess-2 - INFO - bot [run.py:288] - Back-filled 8 m
+atches.
+2025-12-07 03:32:01,855 BotProcess-2 - INFO - bot [irc.py:89] - Received a PING,
+ sending PONG.
+2025-12-07 03:32:39,858 BotProcess-2 - INFO - bot [run.py:295] - Winner: Fordy-z
+.
+2025-12-07 03:32:44,645 MainProcess - INFO - watchdog [run.py:371] - Services he
+althy.
+2025-12-07 03:32:49,878 BotProcess-2 - INFO - bot [run.py:215] - New match. Gian
+t gunter VS. Janne alter. Tier: S. Format: matchmaking.
+2025-12-07 03:32:52,982 BotProcess-2 - INFO - bot [run.py:242] - Placing bet: $1
+ on red
+2025-12-07 03:32:53,333 BotProcess-2 - INFO - src.salty_client [salty_client.py:
+72] - BET PLACED: $1 on RED
+2025-12-07 03:33:43,450 BotProcess-2 - INFO - bot [run.py:265] - Bets locked. Re
+d: $4,638,122. Blue: $1,657,850.
+2025-12-07 03:33:43,450 BotProcess-2 - INFO - bot [run.py:273] - Back-filling hi
+storical data...
+2025-12-07 03:33:43,482 BotProcess-2 - INFO - bot [run.py:71] - Created missing
+fighter: Giant gunter (6967)
+2025-12-07 03:33:43,501 BotProcess-2 - INFO - bot [run.py:71] - Created missing
+fighter: Janne alter (1569)
+2025-12-07 03:33:47,460 BotProcess-2 - INFO - bot [run.py:288] - Back-filled 11
+matches.
