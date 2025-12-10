@@ -1,0 +1,196 @@
+2025-12-08 18:34:41,299 MainProcess - INFO - watchdog [run.py:399] - Services healthy.
+2025-12-08 18:34:47,331 BotProcess-2 - INFO - bot [run.py:274] - New match. Dust of osiris VS. Kakyoin noriaki EX3. Tier: A.
+2025-12-08 18:35:00,926 BotProcess-2 - INFO - bot [run.py:147] - Synced fighter stats: Dust of osiris
+2025-12-08 18:35:00,968 BotProcess-2 - INFO - bot [run.py:137] - Imported fighter from API: Kakyoin noriaki EX3
+2025-12-08 18:35:01,639 BotProcess-2 - INFO - bot [run.py:300] - Placing bet: $10694 on red (Confidence: 52.1%)
+2025-12-08 18:35:01,849 BotProcess-2 - INFO - src.salty_client [salty_client.py:111] - BET PLACED: $10694 on RED
+2025-12-08 18:35:26,921 BotProcess-2 - INFO - bot [run.py:316] - Bets locked. Red: $1,374,860. Blue: $2,585,049.
+2025-12-08 18:35:28,559 BotProcess-2 - INFO - bot [run.py:326] - Back-filling history...
+2025-12-08 18:35:30,664 BotProcess-2 - INFO - bot [run.py:182] - Consolidated bet 'Red' into ID 541595
+2025-12-08 18:35:34,113 BotProcess-2 - INFO - bot [run.py:334] - Back-filled 26 matches.
+2025-12-08 18:35:41,303 MainProcess - INFO - watchdog [run.py:399] - Services healthy.
+2025-12-08 18:36:41,309 MainProcess - INFO - watchdog [run.py:399] - Services healthy.
+2025-12-08 18:36:44,281 BotProcess-2 - INFO - bot [run.py:338] - Winner: Kakyoin noriaki EX3.
+2025-12-08 18:37:00,671 BotProcess-2 - INFO - bot [run.py:274] - New match. Domino bertha VS. Terry bongaro. Tier: S.
+2025-12-08 18:37:14,361 BotProcess-2 - INFO - bot [run.py:147] - Synced fighter stats: Domino bertha
+2025-12-08 18:37:14,392 BotProcess-2 - INFO - bot [run.py:137] - Imported fighter from API: Terry bongaro
+2025-12-08 18:37:15,041 BotProcess-2 - INFO - bot [run.py:300] - Placing bet: $47029 on blue (Confidence: 59.4%)
+2025-12-08 18:37:15,243 BotProcess-2 - INFO - src.salty_client [salty_client.py:111] - BET PLACED: $47029 on BLUE
+2025-12-08 18:37:41,028 BotProcess-2 - INFO - bot [run.py:316] - Bets locked. Red: $2,497,140. Blue: $1,352,449.
+2025-12-08 18:37:41,314 MainProcess - INFO - watchdog [run.py:399] - Services healthy.
+2025-12-08 18:37:42,658 BotProcess-2 - INFO - bot [run.py:326] - Back-filling history...
+2025-12-08 18:37:48,937 BotProcess-2 - INFO - bot [run.py:334] - Back-filled 47 matches.
+2025-12-08 18:38:07,648 BotProcess-2 - INFO - bot [irc.py:89] - Received a PING, sending PONG.
+2025-12-08 18:38:41,320 MainProcess - INFO - watchdog [run.py:399] - Services healthy.
+2025-12-08 18:39:41,326 MainProcess - INFO - watchdog [run.py:399] - Services healthy.
+2025-12-08 18:39:46,543 BotProcess-2 - INFO - bot [run.py:338] - Winner: Terry bongaro.
+2025-12-08 18:39:56,634 BotProcess-2 - INFO - bot [run.py:274] - New match. Vanessa-kofm VS. Geese howard EX2. Tier: A.
+2025-12-08 18:40:02,794 BotProcess-2 - INFO - bot [run.py:147] - Synced fighter stats: Vanessa-kofm
+2025-12-08 18:40:02,836 BotProcess-2 - INFO - bot [run.py:137] - Imported fighter from API: Geese howard EX2
+2025-12-08 18:40:03,524 BotProcess-2 - INFO - bot [run.py:300] - Placing bet: $114452 on red (Confidence: 72.9%)
+2025-12-08 18:40:03,732 BotProcess-2 - INFO - src.salty_client [salty_client.py:111] - BET PLACED: $114452 on RED
+2025-12-08 18:40:38,825 BotProcess-2 - INFO - bot [run.py:316] - Bets locked. Red: $3,914,346. Blue: $1,695,015.
+2025-12-08 18:40:40,538 BotProcess-2 - INFO - bot [run.py:326] - Back-filling history...
+2025-12-08 18:40:41,332 MainProcess - INFO - watchdog [run.py:399] - Services healthy.
+2025-12-08 18:40:45,607 BotProcess-2 - INFO - bot [run.py:334] - Back-filled 17 matches.
+2025-12-08 18:41:41,335 MainProcess - INFO - watchdog [run.py:399] - Services healthy.
+2025-12-08 18:42:38,549 BotProcess-2 - INFO - bot [run.py:338] - Winner: Vanessa-kofm.
+2025-12-08 18:42:41,342 MainProcess - INFO - watchdog [run.py:399] - Services healthy.
+2025-12-08 18:42:47,249 BotProcess-2 - INFO - bot [run.py:274] - New match. Daisy VS. Nrvnqsr chaos. Tier: B.
+2025-12-08 18:43:00,763 BotProcess-2 - INFO - bot [run.py:137] - Imported fighter from API: Daisy
+2025-12-08 18:43:00,795 BotProcess-2 - INFO - bot [run.py:137] - Imported fighter from API: Nrvnqsr chaos
+2025-12-08 18:43:01,638 BotProcess-2 - INFO - bot [run.py:300] - Placing bet: $150692 on blue (Confidence: 80.1%)
+2025-12-08 18:43:02,219 BotProcess-2 - INFO - src.salty_client [salty_client.py:111] - BET PLACED: $150692 on BLUE
+2025-12-08 18:43:07,251 BotProcess-2 - INFO - bot [irc.py:89] - Received a PING, sending PONG.
+2025-12-08 18:43:37,284 BotProcess-2 - INFO - bot [run.py:316] - Bets locked. Red: $1,520,411. Blue: $3,516,322.
+2025-12-08 18:43:38,921 BotProcess-2 - INFO - bot [run.py:326] - Back-filling history...
+2025-12-08 18:43:40,863 BotProcess-2 - INFO - bot [run.py:334] - Back-filled 8 matches.
+2025-12-08 18:43:41,348 MainProcess - INFO - watchdog [run.py:399] - Services healthy.
+2025-12-08 18:44:41,354 MainProcess - INFO - watchdog [run.py:399] - Services healthy.
+2025-12-08 18:45:40,361 BotProcess-2 - INFO - bot [run.py:338] - Winner: Nrvnqsr chaos.
+2025-12-08 18:45:41,358 MainProcess - INFO - watchdog [run.py:399] - Services healthy.
+2025-12-08 18:45:45,403 BotProcess-2 - INFO - bot [run.py:274] - New match. G silver VS. Umbreon. Tier: A.
+2025-12-08 18:45:51,599 BotProcess-2 - INFO - bot [run.py:137] - Imported fighter from API: G silver
+2025-12-08 18:45:51,620 BotProcess-2 - INFO - bot [run.py:137] - Imported fighter from API: Umbreon
+2025-12-08 18:45:52,290 BotProcess-2 - INFO - bot [run.py:300] - Placing bet: $17110 on blue (Confidence: 53.4%)
+2025-12-08 18:45:52,490 BotProcess-2 - INFO - src.salty_client [salty_client.py:111] - BET PLACED: $17110 on BLUE
+2025-12-08 18:46:31,391 BotProcess-2 - INFO - bot [run.py:316] - Bets locked. Red: $1,499,027. Blue: $1,858,657.
+2025-12-08 18:46:32,888 BotProcess-2 - INFO - bot [run.py:326] - Back-filling history...
+2025-12-08 18:46:38,512 BotProcess-2 - INFO - bot [run.py:334] - Back-filled 39 matches.
+2025-12-08 18:46:41,361 MainProcess - INFO - watchdog [run.py:399] - Services healthy.
+2025-12-08 18:47:22,455 BotProcess-2 - INFO - bot [irc.py:89] - Received a PING, sending PONG.
+2025-12-08 18:47:41,368 MainProcess - INFO - watchdog [run.py:399] - Services healthy.
+2025-12-08 18:48:41,374 MainProcess - INFO - watchdog [run.py:399] - Services healthy.
+2025-12-08 18:49:01,485 BotProcess-2 - INFO - bot [run.py:338] - Winner: G silver.
+2025-12-08 18:49:11,489 BotProcess-2 - INFO - bot [run.py:274] - New match. Tao jun EX VS. Shuma MVC3. Tier: A.
+2025-12-08 18:49:13,767 BotProcess-2 - INFO - bot [run.py:137] - Imported fighter from API: Tao jun EX
+2025-12-08 18:49:13,788 BotProcess-2 - INFO - bot [run.py:137] - Imported fighter from API: Shuma MVC3
+2025-12-08 18:49:14,448 BotProcess-2 - INFO - bot [run.py:300] - Placing bet: $225880 on blue (Confidence: 95.2%)
+2025-12-08 18:49:14,644 BotProcess-2 - INFO - src.salty_client [salty_client.py:111] - BET PLACED: $225880 on BLUE
+2025-12-08 18:49:41,380 MainProcess - INFO - watchdog [run.py:399] - Services healthy.
+2025-12-08 18:50:04,772 BotProcess-2 - INFO - bot [run.py:316] - Bets locked. Red: $1,818,589. Blue: $6,145,783.
+2025-12-08 18:50:06,268 BotProcess-2 - INFO - bot [run.py:326] - Back-filling history...
+2025-12-08 18:50:12,592 BotProcess-2 - INFO - bot [run.py:334] - Back-filled 49 matches.
+2025-12-08 18:50:41,383 MainProcess - INFO - watchdog [run.py:399] - Services healthy.
+2025-12-08 18:51:41,389 MainProcess - INFO - watchdog [run.py:399] - Services healthy.
+2025-12-08 18:51:49,958 BotProcess-2 - INFO - bot [run.py:338] - Winner: Shuma MVC3.
+2025-12-08 18:51:55,027 BotProcess-2 - INFO - bot [run.py:274] - New match. Deathvoice-shogun VS. J-mccoy. Tier: A.
+2025-12-08 18:52:09,353 BotProcess-2 - INFO - bot [run.py:137] - Imported fighter from API: Deathvoice-shogun
+2025-12-08 18:52:09,374 BotProcess-2 - INFO - bot [run.py:137] - Imported fighter from API: J-mccoy
+2025-12-08 18:52:10,012 BotProcess-2 - INFO - bot [run.py:300] - Placing bet: $177809 on red (Confidence: 85.6%)
+2025-12-08 18:52:10,211 BotProcess-2 - INFO - src.salty_client [salty_client.py:111] - BET PLACED: $177809 on RED
+2025-12-08 18:52:15,247 BotProcess-2 - INFO - bot [irc.py:89] - Received a PING, sending PONG.
+2025-12-08 18:52:41,395 MainProcess - INFO - watchdog [run.py:399] - Services healthy.
+2025-12-08 18:52:43,677 BotProcess-2 - INFO - bot [run.py:316] - Bets locked. Red: $4,459,520. Blue: $1,273,755.
+2025-12-08 18:52:45,431 BotProcess-2 - INFO - bot [run.py:326] - Back-filling history...
+2025-12-08 18:52:52,030 BotProcess-2 - INFO - bot [run.py:334] - Back-filled 50 matches.
+2025-12-08 18:53:41,403 MainProcess - INFO - watchdog [run.py:399] - Services healthy.
+2025-12-08 18:53:57,743 BotProcess-2 - INFO - bot [run.py:338] - Winner: Deathvoice-shogun.
+2025-12-08 18:54:03,731 BotProcess-2 - INFO - bot [run.py:274] - New match. Benimaru(mkii) VS. Houraisan kaguya. Tier: A.
+2025-12-08 18:54:06,309 BotProcess-2 - INFO - bot [run.py:147] - Synced fighter stats: Benimaru(mkii)
+2025-12-08 18:54:06,330 BotProcess-2 - INFO - bot [run.py:147] - Synced fighter stats: Houraisan kaguya
+2025-12-08 18:54:07,093 BotProcess-2 - INFO - bot [run.py:300] - Placing bet: $16590 on red (Confidence: 53.3%)
+2025-12-08 18:54:07,308 BotProcess-2 - INFO - src.salty_client [salty_client.py:111] - BET PLACED: $16590 on RED
+2025-12-08 18:54:41,409 MainProcess - INFO - watchdog [run.py:399] - Services healthy.
+2025-12-08 18:54:57,503 BotProcess-2 - INFO - bot [run.py:316] - Bets locked. Red: $1,725,986. Blue: $2,889,545.
+2025-12-08 18:54:59,206 BotProcess-2 - INFO - bot [run.py:326] - Back-filling history...
+2025-12-08 18:55:04,262 BotProcess-2 - INFO - bot [run.py:334] - Back-filled 5 matches.
+2025-12-08 18:55:41,414 MainProcess - INFO - watchdog [run.py:399] - Services healthy.
+2025-12-08 18:56:41,419 MainProcess - INFO - watchdog [run.py:399] - Services healthy.
+2025-12-08 18:56:44,623 BotProcess-2 - INFO - bot [irc.py:89] - Received a PING, sending PONG.
+2025-12-08 18:56:53,874 BotProcess-2 - INFO - bot [run.py:338] - Winner: Benimaru(mkii).
+2025-12-08 18:56:58,926 BotProcess-2 - INFO - bot [run.py:274] - New match. Kobun 43.5 VS. Dead kung fu man EX3. Tier: S.
+2025-12-08 18:57:01,135 BotProcess-2 - INFO - bot [run.py:147] - Synced fighter stats: Kobun 43.5
+2025-12-08 18:57:01,166 BotProcess-2 - INFO - bot [run.py:137] - Imported fighter from API: Dead kung fu man EX3
+2025-12-08 18:57:01,843 BotProcess-2 - INFO - bot [run.py:300] - Placing bet: $22168 on red (Confidence: 54.4%)
+2025-12-08 18:57:02,041 BotProcess-2 - INFO - src.salty_client [salty_client.py:111] - BET PLACED: $22168 on RED
+2025-12-08 18:57:41,424 MainProcess - INFO - watchdog [run.py:399] - Services healthy.
+2025-12-08 18:57:54,669 BotProcess-2 - INFO - bot [run.py:316] - Bets locked. Red: $4,320,547. Blue: $8,050,310.
+2025-12-08 18:57:56,297 BotProcess-2 - INFO - bot [run.py:326] - Back-filling history...
+2025-12-08 18:58:02,588 BotProcess-2 - INFO - bot [run.py:334] - Back-filled 22 matches.
+2025-12-08 18:58:41,430 MainProcess - INFO - watchdog [run.py:399] - Services healthy.
+2025-12-08 18:59:17,974 BotProcess-2 - INFO - bot [run.py:338] - Winner: Kobun 43.5.
+2025-12-08 18:59:27,984 BotProcess-2 - INFO - bot [run.py:274] - New match. Jonathon Morris VS. Evil ash diabolosis. Tier: A.
+2025-12-08 18:59:30,169 BotProcess-2 - INFO - bot [run.py:137] - Imported fighter from API: Jonathon Morris
+2025-12-08 18:59:30,190 BotProcess-2 - INFO - bot [run.py:137] - Imported fighter from API: Evil ash diabolosis
+2025-12-08 18:59:30,858 BotProcess-2 - INFO - bot [run.py:300] - Placing bet: $150692 on blue (Confidence: 80.1%)
+2025-12-08 18:59:31,059 BotProcess-2 - INFO - src.salty_client [salty_client.py:111] - BET PLACED: $150692 on BLUE
+2025-12-08 18:59:41,437 MainProcess - INFO - watchdog [run.py:399] - Services healthy.
+2025-12-08 19:00:21,161 BotProcess-2 - INFO - bot [run.py:316] - Bets locked. Red: $2,320,177. Blue: $3,724,583.
+2025-12-08 19:00:23,108 BotProcess-2 - INFO - bot [run.py:326] - Back-filling history...
+2025-12-08 19:00:29,421 BotProcess-2 - INFO - bot [run.py:334] - Back-filled 51 matches.
+2025-12-08 19:00:41,442 MainProcess - INFO - watchdog [run.py:399] - Services healthy.
+2025-12-08 19:01:04,508 BotProcess-2 - INFO - bot [irc.py:89] - Received a PING, sending PONG.
+2025-12-08 19:01:41,447 MainProcess - INFO - watchdog [run.py:399] - Services healthy.
+2025-12-08 19:02:14,124 BotProcess-2 - INFO - bot [run.py:338] - Winner: Jonathon Morris.
+2025-12-08 19:02:24,119 BotProcess-2 - INFO - bot [run.py:274] - New match. Shun'ei VS. Kaori&shiori EX. Tier: S.
+2025-12-08 19:02:37,809 BotProcess-2 - INFO - bot [run.py:137] - Imported fighter from API: Shun'ei
+2025-12-08 19:02:37,820 BotProcess-2 - INFO - bot [run.py:147] - Synced fighter stats: Kaori&shiori EX
+2025-12-08 19:02:38,502 BotProcess-2 - INFO - bot [run.py:300] - Placing bet: $11366 on blue (Confidence: 52.3%)
+2025-12-08 19:02:38,711 BotProcess-2 - INFO - src.salty_client [salty_client.py:111] - BET PLACED: $11366 on BLUE
+2025-12-08 19:02:41,452 MainProcess - INFO - watchdog [run.py:399] - Services healthy.
+2025-12-08 19:03:14,177 BotProcess-2 - INFO - bot [run.py:316] - Bets locked. Red: $1,908,362. Blue: $1,117,745.
+2025-12-08 19:03:15,810 BotProcess-2 - INFO - bot [run.py:326] - Back-filling history...
+2025-12-08 19:03:22,822 BotProcess-2 - INFO - bot [run.py:334] - Back-filled 37 matches.
+2025-12-08 19:03:41,459 MainProcess - INFO - watchdog [run.py:399] - Services healthy.
+2025-12-08 19:04:41,462 MainProcess - INFO - watchdog [run.py:399] - Services healthy.
+2025-12-08 19:04:48,227 BotProcess-2 - INFO - bot [run.py:338] - Winner: Shun'ei.
+2025-12-08 19:04:58,246 BotProcess-2 - INFO - bot [run.py:274] - New match. Doppo orochi EX3 VS. Farmer strikes back. Tier: A.
+2025-12-08 19:05:00,474 BotProcess-2 - INFO - bot [run.py:147] - Synced fighter stats: Doppo orochi EX3
+2025-12-08 19:05:00,507 BotProcess-2 - INFO - bot [run.py:137] - Imported fighter from API: Farmer strikes back
+2025-12-08 19:05:01,169 BotProcess-2 - INFO - bot [run.py:300] - Placing bet: $6886 on red (Confidence: 51.4%)
+2025-12-08 19:05:01,378 BotProcess-2 - INFO - src.salty_client [salty_client.py:111] - BET PLACED: $6886 on RED
+2025-12-08 19:05:41,469 MainProcess - INFO - watchdog [run.py:399] - Services healthy.
+2025-12-08 19:05:51,490 BotProcess-2 - INFO - bot [run.py:316] - Bets locked. Red: $2,184,383. Blue: $1,195,595.
+2025-12-08 19:05:53,116 BotProcess-2 - INFO - bot [run.py:326] - Back-filling history...
+2025-12-08 19:05:53,623 BotProcess-2 - INFO - bot [run.py:182] - Consolidated bet 'Red' into ID 541610
+2025-12-08 19:05:58,879 BotProcess-2 - INFO - bot [run.py:334] - Back-filled 35 matches.
+2025-12-08 19:06:03,895 BotProcess-2 - INFO - bot [irc.py:89] - Received a PING, sending PONG.
+2025-12-08 19:06:41,476 MainProcess - INFO - watchdog [run.py:399] - Services healthy.
+2025-12-08 19:07:41,482 MainProcess - INFO - watchdog [run.py:399] - Services healthy.
+2025-12-08 19:08:28,390 BotProcess-2 - INFO - bot [run.py:338] - Winner: Farmer strikes back.
+2025-12-08 19:08:34,404 BotProcess-2 - INFO - bot [run.py:274] - New match. Rabi-ribi irisu VS. H_yujiro. Tier: X.
+2025-12-08 19:08:36,447 BotProcess-2 - INFO - bot [run.py:137] - Imported fighter from API: Rabi-ribi irisu
+2025-12-08 19:08:36,468 BotProcess-2 - INFO - bot [run.py:137] - Imported fighter from API: H_yujiro
+2025-12-08 19:08:36,993 BotProcess-2 - INFO - bot [run.py:300] - Placing bet: $20000 on blue (Confidence: 90.2%)
+2025-12-08 19:08:37,236 BotProcess-2 - INFO - src.salty_client [salty_client.py:111] - BET PLACED: $20000 on BLUE
+2025-12-08 19:08:41,488 MainProcess - INFO - watchdog [run.py:399] - Services healthy.
+2025-12-08 19:09:25,159 BotProcess-2 - INFO - bot [run.py:316] - Bets locked. Red: $2,843,227. Blue: $120,124,615.
+2025-12-08 19:09:26,797 BotProcess-2 - INFO - bot [run.py:326] - Back-filling history...
+2025-12-08 19:09:27,846 BotProcess-2 - INFO - bot [run.py:334] - Back-filled 2 matches.
+2025-12-08 19:09:41,494 MainProcess - INFO - watchdog [run.py:399] - Services healthy.
+2025-12-08 19:09:52,645 BotProcess-2 - INFO - bot [irc.py:89] - Received a PING, sending PONG.
+2025-12-08 19:10:37,864 BotProcess-2 - INFO - bot [run.py:338] - Winner: H_yujiro.
+2025-12-08 19:10:41,501 MainProcess - INFO - watchdog [run.py:399] - Services healthy.
+2025-12-08 19:10:44,483 BotProcess-2 - INFO - bot [run.py:274] - New match. Toy VS. Kamen rider ooo. Tier: A.
+2025-12-08 19:10:46,626 BotProcess-2 - INFO - bot [run.py:137] - Imported fighter from API: Toy
+2025-12-08 19:10:46,657 BotProcess-2 - INFO - bot [run.py:137] - Imported fighter from API: Kamen rider ooo
+2025-12-08 19:10:47,324 BotProcess-2 - INFO - bot [run.py:300] - Placing bet: $162200 on blue (Confidence: 82.4%)
+2025-12-08 19:10:47,522 BotProcess-2 - INFO - src.salty_client [salty_client.py:111] - BET PLACED: $162200 on BLUE
+2025-12-08 19:11:40,519 BotProcess-2 - INFO - bot [run.py:316] - Bets locked. Red: $1,807,423. Blue: $4,658,616.
+2025-12-08 19:11:41,507 MainProcess - INFO - watchdog [run.py:399] - Services healthy.
+2025-12-08 19:11:42,141 BotProcess-2 - INFO - bot [run.py:326] - Back-filling history...
+2025-12-08 19:11:48,622 BotProcess-2 - INFO - bot [run.py:334] - Back-filled 51 matches.
+2025-12-08 19:12:41,512 MainProcess - INFO - watchdog [run.py:399] - Services healthy.
+2025-12-08 19:13:41,519 MainProcess - INFO - watchdog [run.py:399] - Services healthy.
+2025-12-08 19:13:54,651 BotProcess-2 - INFO - bot [run.py:338] - Winner: Kamen rider ooo.
+2025-12-08 19:14:05,136 BotProcess-2 - INFO - bot [run.py:274] - New match. Nyakko VS. Green goblin. Tier: P.
+2025-12-08 19:14:07,811 BotProcess-2 - INFO - bot [run.py:137] - Imported fighter from API: Nyakko
+2025-12-08 19:14:07,828 BotProcess-2 - INFO - bot [run.py:137] - Imported fighter from API: Green goblin
+2025-12-08 19:14:08,455 BotProcess-2 - INFO - bot [run.py:300] - Placing bet: $1 on red (Confidence: 50.0%)
+2025-12-08 19:14:08,663 BotProcess-2 - INFO - src.salty_client [salty_client.py:111] - BET PLACED: $1 on RED
+2025-12-08 19:14:40,759 BotProcess-2 - INFO - bot [irc.py:89] - Received a PING, sending PONG.
+2025-12-08 19:14:41,525 MainProcess - INFO - watchdog [run.py:399] - Services healthy.
+2025-12-08 19:15:00,690 BotProcess-2 - INFO - bot [run.py:316] - Bets locked. Red: $1,609,491. Blue: $6,033,235.
+2025-12-08 19:15:02,308 BotProcess-2 - INFO - bot [run.py:326] - Back-filling history...
+2025-12-08 19:15:41,531 MainProcess - INFO - watchdog [run.py:399] - Services healthy.
+2025-12-08 19:16:41,534 MainProcess - INFO - watchdog [run.py:399] - Services healthy.
+2025-12-08 19:17:17,887 BotProcess-2 - INFO - bot [run.py:338] - Winner: Green goblin.
+2025-12-08 19:17:24,789 BotProcess-2 - INFO - bot [run.py:274] - New match. Naruto kun VS. Gosunkugi hikaru. Tier: A.
+2025-12-08 19:17:28,969 BotProcess-2 - INFO - bot [run.py:137] - Imported fighter from API: Naruto kun
+2025-12-08 19:17:28,990 BotProcess-2 - INFO - bot [run.py:137] - Imported fighter from API: Gosunkugi hikaru
+2025-12-08 19:17:29,652 BotProcess-2 - INFO - bot [run.py:300] - Placing bet: $120228 on red (Confidence: 74.0%)
+2025-12-08 19:17:29,861 BotProcess-2 - INFO - src.salty_client [salty_client.py:111] - BET PLACED: $120228 on RED
+2025-12-08 19:17:41,541 MainProcess - INFO - watchdog [run.py:399] - Services healthy.
+2025-12-08 19:18:14,819 BotProcess-2 - INFO - bot [run.py:316] - Bets locked. Red: $3,926,729. Blue: $2,342,803.
+2025-12-08 19:18:16,426 BotProcess-2 - INFO - bot [run.py:326] - Back-filling history...

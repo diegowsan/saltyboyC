@@ -1,0 +1,1064 @@
+{
+  "components": {
+    "schemas": {
+      "AllMatchFormat": {
+        "enum": [
+          "matchmaking",
+          "tournament",
+          "exhibition"
+        ],
+        "title": "AllMatchFormat",
+        "type": "string"
+      },
+      "Colour": {
+        "enum": [
+          "Red",
+          "Blue"
+        ],
+        "title": "Colour",
+        "type": "string"
+      },
+      "CurrentMatchInfoResponse": {
+        "properties": {
+          "fighter_blue": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Name of the Blue fighter.",
+            "title": "Fighter Blue"
+          },
+          "fighter_blue_info": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ExtendedFighterModel"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Detailed information about the Blue fighter."
+          },
+          "fighter_red": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Name of the Red fighter.",
+            "title": "Fighter Red"
+          },
+          "fighter_red_info": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ExtendedFighterModel"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Detailed information about the Red fighter."
+          },
+          "match_format": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/AllMatchFormat"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Match format."
+          },
+          "tier": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Tier"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Tier of the match."
+          },
+          "updated_at": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "When the current match was updated.",
+            "title": "Updated At"
+          }
+        },
+        "required": [
+          "fighter_blue",
+          "fighter_red",
+          "match_format",
+          "tier",
+          "updated_at"
+        ],
+        "title": "CurrentMatchInfoResponse",
+        "type": "object"
+      },
+      "ExtendedFighterModel": {
+        "properties": {
+          "best_streak": {
+            "description": "Best recorded winning streak of the fighter.",
+            "title": "Best Streak",
+            "type": "integer"
+          },
+          "created_time": {
+            "description": "Time the fighter was first recorded.",
+            "format": "date-time",
+            "title": "Created Time",
+            "type": "string"
+          },
+          "elo": {
+            "description": "Current ELO of the fighter.",
+            "title": "Elo",
+            "type": "integer"
+          },
+          "id": {
+            "description": "ID of the fighter.",
+            "title": "Id",
+            "type": "integer"
+          },
+          "last_updated": {
+            "description": "Time the fighter last fought in a match.",
+            "format": "date-time",
+            "title": "Last Updated",
+            "type": "string"
+          },
+          "matches": {
+            "description": "All matches the fighter has fought in.",
+            "items": {
+              "$ref": "#/components/schemas/MatchModel"
+            },
+            "title": "Matches",
+            "type": "array"
+          },
+          "name": {
+            "description": "Name of the fighter. Case sensitive.",
+            "title": "Name",
+            "type": "string"
+          },
+          "prev_tier": {
+            "description": "Previously recorded tier of the fighter.",
+            "title": "Prev Tier",
+            "type": "string"
+          },
+          "tier": {
+            "description": "Current tier of the fighter.",
+            "title": "Tier",
+            "type": "string"
+          },
+          "tier_elo": {
+            "description": "Current tier ELO of the fighter.",
+            "title": "Tier Elo",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "tier",
+          "prev_tier",
+          "elo",
+          "tier_elo",
+          "best_streak",
+          "created_time",
+          "last_updated",
+          "matches"
+        ],
+        "title": "ExtendedFighterModel",
+        "type": "object"
+      },
+      "FighterModel": {
+        "properties": {
+          "best_streak": {
+            "description": "Best recorded winning streak of the fighter.",
+            "title": "Best Streak",
+            "type": "integer"
+          },
+          "created_time": {
+            "description": "Time the fighter was first recorded.",
+            "format": "date-time",
+            "title": "Created Time",
+            "type": "string"
+          },
+          "elo": {
+            "description": "Current ELO of the fighter.",
+            "title": "Elo",
+            "type": "integer"
+          },
+          "id": {
+            "description": "ID of the fighter.",
+            "title": "Id",
+            "type": "integer"
+          },
+          "last_updated": {
+            "description": "Time the fighter last fought in a match.",
+            "format": "date-time",
+            "title": "Last Updated",
+            "type": "string"
+          },
+          "name": {
+            "description": "Name of the fighter. Case sensitive.",
+            "title": "Name",
+            "type": "string"
+          },
+          "prev_tier": {
+            "description": "Previously recorded tier of the fighter.",
+            "title": "Prev Tier",
+            "type": "string"
+          },
+          "tier": {
+            "description": "Current tier of the fighter.",
+            "title": "Tier",
+            "type": "string"
+          },
+          "tier_elo": {
+            "description": "Current tier ELO of the fighter.",
+            "title": "Tier Elo",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "tier",
+          "prev_tier",
+          "elo",
+          "tier_elo",
+          "best_streak",
+          "created_time",
+          "last_updated"
+        ],
+        "title": "FighterModel",
+        "type": "object"
+      },
+      "ListFighterResponse": {
+        "properties": {
+          "count": {
+            "description": "Total number of results.",
+            "title": "Count",
+            "type": "integer"
+          },
+          "page": {
+            "description": "Current page number.",
+            "title": "Page",
+            "type": "integer"
+          },
+          "page_size": {
+            "description": "Current page size.",
+            "title": "Page Size",
+            "type": "integer"
+          },
+          "results": {
+            "description": "Filtered fighters.",
+            "items": {
+              "$ref": "#/components/schemas/FighterModel"
+            },
+            "title": "Results",
+            "type": "array"
+          }
+        },
+        "required": [
+          "page",
+          "page_size",
+          "count",
+          "results"
+        ],
+        "title": "ListFighterResponse",
+        "type": "object"
+      },
+      "ListMatchResponse": {
+        "properties": {
+          "count": {
+            "description": "Total number of results.",
+            "title": "Count",
+            "type": "integer"
+          },
+          "page": {
+            "description": "Current page number.",
+            "title": "Page",
+            "type": "integer"
+          },
+          "page_size": {
+            "description": "Current page size.",
+            "title": "Page Size",
+            "type": "integer"
+          },
+          "results": {
+            "description": "Filtered matches.",
+            "items": {
+              "$ref": "#/components/schemas/MatchModel"
+            },
+            "title": "Results",
+            "type": "array"
+          }
+        },
+        "required": [
+          "page",
+          "page_size",
+          "count",
+          "results"
+        ],
+        "title": "ListMatchResponse",
+        "type": "object"
+      },
+      "MatchModel": {
+        "properties": {
+          "bet_blue": {
+            "description": "Amount bet on the Blue fighter.",
+            "title": "Bet Blue",
+            "type": "integer"
+          },
+          "bet_red": {
+            "description": "Amount bet on the Red fighter.",
+            "title": "Bet Red",
+            "type": "integer"
+          },
+          "colour": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Colour"
+              }
+            ],
+            "description": "Winning colour."
+          },
+          "date": {
+            "description": "Date of the match.",
+            "format": "date-time",
+            "title": "Date",
+            "type": "string"
+          },
+          "fighter_blue": {
+            "description": "ID of the Blue fighter.",
+            "title": "Fighter Blue",
+            "type": "integer"
+          },
+          "fighter_red": {
+            "description": "ID of the Red fighter.",
+            "title": "Fighter Red",
+            "type": "integer"
+          },
+          "id": {
+            "description": "ID of the match.",
+            "title": "Id",
+            "type": "integer"
+          },
+          "match_format": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/RecordedMatchFormat"
+              }
+            ],
+            "description": "Format of the match. Note: SaltyBoy does not record Exhibition matches."
+          },
+          "streak_blue": {
+            "description": "Current winning streak fo the Blue fighter at time of the match.",
+            "title": "Streak Blue",
+            "type": "integer"
+          },
+          "streak_red": {
+            "description": "Current winning streak of the Red fighter at time of the match.",
+            "title": "Streak Red",
+            "type": "integer"
+          },
+          "tier": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Tier"
+              }
+            ],
+            "description": "Tier of the match."
+          },
+          "winner": {
+            "description": "ID of the winning fighter.",
+            "title": "Winner",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "id",
+          "date",
+          "fighter_red",
+          "fighter_blue",
+          "winner",
+          "bet_red",
+          "bet_blue",
+          "streak_red",
+          "streak_blue",
+          "tier",
+          "match_format",
+          "colour"
+        ],
+        "title": "MatchModel",
+        "type": "object"
+      },
+      "RecordedMatchFormat": {
+        "enum": [
+          "matchmaking",
+          "tournament"
+        ],
+        "title": "RecordedMatchFormat",
+        "type": "string"
+      },
+      "Tier": {
+        "enum": [
+          "X",
+          "S",
+          "A",
+          "B",
+          "P"
+        ],
+        "title": "Tier",
+        "type": "string"
+      },
+      "ValidationErrorModel": {
+        "properties": {
+          "ctx": {
+            "anyOf": [
+              {
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "an optional object which contains values required to render the error message.",
+            "title": "Error context"
+          },
+          "loc": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "the error's location as a list. ",
+            "title": "Location"
+          },
+          "msg": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "a computer-readable identifier of the error type.",
+            "title": "Message"
+          },
+          "type_": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "a human readable explanation of the error.",
+            "title": "Error Type"
+          }
+        },
+        "title": "ValidationErrorModel",
+        "type": "object"
+      }
+    }
+  },
+  "info": {
+    "description": "\nWelcome to the SaltyBoy API. You are welcome to integrate with this API however please \nbear in mind the following:\n\n- I'll do my best to not bork your integration by updating the endpoints, no promises \n    though.\n- Do not abuse the API. By this I mean feel free to scrape in short high bursts but \n    don't spam the API with something in a constant `while` loop for example. After all \n    this runs on a very cheap Vultr instance :)\n- If you want new endpoints or a Database dump please ping me on \n    [Github](https://github.com/FranciscoAT/saltyboy). I'm more than happy to review MRs\n    for new features and provide PostgreSQL DB dumps.\n- The API itself is extremely small so I won't be providing an SDK but there's no \n    authentication and it should be really easy to integrate around it.\n- Any datetime strings should be returned in \n    [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format.\n",
+    "title": "SaltyBoy API",
+    "version": "2.1.0"
+  },
+  "openapi": "3.1.0",
+  "paths": {
+    "/api/current_match_info/": {
+      "get": {
+        "description": "Returns the details of the current match from SaltyBet.\u003C/br\u003E\u003C/br\u003EThis can be a bit of a volatile endpoint that can be hard to integrate with so you\u003C/br\u003Eneed to be aware of the following:\u003C/br\u003E\u003C/br\u003E- `fighter_blue` and `fighter_red` reference the **name** and not the ID of the\u003C/br\u003E    Fighter. While these fields per the schema _can_ have `null` values in my\u003C/br\u003E    experience I've never seen this.\u003C/br\u003E- If either `fighter_blue` or `fighter_red` are in the database the respective field\u003C/br\u003E    `fighter_blue_info` or `fighter_red_info` will be filled out otherwise will be\u003C/br\u003E    `null`.\u003C/br\u003E- `fighter_blue_info` and `fighter_red_info` are just the standard Fighter model\u003C/br\u003E    found in the `GET /api/fighter/` endpoints. However, in them will be a new field\u003C/br\u003E    `matches` which will list **all** matches in the database associated with the\u003C/br\u003E    `fighter_red` or `fighter_blue` Fighter of the current match.\u003C/br\u003E- `match_format` contains the format of the current match. Important to note that if\u003C/br\u003E    the match format is exhibition then it is always the case that\u003C/br\u003E    `fighter_blue_info` and `fighter_red_info` will have `null` values, as SaltyBoy\u003C/br\u003E    does not record exhibition matches.\u003C/br\u003E- `tier` contains the tier of the match. Note that in exhibition matches it is very\u003C/br\u003E    probable that this value is `null`. However, in tournament or matchmaking\u003C/br\u003E    matches you can be very confident that this value will not be `null`.\u003C/br\u003E- `updated_at` should always contain the date time at which the content for this\u003C/br\u003E    endpoint was updated. Note that this time should roughly correlate with the\u003C/br\u003E    time where Waif4u bot announces \"Bets are open...\" in the Twitch chat.\u003C/br\u003E- This endpoint is known to go out of date due to the following reasons, and that\u003C/br\u003E    your integration should code defensively and anticipate this endpoint going out\u003C/br\u003E    of date:\u003C/br\u003E    - The upstream bot that scrapes Twitch chat ran into an unrecoverable error.\u003C/br\u003E        Although worth noting that this does not happen much if at all anymore.\u003C/br\u003E    - Waif4U bot goes down in Twitch chat. Also an extremely rare occurrence.",
+        "operationId": "api_current_match_info_api_current_match_info__get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CurrentMatchInfoResponse"
+                }
+              }
+            },
+            "description": "OK"
+          }
+        },
+        "summary": "Current Match Information",
+        "tags": [
+          "Current Match"
+        ]
+      }
+    },
+    "/api/fighter/": {
+      "get": {
+        "description": "Lists Fighters in a paginated format.\u003C/br\u003E\u003C/br\u003E**Elo and Tier Elo**\u003C/br\u003E\u003C/br\u003ESaltyBoy stores and upkeeps a self tracked version of ELO and Tier ELO. When a\u003C/br\u003Efighter is first detected by SaltyBoy the ELO is set to 1500. SaltyBoy then uses\u003C/br\u003Ea K value of 32 to do ELO update calculations. Tier ELO similarly is set to 1500\u003C/br\u003Eand uses the same K value of 32. However, Tier Elo is reset to 1500 when a fighter\u003C/br\u003Eis  detected to have changed tiers, either up or down.\u003C/br\u003E\u003C/br\u003E**Tier and Previous Tier**\u003C/br\u003E\u003C/br\u003ESaltyBoy keeps track of the current tier of the fighter. It is important to note\u003C/br\u003Ethat the real tier of the fighter may not be reflected in SaltyBoy until it sees the\u003C/br\u003Efighter again. At which point the tier of the fighter is updated, and the Tier ELO\u003C/br\u003Eis also reset as per the above section.",
+        "operationId": "api_list_fighters_api_fighter__get",
+        "parameters": [
+          {
+            "description": "Page to view.",
+            "in": "query",
+            "name": "page",
+            "required": false,
+            "schema": {
+              "default": 0,
+              "description": "Page to view.",
+              "minimum": 0,
+              "title": "Page",
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Number of results per page.",
+            "in": "query",
+            "name": "page_size",
+            "required": false,
+            "schema": {
+              "default": 100,
+              "description": "Number of results per page.",
+              "maximum": 100,
+              "minimum": 1,
+              "title": "Page Size",
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Filter fighters by the name of the fighter. Case sensitive. Note, fighter's names are unique, therefore this is likely to only return one result.",
+            "in": "query",
+            "name": "name",
+            "required": false,
+            "schema": {
+              "description": "Filter fighters by the name of the fighter. Case sensitive. Note, fighter's names are unique, therefore this is likely to only return one result.",
+              "title": "Name",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Filter fighters by the current tier of fighter.",
+            "in": "query",
+            "name": "tier",
+            "required": false,
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/Tier"
+                }
+              ],
+              "description": "Filter fighters by the current tier of fighter."
+            }
+          },
+          {
+            "description": "Filter fighters by the previously recorded fighter tier.",
+            "in": "query",
+            "name": "prev_tier",
+            "required": false,
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/Tier"
+                }
+              ],
+              "description": "Filter fighters by the previously recorded fighter tier."
+            }
+          },
+          {
+            "description": "Filter fighters who's current ELO is greater than or equal to than this number.",
+            "in": "query",
+            "name": "elo__gte",
+            "required": false,
+            "schema": {
+              "description": "Filter fighters who's current ELO is greater than or equal to than this number.",
+              "title": "Elo  Gte",
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Filter fighters who's current ELO is less than this number.",
+            "in": "query",
+            "name": "elo__lt",
+            "required": false,
+            "schema": {
+              "description": "Filter fighters who's current ELO is less than this number.",
+              "title": "Elo  Lt",
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Filter fighters who's current tier ELO is greater than or equal to than this number.",
+            "in": "query",
+            "name": "tier_elo__gte",
+            "required": false,
+            "schema": {
+              "description": "Filter fighters who's current tier ELO is greater than or equal to than this number.",
+              "title": "Tier Elo  Gte",
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Filter fighters who's current tier ELO is less than this number.",
+            "in": "query",
+            "name": "tier_elo__lt",
+            "required": false,
+            "schema": {
+              "description": "Filter fighters who's current tier ELO is less than this number.",
+              "title": "Tier Elo  Lt",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListFighterResponse"
+                }
+              }
+            },
+            "description": "OK"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/ValidationErrorModel"
+                  },
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          }
+        },
+        "summary": "List Fighters",
+        "tags": [
+          "Fighter"
+        ]
+      }
+    },
+    "/api/fighter/{id_}/": {
+      "get": {
+        "description": "Get a specific Fighter by ID.\u003C/br\u003E\u003C/br\u003E**Note**: If you want to scrape the database I would recommend using the\u003C/br\u003E`GET /api/fighter/` pagination endpoint instead.",
+        "operationId": "api_get_fighter_api_fighter__int_id____get",
+        "parameters": [
+          {
+            "description": "ID of the resource to get.",
+            "in": "path",
+            "name": "id_",
+            "required": true,
+            "schema": {
+              "description": "ID of the resource to get.",
+              "minimum": 1,
+              "title": "Id ",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FighterModel"
+                }
+              }
+            },
+            "description": "OK"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/ValidationErrorModel"
+                  },
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          }
+        },
+        "summary": "Get fighter",
+        "tags": [
+          "Fighter"
+        ]
+      }
+    },
+    "/api/match/": {
+      "get": {
+        "description": "List Matches in a paginated format.\u003C/br\u003E\u003C/br\u003EThe `fighter`, `fighter_blue`, `fighter_red`, and `winner` query parameters are the\u003C/br\u003EID of the associated Fighter in the database. In order to map the name of a fighter\u003C/br\u003Eto an ID use the `GET /api/fighter/` endpoint.",
+        "operationId": "api_list_matches_api_match__get",
+        "parameters": [
+          {
+            "description": "Page to view.",
+            "in": "query",
+            "name": "page",
+            "required": false,
+            "schema": {
+              "default": 0,
+              "description": "Page to view.",
+              "minimum": 0,
+              "title": "Page",
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Number of results per page.",
+            "in": "query",
+            "name": "page_size",
+            "required": false,
+            "schema": {
+              "default": 100,
+              "description": "Number of results per page.",
+              "maximum": 100,
+              "minimum": 1,
+              "title": "Page Size",
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Filter matches where the Red fighter was a specific fighter by ID.",
+            "in": "query",
+            "name": "fighter_red",
+            "required": false,
+            "schema": {
+              "description": "Filter matches where the Red fighter was a specific fighter by ID.",
+              "minimum": 1,
+              "title": "Fighter Red",
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Filter matches where the Blue fighter was a specific fighter by ID.",
+            "in": "query",
+            "name": "fighter_blue",
+            "required": false,
+            "schema": {
+              "description": "Filter matches where the Blue fighter was a specific fighter by ID.",
+              "minimum": 1,
+              "title": "Fighter Blue",
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Filter matches where the Red or Blue fighter is a specific fighter by ID.",
+            "in": "query",
+            "name": "fighter",
+            "required": false,
+            "schema": {
+              "description": "Filter matches where the Red or Blue fighter is a specific fighter by ID.",
+              "minimum": 1,
+              "title": "Fighter",
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Filter matches where the winning fighter was a specific fighter by ID.",
+            "in": "query",
+            "name": "winner",
+            "required": false,
+            "schema": {
+              "description": "Filter matches where the winning fighter was a specific fighter by ID.",
+              "minimum": 1,
+              "title": "Winner",
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Filter matches where the amount bet on Red is greater than or equal to this number.",
+            "in": "query",
+            "name": "bet_red__gte",
+            "required": false,
+            "schema": {
+              "description": "Filter matches where the amount bet on Red is greater than or equal to this number.",
+              "title": "Bet Red  Gte",
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Filter matches where the amount bet on Red is less than this number.",
+            "in": "query",
+            "name": "bet_red__lt",
+            "required": false,
+            "schema": {
+              "description": "Filter matches where the amount bet on Red is less than this number.",
+              "title": "Bet Red  Lt",
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Filter matches where the amount bet on Blue is greater than or equal to this number.",
+            "in": "query",
+            "name": "bet_blue__gte",
+            "required": false,
+            "schema": {
+              "description": "Filter matches where the amount bet on Blue is greater than or equal to this number.",
+              "title": "Bet Blue  Gte",
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Filter matches where the amount bet on Blue is less than this number.",
+            "in": "query",
+            "name": "bet_blue__lt",
+            "required": false,
+            "schema": {
+              "description": "Filter matches where the amount bet on Blue is less than this number.",
+              "title": "Bet Blue  Lt",
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Filter matches where the bet on Blue or Red is greater than or equal to this number.",
+            "in": "query",
+            "name": "bet__gte",
+            "required": false,
+            "schema": {
+              "description": "Filter matches where the bet on Blue or Red is greater than or equal to this number.",
+              "title": "Bet  Gte",
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Filter matches where the bet on Blue or Red is less than this number.",
+            "in": "query",
+            "name": "bet__lt",
+            "required": false,
+            "schema": {
+              "description": "Filter matches where the bet on Blue or Red is less than this number.",
+              "title": "Bet  Lt",
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Filter matches where the current winning streak on Red at time of the match is greater than or equal to this number.",
+            "in": "query",
+            "name": "streak_red__gte",
+            "required": false,
+            "schema": {
+              "description": "Filter matches where the current winning streak on Red at time of the match is greater than or equal to this number.",
+              "title": "Streak Red  Gte",
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Filter matches where the current winning streak on Red at time of the match is less than this number.",
+            "in": "query",
+            "name": "streak_red__lt",
+            "required": false,
+            "schema": {
+              "description": "Filter matches where the current winning streak on Red at time of the match is less than this number.",
+              "title": "Streak Red  Lt",
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Filter matches where the current winning streak on Blue at time of the match is greater than or equal to this number.",
+            "in": "query",
+            "name": "streak_blue__gte",
+            "required": false,
+            "schema": {
+              "description": "Filter matches where the current winning streak on Blue at time of the match is greater than or equal to this number.",
+              "title": "Streak Blue  Gte",
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Filter matches where the current winning streak on Blue at time of the match is less than this number.",
+            "in": "query",
+            "name": "streak_blue__lt",
+            "required": false,
+            "schema": {
+              "description": "Filter matches where the current winning streak on Blue at time of the match is less than this number.",
+              "title": "Streak Blue  Lt",
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Filter matches where the best streak on Red or Blue is greater than or equal to this number.",
+            "in": "query",
+            "name": "streak__gte",
+            "required": false,
+            "schema": {
+              "description": "Filter matches where the best streak on Red or Blue is greater than or equal to this number.",
+              "title": "Streak  Gte",
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Filter matches where the best streak on Red or Blue is less than or equal to this number.",
+            "in": "query",
+            "name": "streak__lt",
+            "required": false,
+            "schema": {
+              "description": "Filter matches where the best streak on Red or Blue is less than or equal to this number.",
+              "title": "Streak  Lt",
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Filter matches by the tier of the match. ",
+            "in": "query",
+            "name": "tier",
+            "required": false,
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/Tier"
+                }
+              ],
+              "description": "Filter matches by the tier of the match. "
+            }
+          },
+          {
+            "description": "Filter matches by the match format. Note: SaltyBoy does not record Exhibition matches.",
+            "in": "query",
+            "name": "match_format",
+            "required": false,
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/RecordedMatchFormat"
+                }
+              ],
+              "description": "Filter matches by the match format. Note: SaltyBoy does not record Exhibition matches."
+            }
+          },
+          {
+            "description": "Filter matches by the winning colour.",
+            "in": "query",
+            "name": "colour",
+            "required": false,
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/Colour"
+                }
+              ],
+              "description": "Filter matches by the winning colour."
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListMatchResponse"
+                }
+              }
+            },
+            "description": "OK"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/ValidationErrorModel"
+                  },
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          }
+        },
+        "summary": "List Matches",
+        "tags": [
+          "Match"
+        ]
+      }
+    },
+    "/api/match/{id_}/": {
+      "get": {
+        "description": "Get a specific Match by ID.\u003C/br\u003E\u003C/br\u003E**Note**: If you want to scrape the database I would recommend using the\u003C/br\u003E`GET /api/match/` pagination endpoint instead.",
+        "operationId": "api_get_match_api_match__int_id____get",
+        "parameters": [
+          {
+            "description": "ID of the resource to get.",
+            "in": "path",
+            "name": "id_",
+            "required": true,
+            "schema": {
+              "description": "ID of the resource to get.",
+              "minimum": 1,
+              "title": "Id ",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MatchModel"
+                }
+              }
+            },
+            "description": "OK"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/ValidationErrorModel"
+                  },
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          }
+        },
+        "summary": "Get match",
+        "tags": [
+          "Match"
+        ]
+      }
+    }
+  },
+  "tags": [
+    {
+      "description": "Fighters recorded by SaltyBoy.",
+      "name": "Fighter"
+    },
+    {
+      "description": "Matches recorded by SaltyBoy. Only Tournament, and Matchmaking matches are recorded. Exhibition matches are not.",
+      "name": "Match"
+    },
+    {
+      "description": "Current match information. Mainly used to get detailed information about the current match by the SaltyBoy extension.",
+      "name": "Current Match"
+    }
+  ]
+}

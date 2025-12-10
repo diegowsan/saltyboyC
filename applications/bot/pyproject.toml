@@ -17,6 +17,7 @@ pandas = "^2.3.3"
 numpy = "^2.3.5"
 requests = "^2.32.5"
 tenacity = "^9.1.2"
+beautifulsoup4 = "^4.14.3"
 
 [tool.poetry.group.dev.dependencies]
 black = "^24.3.0"

@@ -1,33 +1,35 @@
-FROM python:3.11
+# Use the lightweight "slim" version to save space
+FROM python:3.11-slim
 
-ARG USER_ID
-ARG GROUP_ID
+# Prevent Python from writing .pyc files
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
 
-# Update the image
-RUN apt update \
-    && apt upgrade -y \
+WORKDIR /app
+
+# 1. Install System Dependencies (CRITICAL for psycopg2/Postgres)
+# We need gcc and libpq-dev to compile the database driver.
+RUN apt-get update && apt-get install -y \
+    gcc \
+    libpq-dev \
     && rm -rf /var/lib/apt/lists/*
 
-# Run the application as a non-root User
-RUN useradd -m -d /home/user -u $USER_ID user
-USER $USER_ID:$GROUP_ID
-ENV PATH="$PATH:/home/user/.local/bin"
-
-WORKDIR /opt/bot
-
-# Install Poetry
+# 2. Install Poetry
 RUN pip install --upgrade pip \
     && pip install poetry
 
-# Install Depenencies
-COPY poetry.lock poetry.lock
-COPY pyproject.toml pyproject.toml
-RUN poetry install --no-root --without=dev
+# 3. Copy Dependency Files (Cached Layer)
+COPY pyproject.toml poetry.lock* ./
 
-COPY src src
-COPY alembic alembic
-COPY alembic.ini alembic.ini
-COPY main.py main.py
-COPY entrypoint.sh entrypoint.sh
+# 4. Configure & Install Dependencies
+# We disable virtualenvs because Docker itself is the virtualenv
+RUN poetry config virtualenvs.create false \
+    && poetry install --no-interaction --no-ansi --no-root --without=dev
 
-ENTRYPOINT ["/bin/bash", "entrypoint.sh"]
+# 5. Copy Application Code
+COPY src ./src
+COPY main.py .
+
+# 6. Run the Bot
+# We use the python command directly, bypassing complex entrypoints
+CMD ["python", "main.py"]

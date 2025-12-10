@@ -1,49 +1,113 @@
 version: "3.9"
 
 services:
-  postgres:
+  # 1. THE DATABASE
+  db:
     image: postgres:16
+    restart: always
     volumes:
       - salty-pgdata:/var/lib/postgresql/data
-    restart: always
-    env_file:
-      - ./.env
-    ports:
-      - "$POSTGRES_PORT_EXTERNAL:5432"
-  bot:
-    build:
-      context: applications/bot
-      args:
-        USER_ID: $UID
-        GROUP_ID: $GID
-    volumes:
-      - $BOT_LOG_PATH:/opt/logs
-    restart: always
-    depends_on:
-      - postgres
-    env_file:
-      - ./.env
     environment:
-      PRODUCTION: 1
-      LOG_PATH: "/opt/logs/"
-  web:
-    build: 
-      context: applications/web
-      args:
-        USER_ID: $UID
-        GROUP_ID: $GID
-    volumes:
-      - $WEB_LOG_PATH:/opt/logs
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=saltyboy
     ports:
-      - "5000:5000"
-    restart: always
-    env_file:
-      - ./.env
-    environment:
-      PRODUCTION: 1
-      LOG_PATH: "/opt/logs/"
-    depends_on:
-      - postgres
+      # SECURITY: Only allow connections from localhost (127.0.0.1)
+      # This prevents hackers from trying to log in from the internet.
+      - "127.0.0.1:${POSTGRES_PORT_EXTERNAL:-5432}:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    # LOGGING: Prevent disk from filling up
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
 
+  # 2. THE BOT
+  bot:
+    build: ./applications/bot
+    volumes:
+      - ${BOT_LOG_PATH:-./logs/bot}:/opt/logs
+    restart: always
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      - POSTGRES_HOST=db
+      - POSTGRES_PORT=5432
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=saltyboy
+      - TWITCH_USERNAME=${TWITCH_USERNAME}
+      - TWITCH_OAUTH_TOKEN=${TWITCH_OAUTH_TOKEN}
+      - SALTY_EMAIL=${SALTY_EMAIL}
+      - SALTY_PASSWORD=${SALTY_PASSWORD}
+      - DISCORD_WEBHOOK_URL=${DISCORD_WEBHOOK_URL}
+      - PRODUCTION=1
+      - LOG_PATH=/opt/logs/
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  # 3. THE DASHBOARD
+  web:
+    build: ./applications/web
+    volumes:
+      - ${WEB_LOG_PATH:-./logs/web}:/opt/logs
+    ports:
+      # Dashboard is public (0.0.0.0) so you can see it from your phone
+      - "0.0.0.0:5000:5000"
+    restart: always
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      - POSTGRES_HOST=db
+      - POSTGRES_PORT=5432
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=saltyboy
+      - PRODUCTION=1
+      - LOG_PATH=/opt/logs/
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  # 4. THE VAULT (Auto-Backup)
+  # Wakes up daily, dumps DB to the /backups folder, deletes backups older than 7 days
+  backup:
+    image: postgres:16
+    restart: always
+    volumes:
+      - ./backups:/backups
+    environment:
+      - POSTGRES_HOST=db
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+    # This command runs daily: Dumps DB -> Gzips it -> Cleans old files -> Sleeps 24h
+    command: >
+      bash -c "while true; do 
+        echo 'Backing up...';
+        pg_dump -h db -U postgres saltyboy | gzip > /backups/salty_backup_\$(date +%Y-%m-%d_%H%M).sql.gz;
+        echo 'Cleaning old backups...';
+        find /backups -type f -mtime +7 -delete;
+        echo 'Done. Sleeping 24h...';
+        sleep 86400;
+      done"
+    depends_on:
+      db:
+        condition: service_healthy
+
+# Point to your existing data volume
 volumes:
   salty-pgdata:
+    external: true
+    name: saltyboyc_salty-pgdata-dev
