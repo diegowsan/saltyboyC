@@ -1,68 +1,97 @@
-# SodiumTycoon
+# SodiumTycoon (SaltyBoy)
 
-**A smarter betting bot for SaltyBet.**
-[STILL IN DEVELOPMENT, USE AT YOUR ON RISK]
+A Python-based automation bot for SaltyBet.com, running on a Dockerized microservices architecture. It handles historical data scraping, real-time betting using a weighted strategy (ELO/H2H/Streak), and performance tracking via a Flask dashboard.
 
-SodiumTycoon is a fork of [SaltyBoy](https://github.com/FranciscoAT/saltyboy) engineered for high-balance accounts. Unlike standard bots that simply bet on the favorite, SodiumTycoon operates like a quantitative hedge fund—managing risk, preventing market manipulation, and tracking your actual ROI in real-time.
+![Python](https://img.shields.io/badge/Python-3.11-blue)
+![Postgres](https://img.shields.io/badge/Postgres-16-336791)
+![Docker](https://img.shields.io/badge/Docker-Compose-green)
 
-## 🚀 Key Features
+## Overview
 
-### 🧠 Smart Betting Engine
-* **Logistic Regression:** Uses a weighted model of Tier ELO, Head-to-Head history, and Common Opponent performance to calculate win probabilities.
-* **Auto-Retraining:** The bot monitors its own database and re-trains its AI weights every 100 matches to adapt to shifting trends.
-* **Context Awareness:** Automatically detects the difference between Tournaments (low balance, aggressive) and Matchmaking (high balance, conservative).
+This project is designed to run 24/7 on a VPS. It solves common SaltyBet botting issues like database ID collisions, blind betting on new characters, and bankroll exhaustion.
 
-### 🛡️ Whale-Proof Money Management
-* **Market Maker Protection:** Automatically caps bets (default: $250k) to prevent your large bankroll from crashing the betting odds.
-* **Effective Balance Scaling:** Uses a "Virtual Cap" for betting calculations, ensuring stakes remain proportional even when your bankroll exceeds $25M+.
-* **P-Tier Safety:** Automatically detects volatile "Potato Tier" matches and minimizes risk to $1.
+### Core Features
 
-### 🏥 Self-Healing Database
-* **Zombie Killer:** Automatically detects if SaltyBet changes a fighter's ID behind the scenes, migrates your historical data to the new ID, and cleans up the duplicate.
-* **Auto-Migration:** Automatically updates your database schema (e.g., adding new tracking columns) without crashing or requiring manual SQL.
+* **Collision-Proof DB:** Uses timestamp-based Safe IDs (`BigInt`) to record live matches locally, merging them with official API IDs later to prevent primary key errors.
+* **Risk Management:**
+    * **Kelly Criterion:** Adjusts bet size based on confidence and bankroll.
+    * **Wealth Preservation:** Scales down aggression as the balance grows (capped at $5M effective bankroll calculation).
+    * **Tier Safety:** Hard caps bets on high-variance tiers (Tier X/Exhibitions).
+* **Discord Integration:** Sends daily profit reports (08:00 & 17:00 GMT-3) and critical crash alerts.
 
-### 📊 Real-Time Analytics Dashboard
-* **True ROI Tracking:** Tracks your *actual* bets and results (Green/Red badges), fixing the common issue where dashboards only show the match winner.
-* **Live Confidence:** Displays the AI's exact confidence percentage for every bet in real-time.
-* **Win Rate:** Tracks your personal win rate over the last 100 bets.
+## Project Structure
 
-## Getting Started
+The system runs as three isolated containers:
 
-### 1. Requirements
-* **Python 3.12+**
-* **PostgreSQL** (or just use the Docker setup below)
-* **Twitch Account** (Dedicated bot account recommended)
+1.  **`bot`**: The logic core. Listens to Twitch chat, calculates odds, places bets, and manages the database.
+2.  **`web`**: A lightweight Flask dashboard to view real-time ROI, win rates, and recent match history.
+3.  **`db`**: PostgreSQL 16 database (optimized with indexes for fast H2H lookups).
 
-### 2. Quick Start (Docker)
-The easiest way to run SodiumTycoon is via Docker Compose.
+There is also a sidecar service for daily automated backups.
 
-1.  **Configure Environment:**
-    ```bash
-    cp .template.env .env
-    # Edit .env with your SaltyBet email, password, and Twitch Token
-    ```
+## Setup & Deployment
 
-2.  **Launch:**
-    ```bash
-    docker-compose up -d --build
-    ```
+### 1. Prerequisites
+* Docker & Docker Compose
+* SaltyBet Account
 
-3.  **Access Dashboard:**
-    Open `http://localhost:5000` to see the bot in action.
+### 2. Configuration
+Copy the example environment and fill in your credentials.
 
-### 3. Manual Setup
-For local development without Docker, see [Setup](./docs/setup.md) and [Developing](./docs/developing.md).
+**`.env`**
+```ini
+# SaltyBet
+SALTY_EMAIL=your_email
+SALTY_PASSWORD=your_password
 
----
+# Twitch (for chat parsing)
+TWITCH_USERNAME=your_user
+TWITCH_OAUTH_TOKEN=oauth:xyz
 
-## Architecture
+# Notifications
+DISCORD_WEBHOOK_URL=[https://discord.com/api/webhooks/](https://discord.com/api/webhooks/)...
 
-* **Bot Engine:** Python (Handles Twitch chat, API syncing, and Betting Strategy).
-* **Database:** PostgreSQL (Stores Fighters, Matches, and AI Weights).
-* **Dashboard:** Flask (Live web interface).
+# Database (Default Docker values)
+POSTGRES_USER=postgres
+POSTGRES_PASSWORD=password
+POSTGRES_DB=saltyboy
+POSTGRES_HOST=db
+POSTGRES_PORT=5432
+POSTGRES_PORT_EXTERNAL=5432
 
-## Acknowledgements
+# Paths
+BOT_LOG_PATH=./logs/bot
+WEB_LOG_PATH=./logs/web```
 
-* **Original Project:** Forked from [SaltyBoy](https://github.com/FranciscoAT/saltyboy).
-* **Salty Bet:** The mines never sleep. [saltybet.com](https://saltybet.com)
-* **Contributors:** Built by [DiegoWSan](https://github.com/diegowsan) and the open-source community.
+##3. Run (Docker)
+Build and start the containers in detached mode.
+
+```docker-compose up -d --build```
+
+Dashboard: http://localhost:5000
+Logs: docker-compose logs -f bot
+
+###Database Management
+The database volume is persistent. Use these commands to manage your data when moving between local dev and VPS.
+
+###Backup (Export to file):
+
+```docker exec -t saltyboyc-db-1 pg_dump -U postgres saltyboy > full_backup.sql```
+
+###Restore (Import from file):
+```
+# 1. Stop the bot to prevent locks
+docker stop saltyboyc-bot-1
+
+# 2. Run the import
+cat full_backup.sql | docker exec -i saltyboyc-db-1 psql -U postgres -d saltyboy
+
+# 3. Restart bot
+docker start saltyboyc-bot-1
+```
+
+###Security Notes (VPS)
+
+Port Binding: The docker-compose.yml binds the database port (5432) to 127.0.0.1. This prevents external access. To access the DB remotely, use an SSH tunnel.
+
+Log Rotation: Logging is configured to rotate at 10MB to prevent disk space exhaustion on smaller servers.
