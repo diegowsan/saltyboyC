@@ -39,7 +39,7 @@ This project solves common SaltyBet botting issues like database ID collisions, 
     │   └── web             # The Flask Dashboard (Face)
     ├── backups             # Daily automated SQL dumps appear here
     ├── docker-compose.yml  # The Master Controller
-    └── .env                # Secrets (Do not commit to GitHub!)
+    └── .env                # Your credentials
 
 ---
 
